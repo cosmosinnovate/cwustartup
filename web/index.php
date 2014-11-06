@@ -14,7 +14,7 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return 'Whatsonplate is under construction come back soon!';
+  return '<h1>' . 'Whatsonplate is under construction come back soon!' . '</h1>';
 });
 
 $app->run();
