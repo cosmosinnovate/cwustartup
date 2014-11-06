@@ -14,7 +14,7 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return 'Testing Heroku hosting site';
+  return 'Whatsonplate is under construction come back soon!';
 });
 
 $app->run();
