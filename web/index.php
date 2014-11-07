@@ -2,5 +2,5 @@
 
 include 'content.php';
 
-echo 'This is a test';
+echo '<br/>This is a test';
 
