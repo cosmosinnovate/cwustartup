@@ -1,3 +1,6 @@
 <?php
 
-echo 'Test project';
+include 'content.php';
+
+echo 'This is a test';
+
