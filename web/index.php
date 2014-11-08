@@ -1,4 +1,5 @@
 <?php require_once 'layout/header.php'; ?>
+
 <body>
 	<div id="page">
       <div class="site-navbar navbar navbar-fixed-top" role="navigation">
