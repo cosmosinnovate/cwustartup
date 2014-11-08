@@ -32,13 +32,10 @@ body {
 }
 .navbar-brand {
 	padding-top: 0;
-	height: 15px;
 	
 }
 .navbar-brand img {
 	width: 10%;
-	box-shadow: 10px 10px 5px #888888;
-	
 }
 .navbar-toggle .icon-bar {
 	background: #fff;
