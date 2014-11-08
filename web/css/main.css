@@ -32,10 +32,12 @@ body {
 }
 .navbar-brand {
 	padding-top: 0;
+	height: 100px;
 	
 }
 .navbar-brand img {
-	width: 5%;
+	width: 10%;
+	border-color: red;
 	
 }
 .navbar-toggle .icon-bar {
