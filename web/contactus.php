@@ -1,4 +1,4 @@
-<?php require_once 'layout/heaeder.php'; ?>
+<?php require_once 'layout/header.php'; ?>
 
       <div class="container">
 
@@ -26,7 +26,7 @@
 
             // send email 
             $success = mail($EmailTo, $Subject, $Body, "From: <$Email>");
-            
+
             if ($_POST['submit']) {
                 if ($Name != '' && $Email != '' && $Message != '') {               
                     if ($success) { 
