@@ -13,8 +13,8 @@
             $Message = Trim(stripslashes($_POST['Message'])); 
 
             // Email body text
-            $Body = "";
-            $Body .= "Name: ";
+            $Body = " ";
+            $Body .= "Name: "; 
             $Body .= $Name;
             $Body .= "\n";
             $Body .= "Email: ";

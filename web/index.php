@@ -274,9 +274,10 @@
               <div class="col-md-4 col-sm-4 wow bounceInLeft">
                 <br>
                 <p class="mail"> <i class="fa fa-map-marker"></i> &nbsp; Seattle WA</p>
-                <p class="mail"> <i class="fa fa-phone-square"></i>&nbsp; 425 209 8052</p>
+                <p class="mail"> <i class="fa fa-phone-square"></i>&nbsp; 1 800-XXX-XXXX</p>
               </div>
               <div class="col-md-8 col-sm-8 wow bounceInRight">
+              
                 <form role="form" class="frm" method="post" action="contactus.php">
                   <div class="col-md-6">
                     <div class="form-group">
