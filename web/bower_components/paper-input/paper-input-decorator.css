@@ -84,7 +84,6 @@ polyfill-next-selector {
   padding: 0.5em 0 0.25em;
   background: transparent;
   pointer-events: none;
-  color: white;
 }
 
 .label-text {

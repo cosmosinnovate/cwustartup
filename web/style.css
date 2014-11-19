@@ -13,12 +13,12 @@ button {
 	padding: 5px;
 }
 
-#saveForm {
+#saveForm { 
 	padding: 5px;
 }
 
 .form-input .title {
-	color:#f4b400;
+	color:white;
 	margin-top: 10%;
 	font-size: 28px;
 }
@@ -34,7 +34,7 @@ paper-input.narrow {
   width: 150px;
 }
 
-.custom /deep/ ::-webkit-input-placeholder {
+.custom /deep/ ::-webkit-input-placeholder {      
   color: #2A0A12;
 }
 
