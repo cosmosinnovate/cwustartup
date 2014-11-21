@@ -12,11 +12,10 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 // Register the Twig templating engine
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-  'twig.path' => __DIR__.'/../views',
+  'twig.path' => __DIR__.'/./views',
 ));
 
 // Our web handlers
-
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
   return 'Hello';
