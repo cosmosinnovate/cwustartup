@@ -18,4 +18,4 @@
       
  <?php require_once 'components/php/footer.php'; ?>
 
-?>
+
