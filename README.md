@@ -1,10 +1,30 @@
-# php-getting-started
-
-A barebones PHP app that makes use of the [Silex](http://silex.sensiolabs.org/) web framework, which can easily be deployed to Heroku.
-
-This application supports the [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php) article - check it out.
-
+# Whatsonplate app
 ## Running Locally
+
+#Structure of the app
+Folders:
+	Vendor
+	 	Web
+			bower_component
+			components
+				php
+				   header.php
+				   footer.php
+				   login.php
+				   signup.php
+				   admin.php
+			includes
+				controllers
+			js
+			css
+			images
+	.gitignore
+	composer.json
+	Procfile
+	README.md
+
+
+
 
 Make sure you have PHP, Apache and Composer installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
