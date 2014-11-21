@@ -28,9 +28,9 @@
     -->
 
     <!--STYLES-->
-    <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="..css/bootstrap.css">
-    <link rel="stylesheet" href="..css/main.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
     <!--STYLES END-->
   </head>
 
