@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%- title %></title>
+    <title>Whatsonplate</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -33,4 +33,35 @@
     <link rel="stylesheet" href="./css/main.css">
     <!--STYLES END-->
   </head>
+  
+<body>
+  <div id="page">
+      <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+
+            <!-- Logo  -->
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
+          </div>
+          <!-- Navigation -->
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#main">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Mobile Apps</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#blog">Login | resgister</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <!-- .nav-collapse -->
+        </div>
+      </div>
 

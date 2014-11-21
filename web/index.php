@@ -1,39 +1,6 @@
 
 <?php require_once 'components/php/header.php'; ?>
 
-<body>
-<p>
-  Rendering name attribute: <b>{{name}}</b>
-</p>
-  <div id="page">
-      <div class="site-navbar navbar navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-
-            <!-- Logo  -->
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
-          </div>
-          <!-- Navigation -->
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#main">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolio">Mobile Apps</a></li>
-              <li><a href="#team">Team</a></li>
-              <li><a href="#blog">Login | resgister</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <!-- .nav-collapse -->
-        </div>
-      </div>
       <main id="main" class="site-main">
         <!-- Carousel -->
         <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
@@ -72,6 +39,7 @@
           <span class="fa fa-chevron-right"></span>
           </a>
         </div>
+
         <!-- ABOUT -->
         <section id="about">
           <div class="container">
@@ -103,6 +71,7 @@
             </div>
           </div>
         </section>
+        
         <!-- SERVICES -->
         <section id="services">
           <div class="container">
@@ -163,155 +132,10 @@
           </div>
         </section>
         <!-- team -->
-        <section id="team">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h3>Solid Team</h3>
-              </div>
-              <div class="col-md-3 col-sm-3 wow bounceInLeft">
-                <div class="imgteam">
-                  <ul class="wow fadeInUp">
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                  </ul>
-                  <img src="images/p1.jpg" alt="p1">
-                </div>
-                <h4>Taban Cosmos</h4>
-                      <p></p>
-                    </div>
-                    <div class="col-md-3 col-sm-3 wow bounceInLeft">
-                      <div class="imgteam">
-                        <ul class="wow fadeInUp">
-                          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                        </ul>
-                        <img src="images/p2.jpg" alt="p2">
-                      </div>
-                      <h4>Osmond Gunarso</h4>
-                      <p></p>
-                    </div>
-                    <div class="col-md-3 col-sm-3 wow bounceInRight">
-                      <div class="imgteam">
-                        <ul class="wow fadeInUp">
-                          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                        </ul>
-                        <img src="images/p3.jpg" alt="p3">
-                      </div>
-                      <h4>Harsha Ravula</h4>
-                      <p></p>
-                    </div>
-                    <div class="col-md-3 col-sm-3 wow bounceInRight">
-                      <div class="imgteam">
-                        <ul class="wow fadeInUp">
-                          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                        </ul>
-                        <img src="images/p4.jpg" alt="p4">
-                      </div>
-                      <h4>John Quicksall</h4>
-                      <p></p>
-                    </div>
-                    <div class="col-md-3 col-sm-3 wow bounceInRight">
-                      <div class="imgteam">
-                        <ul class="wow fadeInUp">
-                          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                        </ul>
-                        <img src="images/p5.jpg" alt="p5">
-                      </div>
-                      <h4>Sahith Nareddy</h4>
-                      <p></p>
-                    </div>
-                  </div>
-                </div>        
-          </section>
+        <?php include_once'components/php/team.php'; ?>
         <!-- Blog Posts -->
-        <section id="blog">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h3>Login or Register</h3>
-              </div>
-              <div class="col-md-6 col-sm-6 wow bounceInLeft">
-                <p>Under development</p>
-                <h5>User your Facebook to signup</h5>
-                <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div
-              </div>
-
-              <div class="col-md-6 col-sm-6 wow bounceInRight">
-                <ul>
-                  <li>
-                   <p>Be among the first ones to get the app directly to you! </p>
-                    <h5>Use your own email</h5>
-                    <form role="form">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                      </div>
-                      <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                    </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="contact">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h3>Contact</h3>
-              </div>
-            </div>
-          </div>
-          <div class="fluid-wrapper">
-
-            <!-- IFRAME MAPS -->
-            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-122.42305755615234%2C47.558920607496525%2C-122.19097137451172%2C47.68942806015855&amp;layer=mapnik&amp;marker=47.62421506209668%2C-122.30701446533202" style="border: 1px solid black"></iframe><br/><small><a href="http://www.openstreetmap.org/?mlat=47.6242&amp;mlon=-122.3070#map=12/47.6242/-122.3070">View Larger Map</a></small>
-               </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 col-sm-4 wow bounceInLeft">
-                <br>
-                <p class="mail"> <i class="fa fa-map-marker"></i> &nbsp; Seattle WA</p>
-                <p class="mail"> <i class="fa fa-phone-square"></i>&nbsp; 1 800-XXX-XXXX</p>
-              </div>
-              <div class="col-md-8 col-sm-8 wow bounceInRight">
-              
-              <!-- Form starts here -->
-                <form role="form" class="form" method="post" action="contactus.php">
-                  <div class="col-md-6">
-                    <div class="form-group">
-
-                      <label for="Name">Name *</label>
-                      <input type="text" class="form-control" name="Name" id="Name" placeholder="Enter name">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="Email">Email *</label>
-                      <input type="email" class="form-control" Name="Email" id="Email" placeholder="Enter email">
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="Message">Messages *</label>
-                      <textarea name="Message" id="Message" class="form-control" rows="3" placeholder="Enter messages"></textarea>
-                    </div>
-                    <input type="submit" name="submit" value="Send Message" class="btn btn-primary btn-lg btn-block btn-biru" />                    
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
+        <?php include_once'components/php/blogpost.php'; ?>
+        <?php include_once'components/php/contact.php'; ?>
       </main>
       
  <?php require_once 'components/php/footer.php'; ?>
