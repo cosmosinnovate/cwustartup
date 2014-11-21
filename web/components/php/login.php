@@ -13,8 +13,8 @@ Released under the MIT license: http://jsbin.mit-license.org
 
 
 <!-- 1. Load platform support before any code that touches the DOM. -->
-    <script src="/bower_components/webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import" href="./bower_components/paper-input/paper-input.html">
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+  <link rel="import" href="../bower_components/paper-input/paper-input.html">
   <link rel="stylesheet" type="text/css" href="/style.css">
 
 </head>
