@@ -12,6 +12,7 @@
     <?php include_once 'components/php/team.php'; ?>
 
     <!-- Blog Posts -->
+
     <?php include_once 'components/php/services.php'; ?>
     <!-- contact -->
     <?php include_once 'components/php/contact.php'; ?>
