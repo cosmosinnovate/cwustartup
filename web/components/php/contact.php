@@ -6,7 +6,7 @@
             </div>
         </div>
     </div>
-    //Map goes here
+<!--    Map goes here-->
 <!--    <div class="fluid-wrapper">-->
 <!---->
 <!--        <!-- IFRAME MAPS -->-->
