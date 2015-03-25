@@ -1,5 +1,5 @@
 <footer>
-    Copyright &copy; 2014 What'sonPlate.com<br>
+    Copyright &copy; 2015 CWUSTARTUP<br>
 </footer>
 </div>
 <!-- Scroll to top -->
