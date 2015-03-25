@@ -7,7 +7,7 @@
     <!-- SERVICES -->
 <!--    --><?php //include_once 'components/php/services.php'; ?>
     <!-- portfolio -->
-    <?php include_once 'components/php/portfolio.php'; ?>
+<!--    --><?php //include_once 'components/php/portfolio.php'; ?>
     <!-- team -->
     <?php include_once 'components/php/team.php'; ?>
     <!-- Blog Posts -->

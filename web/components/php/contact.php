@@ -21,9 +21,9 @@
             <div class="col-md-4 col-sm-4 wow bounceInLeft">
                 <br>
 
-                <p class="mail"><i class="fa fa-map-marker"></i> &nbsp; Seattle WA</p>
+                <p class="mail"><i class="fa fa-map-marker"></i> &nbsp; CWU Ellensburg WA</p>
 
-                <p class="mail"><i class="fa fa-phone-square"></i>&nbsp; 1 800-XXX-XXXX</p>
+<!--                <p class="mail"><i class="fa fa-phone-square"></i>&nbsp; </p>-->
             </div>
             <div class="col-md-8 col-sm-8 wow bounceInRight">
 

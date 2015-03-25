@@ -54,8 +54,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#main">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Mobile Apps</a></li>
+<!--                    <li><a href="#portfolio">Mobile Apps</a></li>-->
                     <li><a herf="#events">Events</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#contact">Contact</a></li>
