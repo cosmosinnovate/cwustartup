@@ -5,7 +5,7 @@
     <!-- ABOUT -->
     <?php include_once 'components/php/about.php'; ?>
     <!-- SERVICES -->
-    <?php include_once 'components/php/services.php'; ?>
+<!--    --><?php //include_once 'components/php/services.php'; ?>
     <!-- portfolio -->
     <?php include_once 'components/php/portfolio.php'; ?>
     <!-- team -->
