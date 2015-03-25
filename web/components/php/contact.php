@@ -6,17 +6,10 @@
             </div>
         </div>
     </div>
-<!--    Map goes here-->
-<!--    <div class="fluid-wrapper">-->
-<!---->
-<!--        <!-- IFRAME MAPS -->-->
-<!--        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"-->
-<!--                src="http://www.openstreetmap.org/export/embed.html?bbox=-122.42305755615234%2C47.558920607496525%2C-122.19097137451172%2C47.68942806015855&amp;layer=mapnik&amp;marker=47.62421506209668%2C-122.30701446533202"-->
-<!--                style="border: 1px solid black"></iframe>-->
-<!--        <br/>-->
-<!--        <small><a href="https://thawing-bayou-8481.herokuapp.com"/>View-->
-<!--                Larger Map</a></small>-->
-<!--    </div>-->
+<!--    Map goes here width="425" height="350"-->
+    <div class="fluid-wrapper" id="map-canvas">
+
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 wow bounceInLeft">
