@@ -5,7 +5,8 @@
                 <h3>About</h3>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInLeft">
-                <p> CWUSTARTUP is a club that is </p>
+                <p> CWUSTARTUP dedicated to bring like minded students to come together and create
+                exciting technologies that solve problems around us.</p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">
                 <p></p>

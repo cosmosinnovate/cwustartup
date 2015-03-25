@@ -38,6 +38,7 @@
                     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
                         <span class="fa fa-chevron-right"></span>
                     </a>
+
                 </div>
             </div>
         </div>
