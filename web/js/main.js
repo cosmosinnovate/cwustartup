@@ -21,12 +21,14 @@ $(document).ready(function () {
 
 function initialize() {
     var mapOptions = {
-        zoom: 8,
+        zoom: 16,
         center: new google.maps.LatLng(47.003938, -120.53995399999997)
+
     };
 
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
+    map.addOverlay(new GMarker(point));
 }
 
 function loadScript() {
