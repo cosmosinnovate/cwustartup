@@ -47,7 +47,7 @@
                 </button>
 
                 <!-- Logo  -->
-                <a class="navbar-brand" href="index.html"><h3>CWU Startup</h3></a>
+                <a class="navbar-brand" href="index.html"><h3><strong>CWU Startup</strong></h3></a>
             </div>
             <!-- Navigation -->
             <div class="navbar-collapse collapse">
