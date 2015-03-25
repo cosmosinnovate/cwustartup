@@ -11,7 +11,7 @@
     <!-- team -->
     <?php include_once 'components/php/team.php'; ?>
     <!-- Blog Posts -->
-    <?php include_once 'components/php/events.php'; ?>
+    <?php include_once 'components/php/blogpost.php'; ?>
     <!-- contact -->
     <?php include_once 'components/php/contact.php'; ?>
 </main>
