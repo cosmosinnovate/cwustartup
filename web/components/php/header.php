@@ -47,7 +47,7 @@
                 </button>
 
                 <!-- Logo  -->
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="index.html"><h3>CWU Startup</h3></a>
             </div>
             <!-- Navigation -->
             <div class="navbar-collapse collapse">
@@ -56,8 +56,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Mobile Apps</a></li>
+                    <li><a herf="#events">Events</a></li>
                     <li><a href="#team">Team</a></li>
-                    <li><a href="#blog">Login | resgister</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
