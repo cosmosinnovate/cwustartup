@@ -1,4 +1,4 @@
-# Whatsonplate app
+# CWUSTARTUP WEB APP
 ## Running Locally
 
 #Structure of the app
