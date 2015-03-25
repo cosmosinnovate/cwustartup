@@ -10,7 +10,7 @@
 
         <!-- IFRAME MAPS -->
         <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                src="http://www.openstreetmap.org/export/embed.html?bbox=-122.42305755615234%2C47.558920607496525%2C-122.19097137451172%2C47.68942806015855&amp;layer=mapnik&amp;marker=47.62421506209668%2C-122.30701446533202"
+                src="https://www.openstreetmap.org/#map=12/47.0000/-120.5422"
                 style="border: 1px solid black"></iframe>
         <br/>
         <small><a href="http://www.openstreetmap.org/?mlat=47.6242&amp;mlon=-122.3070#map=12/47.0000/-120.5423">View
