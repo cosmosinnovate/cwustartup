@@ -5,13 +5,13 @@
     <!-- ABOUT -->
     <?php include_once 'components/php/about.php'; ?>
     <!-- SERVICES -->
-<!--    --><?php //include_once 'components/php/services.php'; ?>
+    <!--    --><?php //include_once 'components/php/services.php'; ?>
     <!-- portfolio -->
-<!--    --><?php //include_once 'components/php/portfolio.php'; ?>
+    <!--    --><?php //include_once 'components/php/portfolio.php'; ?>
     <!-- team -->
     <?php include_once 'components/php/team.php'; ?>
     <!-- Blog Posts -->
-<!--    --><?php //include_once 'components/php/blogpost.php'; ?>
+    <?php include_once 'components/php/events.php'; ?>
     <!-- contact -->
     <?php include_once 'components/php/contact.php'; ?>
 </main>
