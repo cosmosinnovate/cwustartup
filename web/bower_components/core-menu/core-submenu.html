@@ -62,65 +62,66 @@ The above will style `Topic1` and `Topic2` to have font color red.
 <link rel="import" href="../core-collapse/core-collapse.html">
 
 <polymer-element name="core-submenu" attributes="selected selectedItem label icon src valueattr">
-<template>
+    <template>
 
-  <link rel="stylesheet" href="core-submenu.css">
+        <link rel="stylesheet" href="core-submenu.css">
 
-  <core-item id="submenuItem" src="{{src}}" label="{{label}}" icon="{{icon}}" class="{{ {'core-selected' : active} | tokenList}}" on-tap="{{activate}}">
-    <content select=".item-content"></content>
-  </core-item>
+        <core-item id="submenuItem" src="{{src}}" label="{{label}}" icon="{{icon}}"
+                   class="{{ {'core-selected' : active} | tokenList}}" on-tap="{{activate}}">
+            <content select=".item-content"></content>
+        </core-item>
 
-  <core-menu id="submenu" selected="{{selected}}" selectedItem="{{selectedItem}}" valueattr="{{valueattr}}">
-    <content></content>
-  </core-menu>
+        <core-menu id="submenu" selected="{{selected}}" selectedItem="{{selectedItem}}" valueattr="{{valueattr}}">
+            <content></content>
+        </core-menu>
 
-  <core-collapse target="{{$.submenu}}" opened="{{opened}}"></core-collapse>
+        <core-collapse target="{{$.submenu}}" opened="{{opened}}"></core-collapse>
 
-</template>
-<script>
+    </template>
+    <script>
 
-  Polymer('core-submenu', {
+        Polymer('core-submenu', {
 
-    publish: {
-      active: {value: false, reflect: true}
-    },
+            publish: {
+                active: {value: false, reflect: true}
+            },
 
-    opened: false,
+            opened: false,
 
-    get items() {
-      return this.$.submenu.items;
-    },
+            get items() {
+                return this.$.submenu.items;
+            },
 
-    hasItems: function() {
-      return !!this.items.length;
-    },
+            hasItems: function () {
+                return !!this.items.length;
+            },
 
-    unselectAllItems: function() {
-      this.$.submenu.selected = null;
-      this.$.submenu.clearSelection();
-    },
+            unselectAllItems: function () {
+                this.$.submenu.selected = null;
+                this.$.submenu.clearSelection();
+            },
 
-    activeChanged: function() {
-      if (this.hasItems()) {
-        this.opened = this.active;
-      }
-      if (!this.active) {
-        this.unselectAllItems();
-      }
-    },
-    
-    toggle: function() {
-      this.opened = !this.opened;
-    },
+            activeChanged: function () {
+                if (this.hasItems()) {
+                    this.opened = this.active;
+                }
+                if (!this.active) {
+                    this.unselectAllItems();
+                }
+            },
 
-    activate: function() {
-      if (this.hasItems() && this.active) {
-        this.toggle();
-        this.unselectAllItems();
-      }
-    }
-    
-  });
+            toggle: function () {
+                this.opened = !this.opened;
+            },
 
-</script>
+            activate: function () {
+                if (this.hasItems() && this.active) {
+                    this.toggle();
+                    this.unselectAllItems();
+                }
+            }
+
+        });
+
+    </script>
 </polymer-element>

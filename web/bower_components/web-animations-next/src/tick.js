@@ -13,124 +13,135 @@
 // limitations under the License.
 
 
-(function(shared, scope, testing) {
-  var originalRequestAnimationFrame = window.requestAnimationFrame;
-  var rafCallbacks = [];
-  window.requestAnimationFrame = function(f) {
-    if (rafCallbacks.length == 0 && !WEB_ANIMATIONS_TESTING) {
-      originalRequestAnimationFrame(processRafCallbacks);
+(function (shared, scope, testing) {
+    var originalRequestAnimationFrame = window.requestAnimationFrame;
+    var rafCallbacks = [];
+    window.requestAnimationFrame = function (f) {
+        if (rafCallbacks.length == 0 && !WEB_ANIMATIONS_TESTING) {
+            originalRequestAnimationFrame(processRafCallbacks);
+        }
+        rafCallbacks.push(f);
+    };
+
+    function processRafCallbacks(t) {
+        var processing = rafCallbacks;
+        rafCallbacks = [];
+        tick(t);
+        processing.forEach(function (f) {
+            f(t);
+        });
+        if (needsRetick)
+            tick(t);
+        applyPendingEffects();
     }
-    rafCallbacks.push(f);
-  };
 
-  function processRafCallbacks(t) {
-    var processing = rafCallbacks;
-    rafCallbacks = [];
-    tick(t);
-    processing.forEach(function(f) { f(t); });
-    if (needsRetick)
-      tick(t);
-    applyPendingEffects();
-  }
-
-  function comparePlayers(leftPlayer, rightPlayer) {
-    return leftPlayer._sequenceNumber - rightPlayer._sequenceNumber;
-  }
-
-  function InternalTimeline() {
-    this._players = [];
-    this.currentTime = window.performance ? performance.now() : 0;
-  };
-
-  InternalTimeline.prototype = {
-    _play: function(source) {
-      source._timing = shared.normalizeTimingInput(source.timing);
-      var player = new scope.Player(source);
-      player._idle = false;
-      player._timeline = this;
-      this._players.push(player);
-      scope.restart();
-      scope.invalidateEffects();
-      return player;
+    function comparePlayers(leftPlayer, rightPlayer) {
+        return leftPlayer._sequenceNumber - rightPlayer._sequenceNumber;
     }
-  };
 
-  var ticking = false;
-  var hasRestartedThisFrame = false;
+    function InternalTimeline() {
+        this._players = [];
+        this.currentTime = window.performance ? performance.now() : 0;
+    };
 
-  scope.restart = function() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(function() {});
-      hasRestartedThisFrame = true;
+    InternalTimeline.prototype = {
+        _play: function (source) {
+            source._timing = shared.normalizeTimingInput(source.timing);
+            var player = new scope.Player(source);
+            player._idle = false;
+            player._timeline = this;
+            this._players.push(player);
+            scope.restart();
+            scope.invalidateEffects();
+            return player;
+        }
+    };
+
+    var ticking = false;
+    var hasRestartedThisFrame = false;
+
+    scope.restart = function () {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(function () {
+            });
+            hasRestartedThisFrame = true;
+        }
+        return hasRestartedThisFrame;
+    };
+
+    var needsRetick = false;
+    scope.invalidateEffects = function () {
+        needsRetick = true;
+    };
+
+    var pendingEffects = [];
+
+    function applyPendingEffects() {
+        pendingEffects.forEach(function (f) {
+            f();
+        });
     }
-    return hasRestartedThisFrame;
-  };
 
-  var needsRetick = false;
-  scope.invalidateEffects = function() {
-    needsRetick = true;
-  };
-
-  var pendingEffects = [];
-  function applyPendingEffects() {
-    pendingEffects.forEach(function(f) { f(); });
-  }
-
-  var originalGetComputedStyle = window.getComputedStyle;
-  Object.defineProperty(window, 'getComputedStyle', {
-    configurable: true,
-    enumerable: true,
-    value: function() {
-      if (needsRetick) tick(timeline.currentTime);
-      applyPendingEffects();
-      return originalGetComputedStyle.apply(this, arguments);
-    },
-  });
-
-  function tick(t) {
-    hasRestartedThisFrame = false;
-    var timeline = scope.timeline;
-    timeline.currentTime = t;
-    timeline._players.sort(comparePlayers);
-    ticking = false;
-    var updatingPlayers = timeline._players;
-    timeline._players = [];
-
-    var newPendingClears = [];
-    var newPendingEffects = [];
-    updatingPlayers = updatingPlayers.filter(function(player) {
-      player._inTimeline = player._tick(t);
-
-      if (!player._inEffect)
-        newPendingClears.push(player._source);
-      else
-        newPendingEffects.push(player._source);
-
-      if (!player.finished && !player.paused && !player._idle)
-        ticking = true;
-
-      return player._inTimeline;
+    var originalGetComputedStyle = window.getComputedStyle;
+    Object.defineProperty(window, 'getComputedStyle', {
+        configurable: true,
+        enumerable: true,
+        value: function () {
+            if (needsRetick) tick(timeline.currentTime);
+            applyPendingEffects();
+            return originalGetComputedStyle.apply(this, arguments);
+        },
     });
 
-    pendingEffects.length = 0;
-    pendingEffects.push.apply(pendingEffects, newPendingClears);
-    pendingEffects.push.apply(pendingEffects, newPendingEffects);
+    function tick(t) {
+        hasRestartedThisFrame = false;
+        var timeline = scope.timeline;
+        timeline.currentTime = t;
+        timeline._players.sort(comparePlayers);
+        ticking = false;
+        var updatingPlayers = timeline._players;
+        timeline._players = [];
 
-    timeline._players.push.apply(timeline._players, updatingPlayers);
-    needsRetick = false;
+        var newPendingClears = [];
+        var newPendingEffects = [];
+        updatingPlayers = updatingPlayers.filter(function (player) {
+            player._inTimeline = player._tick(t);
 
-    if (ticking)
-      requestAnimationFrame(function() {});
-  };
+            if (!player._inEffect)
+                newPendingClears.push(player._source);
+            else
+                newPendingEffects.push(player._source);
 
-  if (WEB_ANIMATIONS_TESTING) {
-    testing.tick = processRafCallbacks;
-    testing.isTicking = function() { return ticking; };
-    testing.setTicking = function(newVal) { ticking = newVal; };
-  }
+            if (!player.finished && !player.paused && !player._idle)
+                ticking = true;
 
-  var timeline = new InternalTimeline();
-  scope.timeline = timeline;
+            return player._inTimeline;
+        });
+
+        pendingEffects.length = 0;
+        pendingEffects.push.apply(pendingEffects, newPendingClears);
+        pendingEffects.push.apply(pendingEffects, newPendingEffects);
+
+        timeline._players.push.apply(timeline._players, updatingPlayers);
+        needsRetick = false;
+
+        if (ticking)
+            requestAnimationFrame(function () {
+            });
+    };
+
+    if (WEB_ANIMATIONS_TESTING) {
+        testing.tick = processRafCallbacks;
+        testing.isTicking = function () {
+            return ticking;
+        };
+        testing.setTicking = function (newVal) {
+            ticking = newVal;
+        };
+    }
+
+    var timeline = new InternalTimeline();
+    scope.timeline = timeline;
 
 })(webAnimationsShared, webAnimationsMinifill, webAnimationsTesting);

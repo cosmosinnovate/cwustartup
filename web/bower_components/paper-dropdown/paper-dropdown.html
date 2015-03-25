@@ -43,75 +43,75 @@ Style the background color of the dropdown with these selectors:
 <link href="paper-dropdown-transition.html" rel="import">
 
 <style shim-shadowdom>
-  html /deep/ paper-dropdown {
-    position: absolute;
-    overflow: visible;
-    min-height: 40px;
-  }
+    html /deep/ paper-dropdown {
+        position: absolute;
+        overflow: visible;
+        min-height: 40px;
+    }
 </style>
 
 <polymer-element name="paper-dropdown" extends="core-dropdown">
-<template>
+    <template>
 
-  <style>
-    #ripple {
-      background-color: #fff;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.26);
-      opacity: 0;
-    }
+        <style>
+            #ripple {
+                background-color: #fff;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.26);
+                opacity: 0;
+            }
 
-    :host([halign=right]) #ripple {
-      left: auto;
-      right: 0;
-    }
+            :host([halign=right]) #ripple {
+                left: auto;
+                right: 0;
+            }
 
-    :host([valign=bottom]) #ripple {
-      top: auto;
-      bottom: 0;
-    }
+            :host([valign=bottom]) #ripple {
+                top: auto;
+                bottom: 0;
+            }
 
-    #background {
-      background-color: #fff;
-      border-radius: inherit;
-    }
+            #background {
+                background-color: #fff;
+                border-radius: inherit;
+            }
 
-    #scroller {
-      overflow: auto;
-      box-sizing: border-box;
-    }
-  </style>
+            #scroller {
+                overflow: auto;
+                box-sizing: border-box;
+            }
+        </style>
 
-  <div id="ripple"></div>
+        <div id="ripple"></div>
 
-  <div id="background" fit>
-    <paper-shadow fit></paper-shadow>
-  </div>
+        <div id="background" fit>
+            <paper-shadow fit></paper-shadow>
+        </div>
 
-  <div id="scroller" relative>
-    <content></content>
-  </div>
+        <div id="scroller" relative>
+            <content></content>
+        </div>
 
-</template>
-<script>
+    </template>
+    <script>
 
-  Polymer({
+        Polymer({
 
-    publish: {
-      transition: 'paper-dropdown-transition'
-    },
+            publish: {
+                transition: 'paper-dropdown-transition'
+            },
 
-    ready: function() {
-      this.super();
-      this.sizingTarget = this.$.scroller;
-    }
+            ready: function () {
+                this.super();
+                this.sizingTarget = this.$.scroller;
+            }
 
-  });
+        });
 
-</script>
+    </script>
 </polymer-element>

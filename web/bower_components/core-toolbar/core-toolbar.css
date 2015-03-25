@@ -8,110 +8,131 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 :host {
-  /* technical */
-  display: block;
-  position: relative;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  /* size */
-  height: 64px;
-  /* typography */
-  font-size: 1.3em;
-  /* background */
-  background-color: #CFD8DC;
+    /* technical */
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /* size */
+    height: 64px;
+    /* typography */
+    font-size: 1.3em;
+    /* background */
+    background-color: #CFD8DC;
 }
 
 :host(.animate) {
-  /* transition */
-  transition: height 0.18s ease-in;
+    /* transition */
+    transition: height 0.18s ease-in;
 }
 
 :host(.medium-tall) {
-  height: 128px;
+    height: 128px;
 }
 
 :host(.tall) {
-  height: 192px;
+    height: 192px;
 }
 
 .toolbar-tools {
-  position: relative;
-  height: 64px;
-  padding: 0 8px;
-  pointer-events: none;
+    position: relative;
+    height: 64px;
+    padding: 0 8px;
+    pointer-events: none;
 }
 
 /* narrow layout */
 :host(.core-narrow),
 :host-context(.core-narrow) {
-  height: 56px;
+    height: 56px;
 }
 
-polyfill-next-selector { content: ':host.core-narrow.medium-tall, .core-narrow :host.medium-tall'; }
+polyfill-next-selector {
+    content: ':host.core-narrow.medium-tall, .core-narrow :host.medium-tall';
+}
+
 :host(.core-narrow.medium-tall),
 :host-context(.core-narrow):host(.medium-tall) {
-  height: 112px;
+    height: 112px;
 }
 
-polyfill-next-selector { content: ':host.core-narrow.tall, .core-narrow :host.tall'; }
+polyfill-next-selector {
+    content: ':host.core-narrow.tall, .core-narrow :host.tall';
+}
+
 :host(.core-narrow.tall),
 :host-context(.core-narrow):host(.tall) {
-  height: 168px;
+    height: 168px;
 }
 
-polyfill-next-selector { content: ':host.core-narrow .toolbar-tools, .core-narrow :host .toolbar-tools'; }
+polyfill-next-selector {
+    content: ':host.core-narrow .toolbar-tools, .core-narrow :host .toolbar-tools';
+}
+
 :host(.core-narrow) .toolbar-tools,
 :host-context(.core-narrow) .toolbar-tools {
-  height: 56px;
-  padding: 0;
+    height: 56px;
+    padding: 0;
 }
 
 /* middle bar */
 #middleBar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 
 :host(.tall, .medium-tall) #middleBar {
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
 }
 
 /* bottom bar */
 #bottomBar {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /* make elements (e.g. buttons) respond to mouse/touch events */
-polyfill-next-selector { content: '.toolbar-tools > *'; }
+polyfill-next-selector {
+    content: '.toolbar-tools > *';
+}
+
 ::content > * {
-  pointer-events: auto;
+    pointer-events: auto;
 }
 
 /* elements spacing */
-polyfill-next-selector { content: '.toolbar-tools > *'; }
+polyfill-next-selector {
+    content: '.toolbar-tools > *';
+}
+
 ::content > * {
-  margin: 0 8px;
+    margin: 0 8px;
 }
 
 /* misc helpers */
-polyfill-next-selector { content: '.toolbar-tools > .fit'; }
-::content > .fit {
-  position: absolute;
-  top: auto;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  margin: 0;
+polyfill-next-selector {
+    content: '.toolbar-tools > .fit';
 }
 
-polyfill-next-selector { content: ':host .indent'; }
+::content > .fit {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    margin: 0;
+}
+
+polyfill-next-selector {
+    content: ':host .indent';
+}
+
 ::content > .indent {
-  margin-left: 60px;
+    margin-left: 60px;
 }

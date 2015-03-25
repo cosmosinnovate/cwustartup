@@ -11,63 +11,63 @@
 
 <script>
 
-  CoreStyle.g.theme = {
-    colorOne: '#abcdef',
-    colorTwo: '#123456',
-    colorThree: '#224433'
-  }
+    CoreStyle.g.theme = {
+        colorOne: '#abcdef',
+        colorTwo: '#123456',
+        colorThree: '#224433'
+    }
 </script>
 
 <core-style id="main">
-  body {
+    body {
     font-family: sans-serif;
-  }
+    }
 
-  section {
+    section {
     overflow: auto;
-  }
+    }
 
-  button {
+    button {
     border: 1px solid {{g.theme.colorOne | cycle(-50)}};
     border-radius: 4px;
     background-color: {{g.theme.colorOne}};
     color: {{g.theme.colorTwo}};
-  }
+    }
 
-  button:active {
+    button:active {
     border: 1px solid {{g.theme.colorTwo | cycle(50)}};
     border-radius: 4px;
     background-color: {{g.theme.colorTwo}};
     color: {{g.theme.colorOne}};
-  }
-
-  <template repeat="{{item in g.items}}">
-    my-panel:nth-of-type({{item+1}}) {
-      background-color: {{ g.theme.colorThree | cycle(item * -1) }};
     }
-  </template>
+
+    <template repeat="{{item in g.items}}">
+        my-panel:nth-of-type({{item+1}}) {
+        background-color: {{ g.theme.colorThree | cycle(item * -1) }};
+        }
+    </template>
 </core-style>
 
 <core-style id="my-toolbar">
-  :host {
+    :host {
     border-bottom: 8px solid {{g.theme.colorOne}};
     color: {{g.theme.colorOne | cycle(100)}};
     background-color: {{g.theme.colorTwo}};
-  }
+    }
 </core-style>
 
 <core-style id="my-panel">
-  :host {
+    :host {
     box-sizing: border-box;
     background-color: {{g.theme.colorOne}};
     border: 8px solid {{g.theme.colorOne | cycle(50)}};
     color: {{g.theme.colorOne | cycle(-100)}};
-  }
+    }
 
-  :host(:nth-of-type(2n + 1)) {
+    :host(:nth-of-type(2n + 1)) {
     background-color: {{g.theme.colorTwo}};
     border: 8px solid {{g.theme.colorTwo | cycle(-50)}};
     color: {{g.theme.colorTwo | cycle(100)}}
-  }
+    }
 
 </core-style>

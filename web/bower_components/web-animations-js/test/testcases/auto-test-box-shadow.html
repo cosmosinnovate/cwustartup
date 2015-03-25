@@ -14,16 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <script src="../bootstrap.js"></script>
 <style>
-.anim {
-  margin: 50px;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  display: inline-block;
-}
+    .anim {
+        margin: 50px;
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        display: inline-block;
+    }
 </style>
 
 <div class="anim" id="a"></div>
@@ -32,9 +33,18 @@ limitations under the License.
 <div class="anim" id="d"></div>
 
 <script>
-'use strict';
-a.animate([{boxShadow: '-20px -20px blue'}, {boxShadow: '20px 20px 12px 8px green'}], {duration: 4 * 1000, fill: 'forwards'});
-b.animate([{boxShadow: 'inset -20px -20px 8px blue'}, {boxShadow: 'inset 20px 20px 12px 8px green'}], {duration: 4 * 1000, fill: 'forwards'});
-c.animate([{boxShadow: 'inset 20px 20px 8px blue'}, {boxShadow: '20px 20px 12px 8px green'}], {duration: 4 * 1000, fill: 'forwards'});
-d.animate([{boxShadow: '20px 20px 12px 8px green'}], {duration: 4 * 1000, fill: 'forwards'});
+    'use strict';
+    a.animate([{boxShadow: '-20px -20px blue'}, {boxShadow: '20px 20px 12px 8px green'}], {
+        duration: 4 * 1000,
+        fill: 'forwards'
+    });
+    b.animate([{boxShadow: 'inset -20px -20px 8px blue'}, {boxShadow: 'inset 20px 20px 12px 8px green'}], {
+        duration: 4 * 1000,
+        fill: 'forwards'
+    });
+    c.animate([{boxShadow: 'inset 20px 20px 8px blue'}, {boxShadow: '20px 20px 12px 8px green'}], {
+        duration: 4 * 1000,
+        fill: 'forwards'
+    });
+    d.animate([{boxShadow: '20px 20px 12px 8px green'}], {duration: 4 * 1000, fill: 'forwards'});
 </script>

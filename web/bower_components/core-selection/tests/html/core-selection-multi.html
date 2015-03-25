@@ -9,49 +9,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <title>core-selection-multi</title>
+    <title>core-selection-multi</title>
 
-  <script src="../../../platform/platform.js"></script>
-  <script src="../../../polymer-test-tools/chai/chai.js"></script>
-  <script src="../../../polymer-test-tools/htmltest.js"></script>
+    <script src="../../../platform/platform.js"></script>
+    <script src="../../../polymer-test-tools/chai/chai.js"></script>
+    <script src="../../../polymer-test-tools/htmltest.js"></script>
 
-  <link rel="import" href="../../core-selection.html">
+    <link rel="import" href="../../core-selection.html">
 
 </head>
 <body>
 
-  <core-selection multi></core-selection>
+<core-selection multi></core-selection>
 
-  <script>
+<script>
 
-    document.addEventListener('polymer-ready', function() {
-      var assert = chai.assert;
-      var s = document.querySelector('core-selection');
-      s.addEventListener("core-select", function(event) {
-        if (test === 1) {
-          // check test1
-          assert.isTrue(event.detail.isSelected);
-          assert.equal(event.detail.item, '(item1)');
-          assert.isTrue(s.isSelected(event.detail.item));
-          assert.equal(s.getSelection().length, 1);
-          // test2
-          test++;
-          s.select('(item2)');
-        } else if (test === 2) {
-          // check test2
-          assert.isTrue(event.detail.isSelected);
-          assert.equal(event.detail.item, '(item2)');
-          assert.isTrue(s.isSelected(event.detail.item));
-          assert.equal(s.getSelection().length, 2);
-          done();
-        }
-      });
-      // test1
-      var test = 1;
-      s.select('(item1)');
+    document.addEventListener('polymer-ready', function () {
+        var assert = chai.assert;
+        var s = document.querySelector('core-selection');
+        s.addEventListener("core-select", function (event) {
+            if (test === 1) {
+                // check test1
+                assert.isTrue(event.detail.isSelected);
+                assert.equal(event.detail.item, '(item1)');
+                assert.isTrue(s.isSelected(event.detail.item));
+                assert.equal(s.getSelection().length, 1);
+                // test2
+                test++;
+                s.select('(item2)');
+            } else if (test === 2) {
+                // check test2
+                assert.isTrue(event.detail.isSelected);
+                assert.equal(event.detail.item, '(item2)');
+                assert.isTrue(s.isSelected(event.detail.item));
+                assert.equal(s.getSelection().length, 2);
+                done();
+            }
+        });
+        // test1
+        var test = 1;
+        s.select('(item1)');
     });
 
-  </script>
+</script>
 
 </body>
 </html>

@@ -57,21 +57,21 @@ on itself or any of its ancestors.
 <link rel="import" href="../polymer/polymer.html">
 
 <polymer-element name="core-toolbar" noscript>
-<template>
+    <template>
 
-  <link rel="stylesheet" href="core-toolbar.css">
+        <link rel="stylesheet" href="core-toolbar.css">
 
-  <div id="bottomBar" class="toolbar-tools" center horizontal layout>
-    <content select=".bottom"></content>
-  </div>
-  
-  <div id="middleBar" class="toolbar-tools" center horizontal layout>
-    <content select=".middle"></content>
-  </div>
+        <div id="bottomBar" class="toolbar-tools" center horizontal layout>
+            <content select=".bottom"></content>
+        </div>
 
-  <div id="topBar" class="toolbar-tools" center horizontal layout>
-    <content></content>
-  </div>
+        <div id="middleBar" class="toolbar-tools" center horizontal layout>
+            <content select=".middle"></content>
+        </div>
 
-</template>
+        <div id="topBar" class="toolbar-tools" center horizontal layout>
+            <content></content>
+        </div>
+
+    </template>
 </polymer-element>

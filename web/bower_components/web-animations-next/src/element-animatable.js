@@ -12,8 +12,8 @@
 //     See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function(scope) {
-  window.Element.prototype.animate = function(effectInput, timingInput) {
-    return scope.timeline._play(scope.Animation(this, effectInput, timingInput));
-  };
+(function (scope) {
+    window.Element.prototype.animate = function (effectInput, timingInput) {
+        return scope.timeline._play(scope.Animation(this, effectInput, timingInput));
+    };
 })(webAnimationsMinifill);

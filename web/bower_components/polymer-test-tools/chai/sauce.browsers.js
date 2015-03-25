@@ -15,7 +15,7 @@
 
 exports['SL_Chrome'] = {
     base: 'SauceLabs'
-  , browserName: 'chrome'
+    , browserName: 'chrome'
 };
 
 /*!
@@ -26,20 +26,20 @@ exports['SL_Chrome'] = {
  * TODO: Karma doesn't seem to like this, though sauce boots its up
  *
 
-exports['SL_Firefox_23'] = {
-    base: 'SauceLabs'
-  , browserName: 'firefox'
-  , platform: 'Windows XP'
-  , version: '23'
-};
+ exports['SL_Firefox_23'] = {
+ base: 'SauceLabs'
+ , browserName: 'firefox'
+ , platform: 'Windows XP'
+ , version: '23'
+ };
 
-*/
+ */
 
 exports['SL_Firefox_22'] = {
     base: 'SauceLabs'
-  , browserName: 'firefox'
-  , platform: 'Windows 7'
-  , version: '22'
+    , browserName: 'firefox'
+    , platform: 'Windows 7'
+    , version: '22'
 };
 
 /*!
@@ -48,16 +48,16 @@ exports['SL_Firefox_22'] = {
 
 exports['SL_Opera_12'] = {
     base: 'SauceLabs'
-  , browserName: 'opera'
-  , platform: 'Windows 7'
-  , version: '12'
+    , browserName: 'opera'
+    , platform: 'Windows 7'
+    , version: '12'
 };
 
 exports['SL_Opera_11'] = {
     base: 'SauceLabs'
-  , browserName: 'opera'
-  , platform: 'Windows 7'
-  , version: '11'
+    , browserName: 'opera'
+    , platform: 'Windows 7'
+    , version: '11'
 };
 
 /*!
@@ -66,9 +66,9 @@ exports['SL_Opera_11'] = {
 
 exports['SL_IE_10'] = {
     base: 'SauceLabs'
-  , browserName: 'internet explorer'
-  , platform: 'Windows 2012'
-  , version: '10'
+    , browserName: 'internet explorer'
+    , platform: 'Windows 2012'
+    , version: '10'
 };
 
 /*!
@@ -77,16 +77,16 @@ exports['SL_IE_10'] = {
 
 exports['SL_Safari_6'] = {
     base: 'SauceLabs'
-  , browserName: 'safari'
-  , platform: 'Mac 10.8'
-  , version: '6'
+    , browserName: 'safari'
+    , platform: 'Mac 10.8'
+    , version: '6'
 };
 
 exports['SL_Safari_5'] = {
     base: 'SauceLabs'
-  , browserName: 'safari'
-  , platform: 'Mac 10.6'
-  , version: '5'
+    , browserName: 'safari'
+    , platform: 'Mac 10.6'
+    , version: '5'
 };
 
 /*!
@@ -97,28 +97,28 @@ exports['SL_Safari_5'] = {
  * TODO: These take forever to boot or shut down. Causes timeout.
  *
 
-exports['SL_iPhone_6'] = {
-    base: 'SauceLabs'
-  , browserName: 'iphone'
-  , platform: 'Mac 10.8'
-  , version: '6'
-};
+ exports['SL_iPhone_6'] = {
+ base: 'SauceLabs'
+ , browserName: 'iphone'
+ , platform: 'Mac 10.8'
+ , version: '6'
+ };
 
-exports['SL_iPhone_5-1'] = {
-    base: 'SauceLabs'
-  , browserName: 'iphone'
-  , platform: 'Mac 10.8'
-  , version: '5.1'
-};
+ exports['SL_iPhone_5-1'] = {
+ base: 'SauceLabs'
+ , browserName: 'iphone'
+ , platform: 'Mac 10.8'
+ , version: '5.1'
+ };
 
-exports['SL_iPhone_5'] = {
-    base: 'SauceLabs'
-  , browserName: 'iphone'
-  , platform: 'Mac 10.6'
-  , version: '5'
-};
+ exports['SL_iPhone_5'] = {
+ base: 'SauceLabs'
+ , browserName: 'iphone'
+ , platform: 'Mac 10.6'
+ , version: '5'
+ };
 
-*/
+ */
 
 /*!
  * Android
@@ -128,11 +128,11 @@ exports['SL_iPhone_5'] = {
  * TODO: fails because of error serialization
  *
 
-exports['SL_Android_4'] = {
-    base: 'SauceLabs'
-  , browserName: 'android'
-  , platform: 'Linux'
-  , version: '4'
-};
+ exports['SL_Android_4'] = {
+ base: 'SauceLabs'
+ , browserName: 'android'
+ , platform: 'Linux'
+ , version: '4'
+ };
 
-*/
+ */

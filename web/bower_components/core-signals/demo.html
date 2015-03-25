@@ -10,11 +10,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
 
-<title></title>
+    <title></title>
 
-<script src="../platform/platform.js"></script>
+    <script src="../platform/platform.js"></script>
 
-<link rel="import" href="core-signals.html">
+    <link rel="import" href="core-signals.html">
 
 </head>
 <body>
@@ -23,30 +23,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <my-app></my-app>
 
 <polymer-element name="my-element">
-<template>
-  Hello
-</template>
-<script>
-  Polymer('my-element', {
-    ready: function() {
-      this.asyncFire('core-signal', {name: "foo", data: "Foo!"});
-    }
-  });
-</script>
+    <template>
+        Hello
+    </template>
+    <script>
+        Polymer('my-element', {
+            ready: function () {
+                this.asyncFire('core-signal', {name: "foo", data: "Foo!"});
+            }
+        });
+    </script>
 </polymer-element>
 
 <polymer-element name="my-app">
-<template>
-  <core-signals on-core-signal-foo="{{fooSignal}}"></core-signals>
-  <content></content>
-</template>
-<script>
-  Polymer('my-app', {
-    fooSignal: function(e, detail, sender) {
-      this.innerHTML += '<br>[my-app] got a [' + detail + '] signal<br>';
-    }
-  });
-</script>
+    <template>
+        <core-signals on-core-signal-foo="{{fooSignal}}"></core-signals>
+        <content></content>
+    </template>
+    <script>
+        Polymer('my-app', {
+            fooSignal: function (e, detail, sender) {
+                this.innerHTML += '<br>[my-app] got a [' + detail + '] signal<br>';
+            }
+        });
+    </script>
 </polymer-element>
 
 </body>

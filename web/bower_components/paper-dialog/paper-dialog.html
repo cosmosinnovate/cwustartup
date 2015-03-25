@@ -64,38 +64,38 @@ By default, the `aria-label` will be set to the value of the `heading` attribute
 
 <polymer-element name="paper-dialog" extends="paper-dialog-base" role="dialog" noscript>
 
-<template>
+    <template>
 
-  <style>
-    :host {
-      background: #fff;
-      color: rgba(0, 0, 0, 0.87);
-      margin: 32px;
-      overflow: visible !important;
-    }
+        <style>
+            :host {
+                background: #fff;
+                color: rgba(0, 0, 0, 0.87);
+                margin: 32px;
+                overflow: visible !important;
+            }
 
-    h1 {
-      font-size: 20px;
-    }
+            h1 {
+                font-size: 20px;
+            }
 
-    #scroller {
-      overflow: auto;
-      box-sizing: border-box;
-      padding: 24px;
-    }
-  </style>
+            #scroller {
+                overflow: auto;
+                box-sizing: border-box;
+                padding: 24px;
+            }
+        </style>
 
-  <paper-shadow z="3" fit></paper-shadow>
+        <paper-shadow z="3" fit></paper-shadow>
 
-  <!-- need this because the host needs to be overflow: visible -->
-  <div id="scroller" relative>
-    <template if="{{heading}}">
-      <h1>{{heading}}</h1>
+        <!-- need this because the host needs to be overflow: visible -->
+        <div id="scroller" relative>
+            <template if="{{heading}}">
+                <h1>{{heading}}</h1>
+            </template>
+
+            <content></content>
+        </div>
+
     </template>
-
-    <content></content>
-  </div>
-
-</template>
 
 </polymer-element>

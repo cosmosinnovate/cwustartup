@@ -12,26 +12,26 @@ Released under the MIT license: http://jsbin.mit-license.org
 <head>
 
 
-<!-- 1. Load platform support before any code that touches the DOM. -->
+    <!-- 1. Load platform support before any code that touches the DOM. -->
     <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import" href="../bower_components/paper-input/paper-input.html">
-  <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="import" href="../bower_components/paper-input/paper-input.html">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 
 </head>
 <body unresolved>
 <core-layout align="center">
 
-    <form class="form-input"id=""> 
-    <div class="title">Login</div>
-    <paper-input class="label-text"reguired label="User name" name="title" maxlength="255"></paper-input>
-    <br/>
-    <paper-input floatinglabel multiline class="custom" required label="Password" name="text"></paper-input>
-    <br/>
-    <button type="submit" name="submit" value="Submit" onclick="validateAll()">Submit</button>
-  </form>
+    <form class="form-input" id="">
+        <div class="title">Login</div>
+        <paper-input class="label-text" reguired label="User name" name="title" maxlength="255"></paper-input>
+        <br/>
+        <paper-input floatinglabel multiline class="custom" required label="Password" name="text"></paper-input>
+        <br/>
+        <button type="submit" name="submit" value="Submit" onclick="validateAll()">Submit</button>
+    </form>
 </core-layout>
 
-  
+
 <!---
   // <script (function() {
 
@@ -58,7 +58,7 @@ Released under the MIT license: http://jsbin.mit-license.org
   // </script>
 
   -->
-  
-  
+
+
 </body>
 </html>

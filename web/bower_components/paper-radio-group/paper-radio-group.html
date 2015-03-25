@@ -35,34 +35,37 @@ information about `paper-radio-button`.
 
 <polymer-element name="paper-radio-group" extends="core-selector" role="radiogroup">
 
-  <template>
-  
-    <style>
-    
-      :host {
-        display: inline-block;
-      }
-  
-      polyfill-next-selector { content: ':host > *'; }
-      ::content > * {
-        padding: 12px;
-      }
-    
-    </style>
-  
-    <shadow></shadow>
-    
-  </template>
-  
-  <script>
-  
-    Polymer('paper-radio-group', {
-      
-      selectedAttribute: 'checked',
-      activateEvent: 'change'
-      
-    });
-  
-  </script>
-  
+    <template>
+
+        <style>
+
+            :host {
+                display: inline-block;
+            }
+
+            polyfill-next-selector {
+                content: ':host > *';
+            }
+
+            ::content > * {
+                padding: 12px;
+            }
+
+        </style>
+
+        <shadow></shadow>
+
+    </template>
+
+    <script>
+
+        Polymer('paper-radio-group', {
+
+            selectedAttribute: 'checked',
+            activateEvent: 'change'
+
+        });
+
+    </script>
+
 </polymer-element>

@@ -19,32 +19,32 @@ Element wrapper for the `marked` (http://marked.org/) library.
 @snap snap.png
 -->
 <polymer-element name="marked-element" attributes="text">
-<script>
+    <script>
 
-  Polymer('marked-element', {
+        Polymer('marked-element', {
 
-    text: '',
+            text: '',
 
-    attached: function() {
-      marked.setOptions({
-        highlight: this.highlight.bind(this)
-      });
-      if (!this.text) {
-        this.text = this.innerHTML;
-      }
-    },
+            attached: function () {
+                marked.setOptions({
+                    highlight: this.highlight.bind(this)
+                });
+                if (!this.text) {
+                    this.text = this.innerHTML;
+                }
+            },
 
-    textChanged: function () {
-      this.innerHTML = marked(this.text);
-    },
+            textChanged: function () {
+                this.innerHTML = marked(this.text);
+            },
 
-    highlight: function(code, lang) {
-      var event = this.fire('marked-js-highlight', {code: code, lang: lang});
-      return event.detail.code || code;
-    }
+            highlight: function (code, lang) {
+                var event = this.fire('marked-js-highlight', {code: code, lang: lang});
+                return event.detail.code || code;
+            }
 
-  });
+        });
 
-</script>
+    </script>
 </polymer-element>
 

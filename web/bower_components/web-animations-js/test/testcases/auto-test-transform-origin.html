@@ -14,28 +14,36 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.container {
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.box {
-  width: 96px;
-  height: 96px;
-  border: solid 2px;
-  display: inline-block;
-  margin: 50px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: rotate(45deg) rotateY(30deg);
-  transform: rotate(45deg) rotateY(30deg);
-}
-.test { border-color: green; }
-.expectation { color: red; }
+    .container {
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .box {
+        width: 96px;
+        height: 96px;
+        border: solid 2px;
+        display: inline-block;
+        margin: 50px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotate(45deg) rotateY(30deg);
+        transform: rotate(45deg) rotateY(30deg);
+    }
+
+    .test {
+        border-color: green;
+    }
+
+    .expectation {
+        color: red;
+    }
 </style>
 <div id="expectationContainer" class="container"></div>
 <div id="testContainer" class="container"></div>
@@ -43,38 +51,38 @@ limitations under the License.
 
 <script src="../bootstrap.js"></script>
 <script>
-'use strict';
+    'use strict';
 
-var testCases = [
-  'center',
-  'left',
-  'right',
-  'top',
-  'bottom',
-  '25px',
-  'left top',
-  '10% 50px',
-  '10% 50px 100px',
-  'right bottom 100px',
-  'right calc(120% - 100px)',
-  'right calc(120% - 100px) -200px',
-];
+    var testCases = [
+        'center',
+        'left',
+        'right',
+        'top',
+        'bottom',
+        '25px',
+        'left top',
+        '10% 50px',
+        '10% 50px 100px',
+        'right bottom 100px',
+        'right calc(120% - 100px)',
+        'right calc(120% - 100px) -200px',
+    ];
 
-function createBox(type) {
-  var element = document.createElement('div');
-  element.classList.add('box', type);
-  return element;
-}
+    function createBox(type) {
+        var element = document.createElement('div');
+        element.classList.add('box', type);
+        return element;
+    }
 
-testCases.forEach(function(testCase) {
-  var expectation = createBox('expectation')
-  expectation.style.transformOrigin = expectation.style.webkitTransformOrigin = testCase;
-  expectation.textContent = testCase;
-  expectationContainer.appendChild(expectation);
+    testCases.forEach(function (testCase) {
+        var expectation = createBox('expectation')
+        expectation.style.transformOrigin = expectation.style.webkitTransformOrigin = testCase;
+        expectation.textContent = testCase;
+        expectationContainer.appendChild(expectation);
 
-  var test = createBox('test')
-  test.animate({transformOrigin: testCase}, {duration: 2 * 1000, fill: 'forwards'});
-  test.textContent = testCase;
-  testContainer.appendChild(test);
-});
+        var test = createBox('test')
+        test.animate({transformOrigin: testCase}, {duration: 2 * 1000, fill: 'forwards'});
+        test.textContent = testCase;
+        testContainer.appendChild(test);
+    });
 </script>

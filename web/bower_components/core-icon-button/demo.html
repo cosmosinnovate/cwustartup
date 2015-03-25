@@ -9,14 +9,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <title>core-icon-button</title>
-  
-  <script src="../webcomponentsjs/webcomponents.js"></script>
-  
-  <link rel="import" href="core-icon-button.html">
-  <style>
-  </style>
-  
+    <title>core-icon-button</title>
+
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+
+    <link rel="import" href="core-icon-button.html">
+    <style>
+    </style>
+
 </head>
 
 <body unresolved>
@@ -24,11 +24,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <template is="auto-binding">
     <template repeat="{{icon in $.meta.metaData.icons.iconNames}}">
-      <core-icon-button icon="{{icon}}" title="{{icon}}"></core-icon-button>
+        <core-icon-button icon="{{icon}}" title="{{icon}}"></core-icon-button>
     </template>
     <core-icon-button icon="menu"><span>label</span></core-icon-button>
-  </div>
-  <core-iconset id="meta"></core-iconset>
+    </div>
+    <core-iconset id="meta"></core-iconset>
 </template>
 
 </body>

@@ -14,30 +14,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <head>
-<link
-    href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900'
-    rel='stylesheet' type='text/css'>
-<style>
-  div.test {
-    font-family: Raleway;
-    font-size: 75px;
-  }
-  div.target {
-    position: absolute;
-    color: red;
-    z-index: -1;
-  }
-</style>
+    <link
+            href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900'
+            rel='stylesheet' type='text/css'>
+    <style>
+        div.test {
+            font-family: Raleway;
+            font-size: 75px;
+        }
+
+        div.target {
+            position: absolute;
+            color: red;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
 <div class='test target' style='font-weight: 900;'>Testing font-weight!</div>
 <div class='test' style='font-weight: 100' id='test'>Testing font-weight!</div>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
-document.timeline.play(new Animation(document.querySelector('#test'),
-    [{fontWeight: '100'}, {fontWeight: '900'}],
-    {duration: 1 * 1000, delay: 1 * 1000, fill: 'forwards'}));
+    "use strict";
+    document.timeline.play(new Animation(document.querySelector('#test'),
+            [{fontWeight: '100'}, {fontWeight: '900'}],
+            {duration: 1 * 1000, delay: 1 * 1000, fill: 'forwards'}));
 </script>

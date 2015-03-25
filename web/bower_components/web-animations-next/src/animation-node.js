@@ -12,20 +12,20 @@
 //     See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function(shared, scope) {
+(function (shared, scope) {
 
-  scope.AnimationNode = function(timing) {
-    var timeFraction = 0;
-    var activeDuration = shared.calculateActiveDuration(timing);
-    var animationNode = function(localTime) {
-      return shared.calculateTimeFraction(activeDuration, localTime, timing);
+    scope.AnimationNode = function (timing) {
+        var timeFraction = 0;
+        var activeDuration = shared.calculateActiveDuration(timing);
+        var animationNode = function (localTime) {
+            return shared.calculateTimeFraction(activeDuration, localTime, timing);
+        };
+        animationNode._totalDuration = timing.delay + activeDuration + timing.endDelay;
+        animationNode._isCurrent = function (localTime) {
+            var phase = shared.calculatePhase(activeDuration, localTime, timing);
+            return phase === PhaseActive || phase === PhaseBefore;
+        };
+        return animationNode;
     };
-    animationNode._totalDuration = timing.delay + activeDuration + timing.endDelay;
-    animationNode._isCurrent = function(localTime) {
-      var phase = shared.calculatePhase(activeDuration, localTime, timing);
-      return phase === PhaseActive || phase === PhaseBefore;
-    };
-    return animationNode;
-  };
 
 })(webAnimationsShared, webAnimationsMinifill);

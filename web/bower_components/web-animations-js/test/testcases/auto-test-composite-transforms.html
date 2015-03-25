@@ -14,38 +14,39 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  left: 0px;
-  width: 100px;
-  height: 100px;
-  background-color: #FAA;
-  position: absolute;
-}
+    .anim {
+        left: 0px;
+        width: 100px;
+        height: 100px;
+        background-color: #FAA;
+        position: absolute;
+    }
 
-.expected {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  border-right: 1px solid black;
-}
+    .expected {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        border-right: 1px solid black;
+    }
 
-#a {
-  top: 50px
-}
+    #a {
+        top: 50px
+    }
 
-#b {
-  top: 150px;
-}
+    #b {
+        top: 150px;
+    }
 
-#c {
-  top: 250px;
-}
+    #c {
+        top: 250px;
+    }
 
-#d {
-  top: 350px;
-}
+    #d {
+        top: 350px;
+    }
 
 </style>
 
@@ -62,36 +63,36 @@ limitations under the License.
 <div style="height: 700px;"></div>
 
 <script>
-var expected_failures = [
-  {
-    browser_configurations: [{ msie: true }],
-    tests: ['Auto generated tests at t=2000ms'],
-    message: 'Floating point issues.',
-  }
-];
+    var expected_failures = [
+        {
+            browser_configurations: [{msie: true}],
+            tests: ['Auto generated tests at t=2000ms'],
+            message: 'Floating point issues.',
+        }
+    ];
 </script>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-var divs = document.querySelectorAll(".anim");
+    var divs = document.querySelectorAll(".anim");
 
-var dt = document.timeline;
+    var dt = document.timeline;
 
-var timing = {duration: 2 * 1000, fill: 'forwards'};
+    var timing = {duration: 2 * 1000, fill: 'forwards'};
 
-dt.play(new Animation(divs[0],
-    [{transform: "translate(0px, 0px)"}, {transform: "translate(200px, 0px)"}],
-    timing));
-dt.play(new Animation(divs[1],
-    [{transform: "rotate(0deg)"}, {transform: "rotate(90deg)"}], timing));
-dt.play(new Animation(divs[2], [
-  {transform: "translate(0px, 0px) rotate(0deg)"},
-  {transform: "translate(200px, 0px) rotate(90deg)"},
-], timing));
-dt.play(new Animation(divs[3], [
-  {transform: "rotate(0deg) translate(0px, 0px)"},
-  {transform: "rotate(90deg) translate(200px, 0px)"},
-], timing));
+    dt.play(new Animation(divs[0],
+            [{transform: "translate(0px, 0px)"}, {transform: "translate(200px, 0px)"}],
+            timing));
+    dt.play(new Animation(divs[1],
+            [{transform: "rotate(0deg)"}, {transform: "rotate(90deg)"}], timing));
+    dt.play(new Animation(divs[2], [
+        {transform: "translate(0px, 0px) rotate(0deg)"},
+        {transform: "translate(200px, 0px) rotate(90deg)"},
+    ], timing));
+    dt.play(new Animation(divs[3], [
+        {transform: "rotate(0deg) translate(0px, 0px)"},
+        {transform: "rotate(90deg) translate(200px, 0px)"},
+    ], timing));
 
 </script>

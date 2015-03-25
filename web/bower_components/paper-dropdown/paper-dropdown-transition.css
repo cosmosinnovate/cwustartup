@@ -7,9 +7,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 :host(.core-transition) #ripple,
 :host(.core-transition) #background {
-  opacity: 0;
+    opacity: 0;
 }
 
 :host(.core-transition) #scroller {
-  opacity: 0;
+    opacity: 0;
 }

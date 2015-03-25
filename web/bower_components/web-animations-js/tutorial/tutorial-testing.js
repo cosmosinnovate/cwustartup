@@ -15,70 +15,72 @@
  */
 "use strict";
 
-(function() {
-var pass;
-var completedTests;
-var allDone;
-var numTests;
+(function () {
+    var pass;
+    var completedTests;
+    var allDone;
+    var numTests;
 
 // Call to initialize the testing environment.
-function setupTutorialTests() {
-  setState("Manual");
-  var timeOfAnimation = document.createElement('div');
-  timeOfAnimation.id = "animViewerText";
-  timeOfAnimation.innerHTML = "Current animation time: 0.00";
-  document.body.appendChild(timeOfAnimation);
-  numTests = 0;
-  completedTests = 0;
-  allDone = false;
-  pass = true;
-}
+    function setupTutorialTests() {
+        setState("Manual");
+        var timeOfAnimation = document.createElement('div');
+        timeOfAnimation.id = "animViewerText";
+        timeOfAnimation.innerHTML = "Current animation time: 0.00";
+        document.body.appendChild(timeOfAnimation);
+        numTests = 0;
+        completedTests = 0;
+        allDone = false;
+        pass = true;
+    }
 
 // This function mimics the async_test function in testharness.js so that
 // extra-asserts.js will run as intended for a tutorial.
-function async_test(func, name, properties) {
-  numTests++;
-  step = function(func) {
-    func();
-    if (!pass) {
-      parent.TryItDisplay.fail();
-      allDone = true;
-    };
-  };
+    function async_test(func, name, properties) {
+        numTests++;
+        step = function (func) {
+            func();
+            if (!pass) {
+                parent.TryItDisplay.fail();
+                allDone = true;
+            }
+            ;
+        };
 
-  done = function() {
-    completedTests++;
-    if (completedTests == numTests && !allDone) {
-      allDone = true;
-      parent.TryItDisplay.pass();
-    };
-  };
-  return this;
-}   
+        done = function () {
+            completedTests++;
+            if (completedTests == numTests && !allDone) {
+                allDone = true;
+                parent.TryItDisplay.pass();
+            }
+            ;
+        };
+        return this;
+    }
 
-function assert_equals(actual, expected, description) {
-  pass = (actual == expected);
-}
+    function assert_equals(actual, expected, description) {
+        pass = (actual == expected);
+    }
 
-function assert_approx_equals(actual, expected, epsilon, description) {
-  var lowerBound = expected - (epsilon / 2) < actual;
-  var upperBound = expected + (epsilon / 2) > actual;
-  pass = (lowerBound && upperBound);
-}
+    function assert_approx_equals(actual, expected, epsilon, description) {
+        var lowerBound = expected - (epsilon / 2) < actual;
+        var upperBound = expected + (epsilon / 2) > actual;
+        pass = (lowerBound && upperBound);
+    }
 
 // This function is required to do nothing for tutorial testing,
 // but extra-asserts calls it and thus without this function, 
 // extra-asserts.js will cause the page to crash.
-function add_completion_callback(anything) {
-}
+    function add_completion_callback(anything) {
+    }
 
 ///////////////////////////////////////////////////////////////////////////////
 //  Exposing functions to be accessed externally                             //
 ///////////////////////////////////////////////////////////////////////////////
 
-window.setupTutorialTests = setupTutorialTests;
-window.async_test = async_test;
-window.assert_approx_equals = assert_approx_equals;
-window.assert_equals = assert_equals;
-window.add_completion_callback = add_completion_callback;
+    window.setupTutorialTests = setupTutorialTests;
+    window.async_test = async_test;
+    window.assert_approx_equals = assert_approx_equals;
+    window.assert_equals = assert_equals;
+    window.add_completion_callback = add_completion_callback;
 })();

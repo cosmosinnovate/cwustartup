@@ -1,6 +1,9 @@
 {
-	"tools": ["chai", "mocha-tdd"],
-	"tests": [
-		"js/htmltests.js"
-	]
+  "tools": [
+    "chai",
+    "mocha-tdd"
+  ],
+  "tests": [
+    "js/htmltests.js"
+  ]
 }

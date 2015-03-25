@@ -1,28 +1,27 @@
 /*global self*/
 /*jshint latedef: nofunc*/
 /*
-Distributed under both the W3C Test Suite License [1] and the W3C
-3-clause BSD License [2]. To contribute to a W3C Test Suite, see the
-policies and contribution forms [3].
+ Distributed under both the W3C Test Suite License [1] and the W3C
+ 3-clause BSD License [2]. To contribute to a W3C Test Suite, see the
+ policies and contribution forms [3].
 
-[1] http://www.w3.org/Consortium/Legal/2008/04-testsuite-license
-[2] http://www.w3.org/Consortium/Legal/2008/03-bsd-license
-[3] http://www.w3.org/2004/10/27-testcases
-*/
+ [1] http://www.w3.org/Consortium/Legal/2008/04-testsuite-license
+ [2] http://www.w3.org/Consortium/Legal/2008/03-bsd-license
+ [3] http://www.w3.org/2004/10/27-testcases
+ */
 
 /* Documentation is in docs/api.md */
 
-(function ()
-{
+(function () {
     var debug = false;
     // default timeout is 10 seconds, test can override if needed
     var settings = {
-        output:true,
-        harness_timeout:{
-            "normal":10000,
-            "long":60000
+        output: true,
+        harness_timeout: {
+            "normal": 10000,
+            "long": 60000
         },
-        test_timeout:null
+        test_timeout: null
     };
 
     var xhtml_ns = "http://www.w3.org/1999/xhtml";
@@ -31,8 +30,7 @@ policies and contribution forms [3].
     // where to get testharness.css from.  It's enclosed in an extra closure to
     // not pollute the library's namespace with variables like "src".
     var script_prefix = null;
-    (function ()
-    {
+    (function () {
         var scripts = document.getElementsByTagName("script");
         for (var i = 0; i < scripts.length; i++) {
             var src;
@@ -55,8 +53,8 @@ policies and contribution forms [3].
      */
 
     var name_counter = 0;
-    function next_default_name()
-    {
+
+    function next_default_name() {
         //Don't use document.title to work around an Opera bug in XHTML documents
         var title = document.getElementsByTagName("title")[0];
         var prefix = (title && title.firstChild && title.firstChild.data) || "Untitled";
@@ -65,8 +63,7 @@ policies and contribution forms [3].
         return prefix + suffix;
     }
 
-    function test(func, name, properties)
-    {
+    function test(func, name, properties) {
         var test_name = name ? name : next_default_name();
         properties = properties ? properties : {};
         var test_obj = new Test(test_name, properties);
@@ -76,8 +73,7 @@ policies and contribution forms [3].
         }
     }
 
-    function async_test(func, name, properties)
-    {
+    function async_test(func, name, properties) {
         if (typeof func !== "function") {
             properties = name;
             name = func;
@@ -92,8 +88,7 @@ policies and contribution forms [3].
         return test_obj;
     }
 
-    function setup(func_or_properties, maybe_properties)
-    {
+    function setup(func_or_properties, maybe_properties) {
         var func = null;
         var properties = {};
         if (arguments.length === 2) {
@@ -119,20 +114,17 @@ policies and contribution forms [3].
     }
 
     function generate_tests(func, args, properties) {
-        forEach(args, function(x, i)
-                {
-                    var name = x[0];
-                    test(function()
-                         {
-                             func.apply(this, x.slice(1));
-                         },
-                         name,
-                         Array.isArray(properties) ? properties[i] : properties);
-                });
+        forEach(args, function (x, i) {
+            var name = x[0];
+            test(function () {
+                    func.apply(this, x.slice(1));
+                },
+                name,
+                Array.isArray(properties) ? properties[i] : properties);
+        });
     }
 
-    function on_event(object, event, callback)
-    {
+    function on_event(object, event, callback) {
         object.addEventListener(event, callback, false);
     }
 
@@ -147,8 +139,7 @@ policies and contribution forms [3].
      * Return a string truncated to the given length, with ... added at the end
      * if it was longer.
      */
-    function truncate(s, len)
-    {
+    function truncate(s, len) {
         if (s.length > len) {
             return s.substring(0, len - 3) + "...";
         }
@@ -158,8 +149,7 @@ policies and contribution forms [3].
     /*
      * Return true if object is probably a Node object.
      */
-    function is_node(object)
-    {
+    function is_node(object) {
         // I use duck-typing instead of instanceof, because
         // instanceof doesn't work if the node is from another window (like an
         // iframe's contentWindow):
@@ -183,8 +173,7 @@ policies and contribution forms [3].
     /*
      * Convert a value to a nice, human-readable string
      */
-    function format_value(val, seen)
-    {
+    function format_value(val, seen) {
         if (!seen) {
             seen = [];
         }
@@ -195,117 +184,184 @@ policies and contribution forms [3].
             seen.push(val);
         }
         if (Array.isArray(val)) {
-            return "[" + val.map(function(x) {return format_value(x, seen);}).join(", ") + "]";
+            return "[" + val.map(function (x) {
+                    return format_value(x, seen);
+                }).join(", ") + "]";
         }
 
         switch (typeof val) {
-        case "string":
-            val = val.replace("\\", "\\\\");
-            for (var i = 0; i < 32; i++) {
-                var replace = "\\";
-                switch (i) {
-                case 0: replace += "0"; break;
-                case 1: replace += "x01"; break;
-                case 2: replace += "x02"; break;
-                case 3: replace += "x03"; break;
-                case 4: replace += "x04"; break;
-                case 5: replace += "x05"; break;
-                case 6: replace += "x06"; break;
-                case 7: replace += "x07"; break;
-                case 8: replace += "b"; break;
-                case 9: replace += "t"; break;
-                case 10: replace += "n"; break;
-                case 11: replace += "v"; break;
-                case 12: replace += "f"; break;
-                case 13: replace += "r"; break;
-                case 14: replace += "x0e"; break;
-                case 15: replace += "x0f"; break;
-                case 16: replace += "x10"; break;
-                case 17: replace += "x11"; break;
-                case 18: replace += "x12"; break;
-                case 19: replace += "x13"; break;
-                case 20: replace += "x14"; break;
-                case 21: replace += "x15"; break;
-                case 22: replace += "x16"; break;
-                case 23: replace += "x17"; break;
-                case 24: replace += "x18"; break;
-                case 25: replace += "x19"; break;
-                case 26: replace += "x1a"; break;
-                case 27: replace += "x1b"; break;
-                case 28: replace += "x1c"; break;
-                case 29: replace += "x1d"; break;
-                case 30: replace += "x1e"; break;
-                case 31: replace += "x1f"; break;
-                }
-                val = val.replace(RegExp(String.fromCharCode(i), "g"), replace);
-            }
-            return '"' + val.replace(/"/g, '\\"') + '"';
-        case "boolean":
-        case "undefined":
-            return String(val);
-        case "number":
-            // In JavaScript, -0 === 0 and String(-0) == "0", so we have to
-            // special-case.
-            if (val === -0 && 1/val === -Infinity) {
-                return "-0";
-            }
-            return String(val);
-        case "object":
-            if (val === null) {
-                return "null";
-            }
-
-            // Special-case Node objects, since those come up a lot in my tests.  I
-            // ignore namespaces.
-            if (is_node(val)) {
-                switch (val.nodeType) {
-                case Node.ELEMENT_NODE:
-                    var ret = "<" + val.localName;
-                    for (var i = 0; i < val.attributes.length; i++) {
-                        ret += " " + val.attributes[i].name + '="' + val.attributes[i].value + '"';
+            case "string":
+                val = val.replace("\\", "\\\\");
+                for (var i = 0; i < 32; i++) {
+                    var replace = "\\";
+                    switch (i) {
+                        case 0:
+                            replace += "0";
+                            break;
+                        case 1:
+                            replace += "x01";
+                            break;
+                        case 2:
+                            replace += "x02";
+                            break;
+                        case 3:
+                            replace += "x03";
+                            break;
+                        case 4:
+                            replace += "x04";
+                            break;
+                        case 5:
+                            replace += "x05";
+                            break;
+                        case 6:
+                            replace += "x06";
+                            break;
+                        case 7:
+                            replace += "x07";
+                            break;
+                        case 8:
+                            replace += "b";
+                            break;
+                        case 9:
+                            replace += "t";
+                            break;
+                        case 10:
+                            replace += "n";
+                            break;
+                        case 11:
+                            replace += "v";
+                            break;
+                        case 12:
+                            replace += "f";
+                            break;
+                        case 13:
+                            replace += "r";
+                            break;
+                        case 14:
+                            replace += "x0e";
+                            break;
+                        case 15:
+                            replace += "x0f";
+                            break;
+                        case 16:
+                            replace += "x10";
+                            break;
+                        case 17:
+                            replace += "x11";
+                            break;
+                        case 18:
+                            replace += "x12";
+                            break;
+                        case 19:
+                            replace += "x13";
+                            break;
+                        case 20:
+                            replace += "x14";
+                            break;
+                        case 21:
+                            replace += "x15";
+                            break;
+                        case 22:
+                            replace += "x16";
+                            break;
+                        case 23:
+                            replace += "x17";
+                            break;
+                        case 24:
+                            replace += "x18";
+                            break;
+                        case 25:
+                            replace += "x19";
+                            break;
+                        case 26:
+                            replace += "x1a";
+                            break;
+                        case 27:
+                            replace += "x1b";
+                            break;
+                        case 28:
+                            replace += "x1c";
+                            break;
+                        case 29:
+                            replace += "x1d";
+                            break;
+                        case 30:
+                            replace += "x1e";
+                            break;
+                        case 31:
+                            replace += "x1f";
+                            break;
                     }
-                    ret += ">" + val.innerHTML + "</" + val.localName + ">";
-                    return "Element node " + truncate(ret, 60);
-                case Node.TEXT_NODE:
-                    return 'Text node "' + truncate(val.data, 60) + '"';
-                case Node.PROCESSING_INSTRUCTION_NODE:
-                    return "ProcessingInstruction node with target " + format_value(truncate(val.target, 60)) + " and data " + format_value(truncate(val.data, 60));
-                case Node.COMMENT_NODE:
-                    return "Comment node <!--" + truncate(val.data, 60) + "-->";
-                case Node.DOCUMENT_NODE:
-                    return "Document node with " + val.childNodes.length + (val.childNodes.length == 1 ? " child" : " children");
-                case Node.DOCUMENT_TYPE_NODE:
-                    return "DocumentType node";
-                case Node.DOCUMENT_FRAGMENT_NODE:
-                    return "DocumentFragment node with " + val.childNodes.length + (val.childNodes.length == 1 ? " child" : " children");
-                default:
-                    return "Node object of unknown type";
+                    val = val.replace(RegExp(String.fromCharCode(i), "g"), replace);
                 }
-            }
+                return '"' + val.replace(/"/g, '\\"') + '"';
+            case "boolean":
+            case "undefined":
+                return String(val);
+            case "number":
+                // In JavaScript, -0 === 0 and String(-0) == "0", so we have to
+                // special-case.
+                if (val === -0 && 1 / val === -Infinity) {
+                    return "-0";
+                }
+                return String(val);
+            case "object":
+                if (val === null) {
+                    return "null";
+                }
 
-        /* falls through */
-        default:
-            return typeof val + ' "' + truncate(String(val), 60) + '"';
+                // Special-case Node objects, since those come up a lot in my tests.  I
+                // ignore namespaces.
+                if (is_node(val)) {
+                    switch (val.nodeType) {
+                        case Node.ELEMENT_NODE:
+                            var ret = "<" + val.localName;
+                            for (var i = 0; i < val.attributes.length; i++) {
+                                ret += " " + val.attributes[i].name + '="' + val.attributes[i].value + '"';
+                            }
+                            ret += ">" + val.innerHTML + "</" + val.localName + ">";
+                            return "Element node " + truncate(ret, 60);
+                        case Node.TEXT_NODE:
+                            return 'Text node "' + truncate(val.data, 60) + '"';
+                        case Node.PROCESSING_INSTRUCTION_NODE:
+                            return "ProcessingInstruction node with target " + format_value(truncate(val.target, 60)) + " and data " + format_value(truncate(val.data, 60));
+                        case Node.COMMENT_NODE:
+                            return "Comment node <!--" + truncate(val.data, 60) + "-->";
+                        case Node.DOCUMENT_NODE:
+                            return "Document node with " + val.childNodes.length + (val.childNodes.length == 1 ? " child" : " children");
+                        case Node.DOCUMENT_TYPE_NODE:
+                            return "DocumentType node";
+                        case Node.DOCUMENT_FRAGMENT_NODE:
+                            return "DocumentFragment node with " + val.childNodes.length + (val.childNodes.length == 1 ? " child" : " children");
+                        default:
+                            return "Node object of unknown type";
+                    }
+                }
+
+            /* falls through */
+            default:
+                return typeof val + ' "' + truncate(String(val), 60) + '"';
         }
     }
+
     expose(format_value, "format_value");
 
     /*
      * Assertions
      */
 
-    function assert_true(actual, description)
-    {
+    function assert_true(actual, description) {
         assert(actual === true, "assert_true", description,
-                                "expected true got ${actual}", {actual:actual});
+            "expected true got ${actual}", {actual: actual});
     }
+
     expose(assert_true, "assert_true");
 
-    function assert_false(actual, description)
-    {
+    function assert_false(actual, description) {
         assert(actual === false, "assert_false", description,
-                                 "expected false got ${actual}", {actual:actual});
+            "expected false got ${actual}", {actual: actual});
     }
+
     expose(assert_false, "assert_false");
 
     function same_value(x, y) {
@@ -315,186 +371,188 @@ policies and contribution forms [3].
         }
         if (x === 0 && y === 0) {
             //Distinguish +0 and -0
-            return 1/x === 1/y;
+            return 1 / x === 1 / y;
         }
         return x === y;
     }
 
-    function assert_equals(actual, expected, description)
-    {
-         /*
-          * Test if two primitives are equal or two objects
-          * are the same object
-          */
+    function assert_equals(actual, expected, description) {
+        /*
+         * Test if two primitives are equal or two objects
+         * are the same object
+         */
         if (typeof actual != typeof expected) {
             assert(false, "assert_equals", description,
-                          "expected (" + typeof expected + ") ${expected} but got (" + typeof actual + ") ${actual}",
-                          {expected:expected, actual:actual});
+                "expected (" + typeof expected + ") ${expected} but got (" + typeof actual + ") ${actual}",
+                {expected: expected, actual: actual});
             return;
         }
         assert(same_value(actual, expected), "assert_equals", description,
-                                             "expected ${expected} but got ${actual}",
-                                             {expected:expected, actual:actual});
+            "expected ${expected} but got ${actual}",
+            {expected: expected, actual: actual});
     }
+
     expose(assert_equals, "assert_equals");
 
-    function assert_not_equals(actual, expected, description)
-    {
-         /*
-          * Test if two primitives are unequal or two objects
-          * are different objects
-          */
+    function assert_not_equals(actual, expected, description) {
+        /*
+         * Test if two primitives are unequal or two objects
+         * are different objects
+         */
         assert(!same_value(actual, expected), "assert_not_equals", description,
-                                              "got disallowed value ${actual}",
-                                              {actual:actual});
+            "got disallowed value ${actual}",
+            {actual: actual});
     }
+
     expose(assert_not_equals, "assert_not_equals");
 
-    function assert_in_array(actual, expected, description)
-    {
+    function assert_in_array(actual, expected, description) {
         assert(expected.indexOf(actual) != -1, "assert_in_array", description,
-                                               "value ${actual} not in array ${expected}",
-                                               {actual:actual, expected:expected});
+            "value ${actual} not in array ${expected}",
+            {actual: actual, expected: expected});
     }
+
     expose(assert_in_array, "assert_in_array");
 
-    function assert_object_equals(actual, expected, description)
-    {
-         //This needs to be improved a great deal
-         function check_equal(actual, expected, stack)
-         {
-             stack.push(actual);
+    function assert_object_equals(actual, expected, description) {
+        //This needs to be improved a great deal
+        function check_equal(actual, expected, stack) {
+            stack.push(actual);
 
-             var p;
-             for (p in actual) {
-                 assert(expected.hasOwnProperty(p), "assert_object_equals", description,
-                                                    "unexpected property ${p}", {p:p});
+            var p;
+            for (p in actual) {
+                assert(expected.hasOwnProperty(p), "assert_object_equals", description,
+                    "unexpected property ${p}", {p: p});
 
-                 if (typeof actual[p] === "object" && actual[p] !== null) {
-                     if (stack.indexOf(actual[p]) === -1) {
-                         check_equal(actual[p], expected[p], stack);
-                     }
-                 } else {
-                     assert(same_value(actual[p], expected[p]), "assert_object_equals", description,
-                                                       "property ${p} expected ${expected} got ${actual}",
-                                                       {p:p, expected:expected, actual:actual});
-                 }
-             }
-             for (p in expected) {
-                 assert(actual.hasOwnProperty(p),
-                        "assert_object_equals", description,
-                        "expected property ${p} missing", {p:p});
-             }
-             stack.pop();
-         }
-         check_equal(actual, expected, []);
+                if (typeof actual[p] === "object" && actual[p] !== null) {
+                    if (stack.indexOf(actual[p]) === -1) {
+                        check_equal(actual[p], expected[p], stack);
+                    }
+                } else {
+                    assert(same_value(actual[p], expected[p]), "assert_object_equals", description,
+                        "property ${p} expected ${expected} got ${actual}",
+                        {p: p, expected: expected, actual: actual});
+                }
+            }
+            for (p in expected) {
+                assert(actual.hasOwnProperty(p),
+                    "assert_object_equals", description,
+                    "expected property ${p} missing", {p: p});
+            }
+            stack.pop();
+        }
+
+        check_equal(actual, expected, []);
     }
+
     expose(assert_object_equals, "assert_object_equals");
 
-    function assert_array_equals(actual, expected, description)
-    {
+    function assert_array_equals(actual, expected, description) {
         assert(actual.length === expected.length,
-               "assert_array_equals", description,
-               "lengths differ, expected ${expected} got ${actual}",
-               {expected:expected.length, actual:actual.length});
+            "assert_array_equals", description,
+            "lengths differ, expected ${expected} got ${actual}",
+            {expected: expected.length, actual: actual.length});
 
         for (var i = 0; i < actual.length; i++) {
             assert(actual.hasOwnProperty(i) === expected.hasOwnProperty(i),
-                   "assert_array_equals", description,
-                   "property ${i}, property expected to be $expected but was $actual",
-                   {i:i, expected:expected.hasOwnProperty(i) ? "present" : "missing",
-                   actual:actual.hasOwnProperty(i) ? "present" : "missing"});
+                "assert_array_equals", description,
+                "property ${i}, property expected to be $expected but was $actual",
+                {
+                    i: i, expected: expected.hasOwnProperty(i) ? "present" : "missing",
+                    actual: actual.hasOwnProperty(i) ? "present" : "missing"
+                });
             assert(same_value(expected[i], actual[i]),
-                   "assert_array_equals", description,
-                   "property ${i}, expected ${expected} but got ${actual}",
-                   {i:i, expected:expected[i], actual:actual[i]});
+                "assert_array_equals", description,
+                "property ${i}, expected ${expected} but got ${actual}",
+                {i: i, expected: expected[i], actual: actual[i]});
         }
     }
+
     expose(assert_array_equals, "assert_array_equals");
 
-    function assert_approx_equals(actual, expected, epsilon, description)
-    {
+    function assert_approx_equals(actual, expected, epsilon, description) {
         /*
          * Test if two primitive numbers are equal withing +/- epsilon
          */
         assert(typeof actual === "number",
-               "assert_approx_equals", description,
-               "expected a number but got a ${type_actual}",
-               {type_actual:typeof actual});
+            "assert_approx_equals", description,
+            "expected a number but got a ${type_actual}",
+            {type_actual: typeof actual});
 
         assert(Math.abs(actual - expected) <= epsilon,
-               "assert_approx_equals", description,
-               "expected ${expected} +/- ${epsilon} but got ${actual}",
-               {expected:expected, actual:actual, epsilon:epsilon});
+            "assert_approx_equals", description,
+            "expected ${expected} +/- ${epsilon} but got ${actual}",
+            {expected: expected, actual: actual, epsilon: epsilon});
     }
+
     expose(assert_approx_equals, "assert_approx_equals");
 
-    function assert_less_than(actual, expected, description)
-    {
+    function assert_less_than(actual, expected, description) {
         /*
          * Test if a primitive number is less than another
          */
         assert(typeof actual === "number",
-               "assert_less_than", description,
-               "expected a number but got a ${type_actual}",
-               {type_actual:typeof actual});
+            "assert_less_than", description,
+            "expected a number but got a ${type_actual}",
+            {type_actual: typeof actual});
 
         assert(actual < expected,
-               "assert_less_than", description,
-               "expected a number less than ${expected} but got ${actual}",
-               {expected:expected, actual:actual});
+            "assert_less_than", description,
+            "expected a number less than ${expected} but got ${actual}",
+            {expected: expected, actual: actual});
     }
+
     expose(assert_less_than, "assert_less_than");
 
-    function assert_greater_than(actual, expected, description)
-    {
+    function assert_greater_than(actual, expected, description) {
         /*
          * Test if a primitive number is greater than another
          */
         assert(typeof actual === "number",
-               "assert_greater_than", description,
-               "expected a number but got a ${type_actual}",
-               {type_actual:typeof actual});
+            "assert_greater_than", description,
+            "expected a number but got a ${type_actual}",
+            {type_actual: typeof actual});
 
         assert(actual > expected,
-               "assert_greater_than", description,
-               "expected a number greater than ${expected} but got ${actual}",
-               {expected:expected, actual:actual});
+            "assert_greater_than", description,
+            "expected a number greater than ${expected} but got ${actual}",
+            {expected: expected, actual: actual});
     }
+
     expose(assert_greater_than, "assert_greater_than");
 
-    function assert_less_than_equal(actual, expected, description)
-    {
+    function assert_less_than_equal(actual, expected, description) {
         /*
          * Test if a primitive number is less than or equal to another
          */
         assert(typeof actual === "number",
-               "assert_less_than_equal", description,
-               "expected a number but got a ${type_actual}",
-               {type_actual:typeof actual});
+            "assert_less_than_equal", description,
+            "expected a number but got a ${type_actual}",
+            {type_actual: typeof actual});
 
         assert(actual <= expected,
-               "assert_less_than", description,
-               "expected a number less than or equal to ${expected} but got ${actual}",
-               {expected:expected, actual:actual});
+            "assert_less_than", description,
+            "expected a number less than or equal to ${expected} but got ${actual}",
+            {expected: expected, actual: actual});
     }
+
     expose(assert_less_than_equal, "assert_less_than_equal");
 
-    function assert_greater_than_equal(actual, expected, description)
-    {
+    function assert_greater_than_equal(actual, expected, description) {
         /*
          * Test if a primitive number is greater than or equal to another
          */
         assert(typeof actual === "number",
-               "assert_greater_than_equal", description,
-               "expected a number but got a ${type_actual}",
-               {type_actual:typeof actual});
+            "assert_greater_than_equal", description,
+            "expected a number but got a ${type_actual}",
+            {type_actual: typeof actual});
 
         assert(actual >= expected,
-               "assert_greater_than_equal", description,
-               "expected a number greater than or equal to ${expected} but got ${actual}",
-               {expected:expected, actual:actual});
+            "assert_greater_than_equal", description,
+            "expected a number greater than or equal to ${expected} but got ${actual}",
+            {expected: expected, actual: actual});
     }
+
     expose(assert_greater_than_equal, "assert_greater_than_equal");
 
     function assert_regexp_match(actual, expected, description) {
@@ -502,86 +560,87 @@ policies and contribution forms [3].
          * Test if a string (actual) matches a regexp (expected)
          */
         assert(expected.test(actual),
-               "assert_regexp_match", description,
-               "expected ${expected} but got ${actual}",
-               {expected:expected, actual:actual});
+            "assert_regexp_match", description,
+            "expected ${expected} but got ${actual}",
+            {expected: expected, actual: actual});
     }
+
     expose(assert_regexp_match, "assert_regexp_match");
 
     function assert_class_string(object, class_string, description) {
         assert_equals({}.toString.call(object), "[object " + class_string + "]",
-                      description);
+            description);
     }
+
     expose(assert_class_string, "assert_class_string");
 
 
     function _assert_own_property(name) {
-        return function(object, property_name, description)
-        {
+        return function (object, property_name, description) {
             assert(object.hasOwnProperty(property_name),
-                   name, description,
-                   "expected property ${p} missing", {p:property_name});
+                name, description,
+                "expected property ${p} missing", {p: property_name});
         };
     }
+
     expose(_assert_own_property("assert_exists"), "assert_exists");
     expose(_assert_own_property("assert_own_property"), "assert_own_property");
 
-    function assert_not_exists(object, property_name, description)
-    {
+    function assert_not_exists(object, property_name, description) {
         assert(!object.hasOwnProperty(property_name),
-               "assert_not_exists", description,
-               "unexpected property ${p} found", {p:property_name});
+            "assert_not_exists", description,
+            "unexpected property ${p} found", {p: property_name});
     }
+
     expose(assert_not_exists, "assert_not_exists");
 
     function _assert_inherits(name) {
-        return function (object, property_name, description)
-        {
+        return function (object, property_name, description) {
             assert(typeof object === "object",
-                   name, description,
-                   "provided value is not an object");
+                name, description,
+                "provided value is not an object");
 
             assert("hasOwnProperty" in object,
-                   name, description,
-                   "provided value is an object but has no hasOwnProperty method");
+                name, description,
+                "provided value is an object but has no hasOwnProperty method");
 
             assert(!object.hasOwnProperty(property_name),
-                   name, description,
-                   "property ${p} found on object expected in prototype chain",
-                   {p:property_name});
+                name, description,
+                "property ${p} found on object expected in prototype chain",
+                {p: property_name});
 
             assert(property_name in object,
-                   name, description,
-                   "property ${p} not found in prototype chain",
-                   {p:property_name});
+                name, description,
+                "property ${p} not found in prototype chain",
+                {p: property_name});
         };
     }
+
     expose(_assert_inherits("assert_inherits"), "assert_inherits");
     expose(_assert_inherits("assert_idl_attribute"), "assert_idl_attribute");
 
-    function assert_readonly(object, property_name, description)
-    {
-         var initial_value = object[property_name];
-         try {
-             //Note that this can have side effects in the case where
-             //the property has PutForwards
-             object[property_name] = initial_value + "a"; //XXX use some other value here?
-             assert(same_value(object[property_name], initial_value),
-                    "assert_readonly", description,
-                    "changing property ${p} succeeded",
-                    {p:property_name});
-         } finally {
-             object[property_name] = initial_value;
-         }
+    function assert_readonly(object, property_name, description) {
+        var initial_value = object[property_name];
+        try {
+            //Note that this can have side effects in the case where
+            //the property has PutForwards
+            object[property_name] = initial_value + "a"; //XXX use some other value here?
+            assert(same_value(object[property_name], initial_value),
+                "assert_readonly", description,
+                "changing property ${p} succeeded",
+                {p: property_name});
+        } finally {
+            object[property_name] = initial_value;
+        }
     }
+
     expose(assert_readonly, "assert_readonly");
 
-    function assert_throws(code, func, description)
-    {
+    function assert_throws(code, func, description) {
         try {
             func.call(this);
             assert(false, "assert_throws", description,
-                   "${func} did not throw", {func:func});
+                "${func} did not throw", {func: func});
         } catch (e) {
             if (e instanceof AssertionError) {
                 throw e;
@@ -591,11 +650,13 @@ policies and contribution forms [3].
             }
             if (typeof code === "object") {
                 assert(typeof e == "object" && "name" in e && e.name == code.name,
-                       "assert_throws", description,
-                       "${func} threw ${actual} (${actual_name}) expected ${expected} (${expected_name})",
-                                    {func:func, actual:e, actual_name:e.name,
-                                     expected:code,
-                                     expected_name:code.name});
+                    "assert_throws", description,
+                    "${func} threw ${actual} (${actual_name}) expected ${expected} (${expected_name})",
+                    {
+                        func: func, actual: e, actual_name: e.name,
+                        expected: code,
+                        expected_name: code.name
+                    });
                 return;
             }
 
@@ -660,10 +721,10 @@ policies and contribution forms [3].
                 throw new AssertionError('Test bug: unrecognized DOMException code "' + code + '" passed to assert_throws()');
             }
 
-            var required_props = { code: name_code_map[name] };
+            var required_props = {code: name_code_map[name]};
 
             if (required_props.code === 0 ||
-               ("name" in e && e.name !== e.name.toUpperCase() && e.name !== "DOMException")) {
+                ("name" in e && e.name !== e.name.toUpperCase() && e.name !== "DOMException")) {
                 // New style exception: also test the name property.
                 required_props.name = name;
             }
@@ -674,59 +735,59 @@ policies and contribution forms [3].
             //unknown other window.  TODO: Work around this somehow?
 
             assert(typeof e == "object",
-                   "assert_throws", description,
-                   "${func} threw ${e} with type ${type}, not an object",
-                   {func:func, e:e, type:typeof e});
+                "assert_throws", description,
+                "${func} threw ${e} with type ${type}, not an object",
+                {func: func, e: e, type: typeof e});
 
             for (var prop in required_props) {
                 assert(typeof e == "object" && prop in e && e[prop] == required_props[prop],
-                       "assert_throws", description,
-                       "${func} threw ${e} that is not a DOMException " + code + ": property ${prop} is equal to ${actual}, expected ${expected}",
-                       {func:func, e:e, prop:prop, actual:e[prop], expected:required_props[prop]});
+                    "assert_throws", description,
+                    "${func} threw ${e} that is not a DOMException " + code + ": property ${prop} is equal to ${actual}, expected ${expected}",
+                    {func: func, e: e, prop: prop, actual: e[prop], expected: required_props[prop]});
             }
         }
     }
+
     expose(assert_throws, "assert_throws");
 
     function assert_unreached(description) {
-         assert(false, "assert_unreached", description,
-                "Reached unreachable code");
+        assert(false, "assert_unreached", description,
+            "Reached unreachable code");
     }
+
     expose(assert_unreached, "assert_unreached");
 
-    function assert_any(assert_func, actual, expected_array)
-    {
+    function assert_any(assert_func, actual, expected_array) {
         var args = [].slice.call(arguments, 3);
         var errors = [];
         var passed = false;
         forEach(expected_array,
-                function(expected)
-                {
-                    try {
-                        assert_func.apply(this, [actual, expected].concat(args));
-                        passed = true;
-                    } catch (e) {
-                        errors.push(e.message);
-                    }
-                });
+            function (expected) {
+                try {
+                    assert_func.apply(this, [actual, expected].concat(args));
+                    passed = true;
+                } catch (e) {
+                    errors.push(e.message);
+                }
+            });
         if (!passed) {
             throw new AssertionError(errors.join("\n\n"));
         }
     }
+
     expose(assert_any, "assert_any");
 
-    function Test(name, properties)
-    {
+    function Test(name, properties) {
         if (tests.file_is_test && tests.tests.length) {
             throw new Error("Tried to create a test with file_is_test");
         }
         this.name = name;
 
         this.phases = {
-            INITIAL:0,
-            STARTED:1,
-            HAS_RESULT:2,
-            COMPLETE:3
+            INITIAL: 0,
+            STARTED: 1,
+            HAS_RESULT: 2,
+            COMPLETE: 3
         };
         this.phase = this.phases.INITIAL;
 
@@ -751,30 +812,28 @@ policies and contribution forms [3].
     }
 
     Test.statuses = {
-        PASS:0,
-        FAIL:1,
-        TIMEOUT:2,
-        NOTRUN:3
+        PASS: 0,
+        FAIL: 1,
+        TIMEOUT: 2,
+        NOTRUN: 3
     };
 
     Test.prototype = merge({}, Test.statuses);
 
-    Test.prototype.structured_clone = function()
-    {
+    Test.prototype.structured_clone = function () {
         if (!this._structured_clone) {
             var msg = this.message;
             msg = msg ? String(msg) : msg;
             this._structured_clone = merge({
-                name:String(this.name),
-                status:this.status,
-                message:msg
+                name: String(this.name),
+                status: this.status,
+                message: msg
             }, Test.statuses);
         }
         return this._structured_clone;
     };
 
-    Test.prototype.step = function(func, this_obj)
-    {
+    Test.prototype.step = function (func, this_obj) {
         if (this.phase > this.phases.STARTED) {
             return;
         }
@@ -814,31 +873,27 @@ policies and contribution forms [3].
         }
     };
 
-    Test.prototype.step_func = function(func, this_obj)
-    {
+    Test.prototype.step_func = function (func, this_obj) {
         var test_this = this;
 
         if (arguments.length === 1) {
             this_obj = test_this;
         }
 
-        return function()
-        {
+        return function () {
             return test_this.step.apply(test_this, [func, this_obj].concat(
                 Array.prototype.slice.call(arguments)));
         };
     };
 
-    Test.prototype.step_func_done = function(func, this_obj)
-    {
+    Test.prototype.step_func_done = function (func, this_obj) {
         var test_this = this;
 
         if (arguments.length === 1) {
             this_obj = test_this;
         }
 
-        return function()
-        {
+        return function () {
             if (func) {
                 test_this.step.apply(test_this, [func, this_obj].concat(
                     Array.prototype.slice.call(arguments)));
@@ -847,49 +902,43 @@ policies and contribution forms [3].
         };
     };
 
-    Test.prototype.unreached_func = function(description)
-    {
-        return this.step_func(function() {
+    Test.prototype.unreached_func = function (description) {
+        return this.step_func(function () {
             assert_unreached(description);
         });
     };
 
-    Test.prototype.add_cleanup = function(callback) {
+    Test.prototype.add_cleanup = function (callback) {
         this.cleanup_callbacks.push(callback);
     };
 
-    Test.prototype.force_timeout = function() {
+    Test.prototype.force_timeout = function () {
         this.set_status(this.TIMEOUT);
         this.phase = this.phases.HAS_RESULT;
     }
 
-    Test.prototype.set_timeout = function()
-    {
+    Test.prototype.set_timeout = function () {
         if (this.timeout_length !== null) {
             var this_obj = this;
-            this.timeout_id = setTimeout(function()
-                                         {
-                                             this_obj.timeout();
-                                         }, this.timeout_length);
+            this.timeout_id = setTimeout(function () {
+                this_obj.timeout();
+            }, this.timeout_length);
         }
     };
 
-    Test.prototype.set_status = function(status, message)
-    {
+    Test.prototype.set_status = function (status, message) {
         this.status = status;
         this.message = message;
     };
 
-    Test.prototype.timeout = function()
-    {
+    Test.prototype.timeout = function () {
         this.timeout_id = null;
         this.set_status(this.TIMEOUT, "Test timed out");
         this.phase = this.phases.HAS_RESULT;
         this.done();
     };
 
-    Test.prototype.done = function()
-    {
+    Test.prototype.done = function () {
         if (this.phase == this.phases.COMPLETE) {
             return;
         }
@@ -909,55 +958,52 @@ policies and contribution forms [3].
         this.cleanup();
     };
 
-    Test.prototype.cleanup = function() {
+    Test.prototype.cleanup = function () {
         forEach(this.cleanup_callbacks,
-                function(cleanup_callback) {
-                    cleanup_callback();
-                });
+            function (cleanup_callback) {
+                cleanup_callback();
+            });
     };
 
     /*
      * Harness
      */
 
-    function TestsStatus()
-    {
+    function TestsStatus() {
         this.status = null;
         this.message = null;
     }
 
     TestsStatus.statuses = {
-        OK:0,
-        ERROR:1,
-        TIMEOUT:2
+        OK: 0,
+        ERROR: 1,
+        TIMEOUT: 2
     };
 
     TestsStatus.prototype = merge({}, TestsStatus.statuses);
 
-    TestsStatus.prototype.structured_clone = function()
-    {
+    TestsStatus.prototype.structured_clone = function () {
         if (!this._structured_clone) {
             var msg = this.message;
             msg = msg ? String(msg) : msg;
             this._structured_clone = merge({
-                status:this.status,
-                message:msg
+                status: this.status,
+                message: msg
             }, TestsStatus.statuses);
         }
         return this._structured_clone;
     };
 
-    function Tests()
-    {
+    function Tests() {
         this.tests = [];
         this.num_pending = 0;
 
         this.phases = {
-            INITIAL:0,
-            SETUP:1,
-            HAVE_TESTS:2,
-            HAVE_RESULTS:3,
-            COMPLETE:4
+            INITIAL: 0,
+            SETUP: 1,
+            HAVE_TESTS: 2,
+            HAVE_RESULTS: 3,
+            COMPLETE: 4
         };
         this.phase = this.phases.INITIAL;
 
@@ -985,20 +1031,17 @@ policies and contribution forms [3].
         var this_obj = this;
 
         on_event(window, "load",
-                 function()
-                 {
-                     this_obj.all_loaded = true;
-                     if (this_obj.all_done())
-                     {
-                         this_obj.complete();
-                     }
-                 });
+            function () {
+                this_obj.all_loaded = true;
+                if (this_obj.all_done()) {
+                    this_obj.complete();
+                }
+            });
 
         this.set_timeout();
     }
 
-    Tests.prototype.setup = function(func, properties)
-    {
+    Tests.prototype.setup = function (func, properties) {
         if (this.phase >= this.phases.HAVE_RESULTS) {
             return;
         }
@@ -1018,8 +1061,7 @@ policies and contribution forms [3].
                     this.wait_for_finish = true;
                 } else if (p == "explicit_timeout" && value) {
                     this.timeout_length = null;
-                    if (this.timeout_id)
-                    {
+                    if (this.timeout_id) {
                         clearTimeout(this.timeout_id);
                     }
                 } else if (p == "timeout_multiplier") {
@@ -1039,7 +1081,7 @@ policies and contribution forms [3].
         this.set_timeout();
     };
 
-    Tests.prototype.set_file_is_test = function() {
+    Tests.prototype.set_file_is_test = function () {
         if (this.tests.length > 0) {
             throw new Error("Tried to set file as test after creating a test");
         }
@@ -1049,7 +1091,7 @@ policies and contribution forms [3].
         async_test();
     };
 
-    Tests.prototype.get_timeout = function() {
+    Tests.prototype.get_timeout = function () {
         var metas = document.getElementsByTagName("meta");
         for (var i = 0; i < metas.length; i++) {
             if (metas[i].name == "timeout") {
@@ -1062,33 +1104,31 @@ policies and contribution forms [3].
         return settings.harness_timeout.normal;
     };
 
-    Tests.prototype.set_timeout = function() {
+    Tests.prototype.set_timeout = function () {
         var this_obj = this;
         clearTimeout(this.timeout_id);
         if (this.timeout_length !== null) {
-            this.timeout_id = setTimeout(function() {
-                                             this_obj.timeout();
-                                         }, this.timeout_length);
+            this.timeout_id = setTimeout(function () {
+                this_obj.timeout();
+            }, this.timeout_length);
         }
     };
 
-    Tests.prototype.timeout = function() {
+    Tests.prototype.timeout = function () {
         if (this.status.status === null) {
             this.status.status = this.status.TIMEOUT;
         }
         this.complete();
     };
 
-    Tests.prototype.end_wait = function()
-    {
+    Tests.prototype.end_wait = function () {
         this.wait_for_finish = false;
         if (this.all_done()) {
             this.complete();
         }
     };
 
-    Tests.prototype.push = function(test)
-    {
+    Tests.prototype.push = function (test) {
         if (this.phase < this.phases.HAVE_TESTS) {
             this.start();
         }
@@ -1096,46 +1136,42 @@ policies and contribution forms [3].
         this.tests.push(test);
     };
 
-    Tests.prototype.all_done = function() {
-        return (this.tests.length > 0 && this.all_loaded && this.num_pending === 0 &&
-                !this.wait_for_finish && !this.processing_callbacks);
+    Tests.prototype.all_done = function () {
+        return (this.tests.length > 0 && this.all_loaded && this.num_pending === 0 && !this.wait_for_finish && !this.processing_callbacks);
     };
 
-    Tests.prototype.start = function() {
+    Tests.prototype.start = function () {
         this.phase = this.phases.HAVE_TESTS;
         this.notify_start();
     };
 
-    Tests.prototype.notify_start = function() {
+    Tests.prototype.notify_start = function () {
         var this_obj = this;
-        forEach (this.start_callbacks,
-                 function(callback)
-                 {
-                     callback(this_obj.properties);
-                 });
+        forEach(this.start_callbacks,
+            function (callback) {
+                callback(this_obj.properties);
+            });
         forEach_windows(
-                function(w, is_same_origin)
-                {
-                    if (is_same_origin && w.start_callback) {
-                        try {
-                            w.start_callback(this_obj.properties);
-                        } catch (e) {
-                            if (debug) {
-                                throw e;
-                            }
+            function (w, is_same_origin) {
+                if (is_same_origin && w.start_callback) {
+                    try {
+                        w.start_callback(this_obj.properties);
+                    } catch (e) {
+                        if (debug) {
+                            throw e;
                         }
                     }
-                    if (supports_post_message(w) && w !== self) {
-                        w.postMessage({
-                            type: "start",
-                            properties: this_obj.properties
-                        }, "*");
-                    }
-                });
+                }
+                if (supports_post_message(w) && w !== self) {
+                    w.postMessage({
+                        type: "start",
+                        properties: this_obj.properties
+                    }, "*");
+                }
+            });
     };
 
-    Tests.prototype.result = function(test)
-    {
+    Tests.prototype.result = function (test) {
         if (this.phase > this.phases.HAVE_RESULTS) {
             return;
         }
@@ -1144,49 +1180,46 @@ policies and contribution forms [3].
         this.notify_result(test);
     };
 
-    Tests.prototype.notify_result = function(test) {
+    Tests.prototype.notify_result = function (test) {
         var this_obj = this;
         this.processing_callbacks = true;
         forEach(this.test_done_callbacks,
-                function(callback)
-                {
-                    callback(test, this_obj);
-                });
+            function (callback) {
+                callback(test, this_obj);
+            });
 
         forEach_windows(
-                function(w, is_same_origin)
-                {
-                    if (is_same_origin && w.result_callback) {
-                        try {
-                            w.result_callback(test);
-                        } catch (e) {
-                            if (debug) {
-                                throw e;
-                            }
+            function (w, is_same_origin) {
+                if (is_same_origin && w.result_callback) {
+                    try {
+                        w.result_callback(test);
+                    } catch (e) {
+                        if (debug) {
+                            throw e;
                         }
                     }
-                    if (supports_post_message(w) && w !== self) {
-                        w.postMessage({
-                            type: "result",
-                            test: test.structured_clone()
-                        }, "*");
-                    }
-                });
+                }
+                if (supports_post_message(w) && w !== self) {
+                    w.postMessage({
+                        type: "result",
+                        test: test.structured_clone()
+                    }, "*");
+                }
+            });
         this.processing_callbacks = false;
         if (this_obj.all_done()) {
             this_obj.complete();
         }
     };
 
-    Tests.prototype.complete = function() {
+    Tests.prototype.complete = function () {
         if (this.phase === this.phases.COMPLETE) {
             return;
         }
         this.phase = this.phases.COMPLETE;
         var this_obj = this;
         this.tests.forEach(
-            function(x)
-            {
+            function (x) {
                 if (x.status === x.NOTRUN) {
                     this_obj.notify_result(x);
                     x.cleanup();
@@ -1196,50 +1229,46 @@ policies and contribution forms [3].
         this.notify_complete();
     };
 
-    Tests.prototype.notify_complete = function()
-    {
+    Tests.prototype.notify_complete = function () {
         clearTimeout(this.timeout_id);
         var this_obj = this;
         var tests = map(this_obj.tests,
-                        function(test)
-                        {
-                            return test.structured_clone();
-                        });
+            function (test) {
+                return test.structured_clone();
+            });
         if (this.status.status === null) {
             this.status.status = this.status.OK;
         }
 
-        forEach (this.all_done_callbacks,
-                 function(callback)
-                 {
-                     callback(this_obj.tests, this_obj.status);
-                 });
+        forEach(this.all_done_callbacks,
+            function (callback) {
+                callback(this_obj.tests, this_obj.status);
+            });
 
         forEach_windows(
-                function(w, is_same_origin)
-                {
-                    if (is_same_origin && w.completion_callback) {
-                        try {
-                            w.completion_callback(this_obj.tests, this_obj.status);
-                        } catch (e) {
-                            if (debug) {
-                                throw e;
-                            }
+            function (w, is_same_origin) {
+                if (is_same_origin && w.completion_callback) {
+                    try {
+                        w.completion_callback(this_obj.tests, this_obj.status);
+                    } catch (e) {
+                        if (debug) {
+                            throw e;
                         }
                     }
-                    if (supports_post_message(w) && w !== self) {
-                        w.postMessage({
-                            type: "complete",
-                            tests: tests,
-                            status: this_obj.status.structured_clone()
-                        }, "*");
-                    }
-                });
+                }
+                if (supports_post_message(w) && w !== self) {
+                    w.postMessage({
+                        type: "complete",
+                        tests: tests,
+                        status: this_obj.status.structured_clone()
+                    }, "*");
+                }
+            });
     };
 
     var tests = new Tests();
 
-    addEventListener("error", function(e) {
+    addEventListener("error", function (e) {
         if (tests.file_is_test) {
             var test = tests.tests[0];
             if (test.phase >= test.phases.HAS_RESULT) {
@@ -1261,20 +1290,19 @@ policies and contribution forms [3].
             tests.timeout();
         }
     }
+
     expose(timeout, 'timeout');
 
     function add_start_callback(callback) {
         tests.start_callbacks.push(callback);
     }
 
-    function add_result_callback(callback)
-    {
+    function add_result_callback(callback) {
         tests.test_done_callbacks.push(callback);
     }
 
-    function add_completion_callback(callback)
-    {
-       tests.all_done_callbacks.push(callback);
+    function add_completion_callback(callback) {
+        tests.all_done_callbacks.push(callback);
     }
 
     expose(add_start_callback, 'add_start_callback');
@@ -1283,7 +1311,7 @@ policies and contribution forms [3].
 
     /*
      * Output listener
-    */
+     */
 
     function Output() {
         this.output_document = document;
@@ -1298,7 +1326,7 @@ policies and contribution forms [3].
     Output.prototype.HAVE_RESULTS = 2;
     Output.prototype.COMPLETE = 3;
 
-    Output.prototype.setup = function(properties) {
+    Output.prototype.setup = function (properties) {
         if (this.phase > this.INITIAL) {
             return;
         }
@@ -1306,10 +1334,10 @@ policies and contribution forms [3].
         //If output is disabled in testharnessreport.js the test shouldn't be
         //able to override that
         this.enabled = this.enabled && (properties.hasOwnProperty("output") ?
-                                        properties.output : settings.output);
+            properties.output : settings.output);
     };
 
-    Output.prototype.init = function(properties) {
+    Output.prototype.init = function (properties) {
         if (this.phase >= this.STARTED) {
             return;
         }
@@ -1321,7 +1349,7 @@ policies and contribution forms [3].
         this.phase = this.STARTED;
     };
 
-    Output.prototype.resolve_log = function() {
+    Output.prototype.resolve_log = function () {
         var output_document;
         if (typeof this.output_document === "function") {
             output_document = this.output_document.apply(undefined);
@@ -1344,7 +1372,7 @@ policies and contribution forms [3].
         this.output_node = node;
     };
 
-    Output.prototype.show_status = function() {
+    Output.prototype.show_status = function () {
         if (this.phase < this.STARTED) {
             this.init();
         }
@@ -1361,8 +1389,8 @@ policies and contribution forms [3].
                 (this.done_count < 1000 && this.done_count % 100 === 0) ||
                 this.done_count % 1000 === 0) {
                 this.output_node.textContent = "Running, " +
-                    this.done_count + " complete, " +
-                    tests.num_pending + " remain";
+                this.done_count + " complete, " +
+                tests.num_pending + " remain";
             }
         }
     };
@@ -1412,98 +1440,92 @@ policies and contribution forms [3].
 
         var status_number = {};
         forEach(tests,
-                function(test) {
-                    var status = status_text[test.status];
-                    if (status_number.hasOwnProperty(status)) {
-                        status_number[status] += 1;
-                    } else {
-                        status_number[status] = 1;
-                    }
-                });
+            function (test) {
+                var status = status_text[test.status];
+                if (status_number.hasOwnProperty(status)) {
+                    status_number[status] += 1;
+                } else {
+                    status_number[status] = 1;
+                }
+            });
 
-        function status_class(status)
-        {
+        function status_class(status) {
             return status.replace(/\s/g, '').toLowerCase();
         }
 
-        var summary_template = ["section", {"id":"summary"},
-                                ["h2", {}, "Summary"],
-                                function()
-                                {
+        var summary_template = ["section", {"id": "summary"},
+            ["h2", {}, "Summary"],
+            function () {
 
-                                    var status = status_text_harness[harness_status.status];
-                                    var rv = [["section", {},
-                                               ["p", {},
-                                                "Harness status: ",
-                                                ["span", {"class":status_class(status)},
-                                                 status
-                                                ],
-                                               ]
-                                              ]];
+                var status = status_text_harness[harness_status.status];
+                var rv = [["section", {},
+                    ["p", {},
+                        "Harness status: ",
+                        ["span", {"class": status_class(status)},
+                            status
+                        ],
+                    ]
+                ]];
 
-                                    if (harness_status.status === harness_status.ERROR) {
-                                        rv[0].push(["pre", {}, harness_status.message]);
-                                    }
-                                    return rv;
-                                },
-                                ["p", {}, "Found ${num_tests} tests"],
-                                function() {
-                                    var rv = [["div", {}]];
-                                    var i = 0;
-                                    while (status_text.hasOwnProperty(i)) {
-                                        if (status_number.hasOwnProperty(status_text[i])) {
-                                            var status = status_text[i];
-                                            rv[0].push(["div", {"class":status_class(status)},
-                                                        ["label", {},
-                                                         ["input", {type:"checkbox", checked:"checked"}],
-                                                         status_number[status] + " " + status]]);
-                                        }
-                                        i++;
-                                    }
-                                    return rv;
-                                },
-                               ];
+                if (harness_status.status === harness_status.ERROR) {
+                    rv[0].push(["pre", {}, harness_status.message]);
+                }
+                return rv;
+            },
+            ["p", {}, "Found ${num_tests} tests"],
+            function () {
+                var rv = [["div", {}]];
+                var i = 0;
+                while (status_text.hasOwnProperty(i)) {
+                    if (status_number.hasOwnProperty(status_text[i])) {
+                        var status = status_text[i];
+                        rv[0].push(["div", {"class": status_class(status)},
+                            ["label", {},
+                                ["input", {type: "checkbox", checked: "checked"}],
+                                status_number[status] + " " + status]]);
+                    }
+                    i++;
+                }
+                return rv;
+            },
+        ];
 
-        log.appendChild(render(summary_template, {num_tests:tests.length}, output_document));
+        log.appendChild(render(summary_template, {num_tests: tests.length}, output_document));
 
         forEach(output_document.querySelectorAll("section#summary label"),
-                function(element)
-                {
-                    on_event(element, "click",
-                             function(e)
-                             {
-                                 if (output_document.getElementById("results") === null) {
-                                     e.preventDefault();
-                                     return;
-                                 }
-                                 var result_class = element.parentNode.getAttribute("class");
-                                 var style_element = output_document.querySelector("style#hide-" + result_class);
-                                 var input_element = element.querySelector("input");
-                                 if (!style_element && !input_element.checked) {
-                                     style_element = output_document.createElementNS(xhtml_ns, "style");
-                                     style_element.id = "hide-" + result_class;
-                                     style_element.textContent = "table#results > tbody > tr."+result_class+"{display:none}";
-                                     output_document.body.appendChild(style_element);
-                                 } else if (style_element && input_element.checked) {
-                                     style_element.parentNode.removeChild(style_element);
-                                 }
-                             });
-                });
+            function (element) {
+                on_event(element, "click",
+                    function (e) {
+                        if (output_document.getElementById("results") === null) {
+                            e.preventDefault();
+                            return;
+                        }
+                        var result_class = element.parentNode.getAttribute("class");
+                        var style_element = output_document.querySelector("style#hide-" + result_class);
+                        var input_element = element.querySelector("input");
+                        if (!style_element && !input_element.checked) {
+                            style_element = output_document.createElementNS(xhtml_ns, "style");
+                            style_element.id = "hide-" + result_class;
+                            style_element.textContent = "table#results > tbody > tr." + result_class + "{display:none}";
+                            output_document.body.appendChild(style_element);
+                        } else if (style_element && input_element.checked) {
+                            style_element.parentNode.removeChild(style_element);
+                        }
+                    });
+            });
 
         // This use of innerHTML plus manual escaping is not recommended in
         // general, but is necessary here for performance.  Using textContent
         // on each individual <td> adds tens of seconds of execution time for
         // large test suites (tens of thousands of tests).
-        function escape_html(s)
-        {
+        function escape_html(s) {
             return s.replace(/\&/g, "&amp;")
                 .replace(/</g, "&lt;")
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#39;");
         }
 
-        function has_assertions()
-        {
+        function has_assertions() {
             for (var i = 0; i < tests.length; i++) {
                 if (tests[i].properties.hasOwnProperty("assert")) {
                     return true;
@@ -1512,8 +1534,7 @@ policies and contribution forms [3].
             return false;
         }
 
-        function get_assertion(test)
-        {
+        function get_assertion(test) {
             if (test.properties.hasOwnProperty("assert")) {
                 if (Array.isArray(test.properties.assert)) {
                     return test.properties.assert.join(' ');
@@ -1532,31 +1553,37 @@ policies and contribution forms [3].
             "<tbody>";
         for (var i = 0; i < tests.length; i++) {
             html += '<tr class="' +
-                escape_html(status_class(status_text[tests[i].status])) +
-                '"><td>' +
-                escape_html(status_text[tests[i].status]) +
-                "</td><td>" +
-                escape_html(tests[i].name) +
-                "</td><td>" +
-                (assertions ? escape_html(get_assertion(tests[i])) + "</td><td>" : "") +
-                escape_html(tests[i].message ? tests[i].message : " ") +
-                "</td></tr>";
+            escape_html(status_class(status_text[tests[i].status])) +
+            '"><td>' +
+            escape_html(status_text[tests[i].status]) +
+            "</td><td>" +
+            escape_html(tests[i].name) +
+            "</td><td>" +
+            (assertions ? escape_html(get_assertion(tests[i])) + "</td><td>" : "") +
+            escape_html(tests[i].message ? tests[i].message : " ") +
+            "</td></tr>";
         }
         html += "</tbody></table>";
         try {
             log.lastChild.innerHTML = html;
         } catch (e) {
             log.appendChild(document.createElementNS(xhtml_ns, "p"))
-               .textContent = "Setting innerHTML for the log threw an exception.";
+                .textContent = "Setting innerHTML for the log threw an exception.";
             log.appendChild(document.createElementNS(xhtml_ns, "pre"))
-               .textContent = html;
+                .textContent = html;
         }
     };
 
     var output = new Output();
-    add_start_callback(function (properties) {output.init(properties);});
-    add_result_callback(function () {output.show_status();});
-    add_completion_callback(function (tests, harness_status) {output.show_results(tests, harness_status);});
+    add_start_callback(function (properties) {
+        output.init(properties);
+    });
+    add_result_callback(function () {
+        output.show_status();
+    });
+    add_completion_callback(function (tests, harness_status) {
+        output.show_results(tests, harness_status);
+    });
 
     /*
      * Template code
@@ -1591,13 +1618,11 @@ policies and contribution forms [3].
      *
      */
 
-    function is_single_node(template)
-    {
+    function is_single_node(template) {
         return typeof template[0] === "string";
     }
 
-    function substitute(template, substitutions)
-    {
+    function substitute(template, substitutions) {
         if (typeof template === "function") {
             var replacement = template(substitutions);
             if (!replacement) {
@@ -1611,13 +1636,14 @@ policies and contribution forms [3].
             return substitute_single(template, substitutions);
         }
 
-        return filter(map(template, function(x) {
-                              return substitute(x, substitutions);
-                          }), function(x) {return x !== null;});
+        return filter(map(template, function (x) {
+            return substitute(x, substitutions);
+        }), function (x) {
+            return x !== null;
+        });
     }
 
-    function substitute_single(template, substitutions)
-    {
+    function substitute_single(template, substitutions) {
         var substitution_re = /\$\{([^ }]*)\}/g;
 
         function do_substitution(input) {
@@ -1632,8 +1658,7 @@ policies and contribution forms [3].
             return rv;
         }
 
-        function substitute_attrs(attrs, rv)
-        {
+        function substitute_attrs(attrs, rv) {
             rv[1] = {};
             for (var name in template[1]) {
                 if (attrs.hasOwnProperty(name)) {
@@ -1644,8 +1669,7 @@ policies and contribution forms [3].
             }
         }
 
-        function substitute_children(children, rv)
-        {
+        function substitute_children(children, rv) {
             for (var i = 0; i < children.length; i++) {
                 if (children[i] instanceof Object) {
                     var replacement = substitute(children[i], substitutions);
@@ -1676,8 +1700,7 @@ policies and contribution forms [3].
         return rv;
     }
 
-    function make_dom_single(template, doc)
-    {
+    function make_dom_single(template, doc) {
         var output_document = doc || document;
         var element;
         if (template[0] === "{text}") {
@@ -1707,58 +1730,54 @@ policies and contribution forms [3].
     }
 
 
-
-    function make_dom(template, substitutions, output_document)
-    {
+    function make_dom(template, substitutions, output_document) {
         if (is_single_node(template)) {
             return make_dom_single(template, output_document);
         }
 
-        return map(template, function(x) {
-                       return make_dom_single(x, output_document);
-                   });
+        return map(template, function (x) {
+            return make_dom_single(x, output_document);
+        });
     }
 
-    function render(template, substitutions, output_document)
-    {
+    function render(template, substitutions, output_document) {
         return make_dom(substitute(template, substitutions), output_document);
     }
 
     /*
      * Utility funcions
      */
-    function assert(expected_true, function_name, description, error, substitutions)
-    {
+    function assert(expected_true, function_name, description, error, substitutions) {
         if (tests.tests.length === 0) {
             tests.set_file_is_test();
         }
         if (expected_true !== true) {
             var msg = make_message(function_name, description,
-                                   error, substitutions);
+                error, substitutions);
             throw new AssertionError(msg);
         }
     }
 
-    function AssertionError(message)
-    {
+    function AssertionError(message) {
         this.message = message;
     }
 
-    AssertionError.prototype.toString = function() {
+    AssertionError.prototype.toString = function () {
         return this.message;
     };
 
-    function make_message(function_name, description, error, substitutions)
-    {
+    function make_message(function_name, description, error, substitutions) {
         for (var p in substitutions) {
             if (substitutions.hasOwnProperty(p)) {
                 substitutions[p] = format_value(substitutions[p]);
             }
         }
         var node_form = substitute(["{text}", "${function_name}: ${description}" + error],
-                                   merge({function_name:function_name,
-                                          description:(description?description + " ":"")},
-                                          substitutions));
+            merge({
+                    function_name: function_name,
+                    description: (description ? description + " " : "")
+                },
+                substitutions));
         return node_form.slice(1).join("");
     }
 
@@ -1775,8 +1794,7 @@ policies and contribution forms [3].
         return rv;
     }
 
-    function map(array, callable, thisObj)
-    {
+    function map(array, callable, thisObj) {
         var rv = [];
         rv.length = array.length;
         for (var i = 0; i < array.length; i++) {
@@ -1787,13 +1805,11 @@ policies and contribution forms [3].
         return rv;
     }
 
-    function extend(array, items)
-    {
+    function extend(array, items) {
         Array.prototype.push.apply(array, items);
     }
 
-    function forEach (array, callback, thisObj)
-    {
+    function forEach(array, callback, thisObj) {
         for (var i = 0; i < array.length; i++) {
             if (array.hasOwnProperty(i)) {
                 callback.call(thisObj, array[i], i, array);
@@ -1801,8 +1817,7 @@ policies and contribution forms [3].
         }
     }
 
-    function merge(a,b)
-    {
+    function merge(a, b) {
         var rv = {};
         var p;
         for (p in a) {
@@ -1814,8 +1829,7 @@ policies and contribution forms [3].
         return rv;
     }
 
-    function expose(object, name)
-    {
+    function expose(object, name) {
         var components = name.split(".");
         var target = window;
         for (var i = 0; i < components.length - 1; i++) {
@@ -1871,10 +1885,9 @@ policies and contribution forms [3].
         }
 
         forEach(cache,
-                function(a)
-                {
-                    callback.apply(null, a);
-                });
+            function (a) {
+                callback.apply(null, a);
+            });
     }
 
     function is_same_origin(w) {
@@ -1886,8 +1899,7 @@ policies and contribution forms [3].
         }
     }
 
-    function supports_post_message(w)
-    {
+    function supports_post_message(w) {
         var supports;
         var type;
         // Given IE  implements postMessage across nested iframes but not across

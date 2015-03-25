@@ -17,4 +17,4 @@ var webAnimationsMinifill = {};
 var webAnimationsMaxifill = {};
 
 if (!WEB_ANIMATIONS_TESTING)
-  var webAnimationsTesting = null;
+    var webAnimationsTesting = null;

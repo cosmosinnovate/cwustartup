@@ -15,40 +15,40 @@ limitations under the License.
 -->
 <!DOCTYPE html>
 <script>
-var expected_failures = [
-  {
-    browser_configurations: [{ chrome: true, version: '28' }],
-    tests: ['Failing on Chrome 28'],
-    message: 'This test is deliberately broken on Chrome 28.',
-  }, {
-    browser_configurations: [{ chrome: true }],
-    tests: ['Chrome for regexing'],
-    message: 'This test is deliberately broken on all Chrome versions.',
-  }, {
-    browser_configurations: [{ firefox: true }],
-    tests: ['Failing on all Firefox'],
-    message: 'This test is deliberately broken on all Firefox versions.',
-  }
-];
+    var expected_failures = [
+        {
+            browser_configurations: [{chrome: true, version: '28'}],
+            tests: ['Failing on Chrome 28'],
+            message: 'This test is deliberately broken on Chrome 28.',
+        }, {
+            browser_configurations: [{chrome: true}],
+            tests: ['Chrome for regexing'],
+            message: 'This test is deliberately broken on all Chrome versions.',
+        }, {
+            browser_configurations: [{firefox: true}],
+            tests: ['Failing on all Firefox'],
+            message: 'This test is deliberately broken on all Firefox versions.',
+        }
+    ];
 </script>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-test(function() {
-  assert_false(/Firefox/.test(navigator.userAgent));
-}, 'Failing on all Firefox');
+    test(function () {
+        assert_false(/Firefox/.test(navigator.userAgent));
+    }, 'Failing on all Firefox');
 
-test(function() {
-  assert_false(/Chrome\/28/.test(navigator.userAgent));
-}, 'Failing on Chrome 28');
+    test(function () {
+        assert_false(/Chrome\/28/.test(navigator.userAgent));
+    }, 'Failing on Chrome 28');
 
-test(function() {
-  assert_false(/Chrome/.test(navigator.userAgent));
-}, 'Failing on all Chrome for regexing 1');
+    test(function () {
+        assert_false(/Chrome/.test(navigator.userAgent));
+    }, 'Failing on all Chrome for regexing 1');
 
-test(function() {
-  assert_false(/Chrome/.test(navigator.userAgent));
-}, 'Failing on all Chrome for regexing 2');
+    test(function () {
+        assert_false(/Chrome/.test(navigator.userAgent));
+    }, 'Failing on all Chrome for regexing 2');
 
 </script>

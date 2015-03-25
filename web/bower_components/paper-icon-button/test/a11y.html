@@ -9,60 +9,60 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>paper-icon-button a11y tests</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>paper-icon-button a11y tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <script src="../../webcomponentsjs/webcomponents.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../webcomponentsjs/webcomponents.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
 
-  <link href="../../core-icons/core-icons.html" rel="import">
-  <link href="../paper-icon-button.html" rel="import">
+    <link href="../../core-icons/core-icons.html" rel="import">
+    <link href="../paper-icon-button.html" rel="import">
 
 </head>
 <body>
 
-  <paper-icon-button id="fab1" icon="add"></paper-icon-button>
+<paper-icon-button id="fab1" icon="add"></paper-icon-button>
 
-  <paper-icon-button id="fab2" icon="add" disabled></paper-icon-button>
+<paper-icon-button id="fab2" icon="add" disabled></paper-icon-button>
 
-  <paper-icon-button id="fab3" icon="add" aria-label="custom"></paper-icon-button>
+<paper-icon-button id="fab3" icon="add" aria-label="custom"></paper-icon-button>
 
-  <script>
+<script>
 
     var f1 = document.getElementById('fab1');
     var f2 = document.getElementById('fab2');
     var f3 = document.getElementById('fab3');
 
-    test('aria role is a button', function() {
-      assert.strictEqual(f1.getAttribute('role'), 'button');
+    test('aria role is a button', function () {
+        assert.strictEqual(f1.getAttribute('role'), 'button');
     });
 
-    test('aria-disabled is set', function(done) {
-      assert.ok(f2.hasAttribute('aria-disabled'));
-      flush(function() {
-        f2.removeAttribute('disabled');
-        flush(function() {
-          assert.ok(!f2.hasAttribute('aria-disabled'));
-          done();
+    test('aria-disabled is set', function (done) {
+        assert.ok(f2.hasAttribute('aria-disabled'));
+        flush(function () {
+            f2.removeAttribute('disabled');
+            flush(function () {
+                assert.ok(!f2.hasAttribute('aria-disabled'));
+                done();
+            });
         });
-      });
     });
 
-    test('aria-label is set', function() {
-      assert.strictEqual(f1.getAttribute('aria-label'), 'add');
+    test('aria-label is set', function () {
+        assert.strictEqual(f1.getAttribute('aria-label'), 'add');
     });
 
-    test('user-defined aria-label is preserved', function(done) {
-      assert.strictEqual(f3.getAttribute('aria-label'), 'custom');
-      f3.icon = 'arrow-forward';
-      flush(function() {
+    test('user-defined aria-label is preserved', function (done) {
         assert.strictEqual(f3.getAttribute('aria-label'), 'custom');
-        done();
-      });
+        f3.icon = 'arrow-forward';
+        flush(function () {
+            assert.strictEqual(f3.getAttribute('aria-label'), 'custom');
+            done();
+        });
     });
 
-  </script>
+</script>
 
 </body>
 </html>

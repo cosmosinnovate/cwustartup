@@ -105,112 +105,112 @@ Available transitions
 <link rel="import" href="core-transition.html">
 
 <polymer-element name="core-transition-css" extends="core-transition" attributes="transitionType">
-<template>
-  <link no-shim rel="stylesheet" href="core-transition-overlay.css">
-</template>
-<script>
+    <template>
+        <link no-shim rel="stylesheet" href="core-transition-overlay.css">
+    </template>
+    <script>
 
-  Polymer('core-transition-css', {
-    
-    /**
-     * The class that will be applied to all animated nodes.
-     *
-     * @attribute baseClass
-     * @type string
-     * @default "core-transition"
-     */
-    baseClass: 'core-transition',
+        Polymer('core-transition-css', {
 
-    /**
-     * The class that will be applied to nodes in the opened state.
-     *
-     * @attribute openedClass
-     * @type string
-     * @default "core-opened"
-     */
-    openedClass: 'core-opened',
+            /**
+             * The class that will be applied to all animated nodes.
+             *
+             * @attribute baseClass
+             * @type string
+             * @default "core-transition"
+             */
+            baseClass: 'core-transition',
 
-    /**
-     * The class that will be applied to nodes in the closed state.
-     *
-     * @attribute closedClass
-     * @type string
-     * @default "core-closed"
-     */
-    closedClass: 'core-closed',
+            /**
+             * The class that will be applied to nodes in the opened state.
+             *
+             * @attribute openedClass
+             * @type string
+             * @default "core-opened"
+             */
+            openedClass: 'core-opened',
 
-    /**
-     * Event to listen to for animation completion.
-     *
-     * @attribute completeEventName
-     * @type string
-     * @default "transitionEnd"
-     */
-    completeEventName: 'transitionend',
+            /**
+             * The class that will be applied to nodes in the closed state.
+             *
+             * @attribute closedClass
+             * @type string
+             * @default "core-closed"
+             */
+            closedClass: 'core-closed',
 
-    publish: {
-      /**
-       * A secondary configuration attribute for the animation. The class
-       * `<baseClass>-<transitionType` is applied to the animated node during
-       * `setup`.
-       *
-       * @attribute transitionType
-       * @type string
-       */
-      transitionType: null
-    },
+            /**
+             * Event to listen to for animation completion.
+             *
+             * @attribute completeEventName
+             * @type string
+             * @default "transitionEnd"
+             */
+            completeEventName: 'transitionend',
 
-    registerCallback: function(element) {
-      this.transitionStyle = element.templateContent().firstElementChild;
-    },
+            publish: {
+                /**
+                 * A secondary configuration attribute for the animation. The class
+                 * `<baseClass>-<transitionType` is applied to the animated node during
+                 * `setup`.
+                 *
+                 * @attribute transitionType
+                 * @type string
+                 */
+                transitionType: null
+            },
 
-    // template is just for loading styles, we don't need a shadowRoot
-    fetchTemplate: function() {
-      return null;
-    },
+            registerCallback: function (element) {
+                this.transitionStyle = element.templateContent().firstElementChild;
+            },
 
-    go: function(node, state) {
-      if (state.opened !== undefined) {
-        this.transitionOpened(node, state.opened);
-      }
-    },
+            // template is just for loading styles, we don't need a shadowRoot
+            fetchTemplate: function () {
+                return null;
+            },
 
-    setup: function(node) {
-      if (!node._hasTransitionStyle) {
-        if (!node.shadowRoot) {
-          node.createShadowRoot().innerHTML = '<content></content>';
-        }
-        this.installScopeStyle(this.transitionStyle, 'transition',
-            node.shadowRoot);
-        node._hasTransitionStyle = true;
-      }
-      node.classList.add(this.baseClass);
-      if (this.transitionType) {
-        node.classList.add(this.baseClass + '-' + this.transitionType);
-      }
-    },
+            go: function (node, state) {
+                if (state.opened !== undefined) {
+                    this.transitionOpened(node, state.opened);
+                }
+            },
 
-    teardown: function(node) {
-      node.classList.remove(this.baseClass);
-      if (this.transitionType) {
-        node.classList.remove(this.baseClass + '-' + this.transitionType);
-      }
-    },
+            setup: function (node) {
+                if (!node._hasTransitionStyle) {
+                    if (!node.shadowRoot) {
+                        node.createShadowRoot().innerHTML = '<content></content>';
+                    }
+                    this.installScopeStyle(this.transitionStyle, 'transition',
+                            node.shadowRoot);
+                    node._hasTransitionStyle = true;
+                }
+                node.classList.add(this.baseClass);
+                if (this.transitionType) {
+                    node.classList.add(this.baseClass + '-' + this.transitionType);
+                }
+            },
 
-    transitionOpened: function(node, opened) {
-      this.listenOnce(node, this.completeEventName, function() {
-        node.classList.toggle(this.revealedClass, opened);
-        if (!opened) {
-          node.classList.remove(this.closedClass);
-        }
-        this.complete(node);
-      });
-      node.classList.toggle(this.openedClass, opened);
-      node.classList.toggle(this.closedClass, !opened);
-    }
+            teardown: function (node) {
+                node.classList.remove(this.baseClass);
+                if (this.transitionType) {
+                    node.classList.remove(this.baseClass + '-' + this.transitionType);
+                }
+            },
 
-  });
-</script>
+            transitionOpened: function (node, opened) {
+                this.listenOnce(node, this.completeEventName, function () {
+                    node.classList.toggle(this.revealedClass, opened);
+                    if (!opened) {
+                        node.classList.remove(this.closedClass);
+                    }
+                    this.complete(node);
+                });
+                node.classList.toggle(this.openedClass, opened);
+                node.classList.toggle(this.closedClass, !opened);
+            }
+
+        });
+    </script>
 </polymer-element>
 
 <core-transition-css id="core-transition-fade"></core-transition-css>

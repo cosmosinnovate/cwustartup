@@ -14,29 +14,31 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-#parent, #test {
-  height: 600px;
-}
-body {
-  margin: 0px;
-}
+    #parent, #test {
+        height: 600px;
+    }
+
+    body {
+        margin: 0px;
+    }
 </style>
 <body>
 <div id="parent" style='background:lightsteelblue'>
-  <div style='background:red' id='test'></div>
+    <div style='background:red' id='test'></div>
 </div>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
-document.timeline.play(new Animation(document.querySelector('#test'), [
-  {display: 'none'},
-  {display: 'block'},
-  {display: 'none'},
-  {display: 'block'},
-  {display: 'none'},
-  {display: 'block'},
-  {display: 'none'},
-], {duration: 0.5 * 1000, fill: 'forwards'}));
+    "use strict";
+    document.timeline.play(new Animation(document.querySelector('#test'), [
+        {display: 'none'},
+        {display: 'block'},
+        {display: 'none'},
+        {display: 'block'},
+        {display: 'none'},
+        {display: 'block'},
+        {display: 'none'},
+    ], {duration: 0.5 * 1000, fill: 'forwards'}));
 </script>

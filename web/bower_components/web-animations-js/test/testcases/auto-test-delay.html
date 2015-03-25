@@ -14,26 +14,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  left: 0px;
-  width: 100px;
-  height: 100px;
-  background-color: #FAA;
-  position: relative;
-}
+    .anim {
+        left: 0px;
+        width: 100px;
+        height: 100px;
+        background-color: #FAA;
+        position: relative;
+    }
 </style>
 <div class='anim' id='a'></div>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-var anim = new Animation(a, [{ left: '100px'}, {left: '200px'}], 
-  {delay: 0.2 * 1000, duration: 0.3 * 1000, endDelay: 0.4 * 1000, iterations: 3, fill: 'both'});
+    var anim = new Animation(a, [{left: '100px'}, {left: '200px'}],
+            {delay: 0.2 * 1000, duration: 0.3 * 1000, endDelay: 0.4 * 1000, iterations: 3, fill: 'both'});
 
-var par = new AnimationGroup([anim], {fill: 'none', iterations: 2})
+    var par = new AnimationGroup([anim], {fill: 'none', iterations: 2})
 
-document.timeline.play(par);
+    document.timeline.play(par);
 
 </script>

@@ -43,78 +43,87 @@ Element wrapper for the `google-code-prettify` (https://code.google.com/p/google
 -->
 <polymer-element name="prettify-element" attributes="text">
 
-  <template>
+    <template>
 
-    <style>
-      :host {
-        display: block;
-      }
+        <style>
+            :host {
+                display: block;
+            }
 
-      code,pre {
-          color: #9f499b;
-          font-family: "Source Code Pro",Monaco,Menlo,Consolas,"Courier New",monospace
-      }
-      pre,.prettyprint {
-          background-color: #fafafa;
-          padding: 16px;
-          margin: 30px 0
-      }
-      pre .typ,pre .inline,.prettyprint .typ,.prettyprint .inline {
-          color: #6b499f
-      }
-      pre .pun,.prettyprint .pun {
-          color: #5c6bc0
-      }
-      pre .str,pre .string,.prettyprint .str,.prettyprint .string {
-          color: #ff4081
-      }
-      pre .pln,.prettyprint .pln {
-          color: #7986cb
-      }
-      pre .kwd,.prettyprint .kwd {
-          color: #d61a7f
-      }
-      pre .atn,pre .attribute-name,.prettyprint .atn,.prettyprint .attribute-name {
-          color: #6b499f
-      }
-      pre .atv,pre .attribute-value,.prettyprint .atv,.prettyprint .attribute-value {
-          color: #7986cb
-      }
-      pre .com,pre .comment,.prettyprint .com,.prettyprint .comment {
-          color: #8a8a8a
-      }
+            code, pre {
+                color: #9f499b;
+                font-family: "Source Code Pro", Monaco, Menlo, Consolas, "Courier New", monospace
+            }
 
-    </style>
+            pre, .prettyprint {
+                background-color: #fafafa;
+                padding: 16px;
+                margin: 30px 0
+            }
 
-    <!-- Pre-canned styles that come with prettify (we opt for more pleasing light theme)  -->
-    <!-- <link href="../google-code-prettify/src/prettify.css" rel="stylesheet" /> -->
-    <!-- <link href="../google-code-prettify/styles/sons-of-obsidian.css" rel="stylesheet" /> -->
-    <!-- <link href="../google-code-prettify/styles/sunburst.css" rel="stylesheet" /> -->
+            pre .typ, pre .inline, .prettyprint .typ, .prettyprint .inline {
+                color: #6b499f
+            }
 
-    <pre class="prettyprint" id="content"></pre>
+            pre .pun, .prettyprint .pun {
+                color: #5c6bc0
+            }
 
-  </template>
+            pre .str, pre .string, .prettyprint .str, .prettyprint .string {
+                color: #ff4081
+            }
 
-  <script>
+            pre .pln, .prettyprint .pln {
+                color: #7986cb
+            }
 
-    Polymer('prettify-element', {
+            pre .kwd, .prettyprint .kwd {
+                color: #d61a7f
+            }
 
-      domReady: function() {
-        if (!this.text) {
-          if (this.firstElementChild && this.firstElementChild.localName === 'template') {
-            this.text = this.firstElementChild.innerHTML;
-          } else {
-            this.text = this.innerHTML;
-          }
-        }
-      },
+            pre .atn, pre .attribute-name, .prettyprint .atn, .prettyprint .attribute-name {
+                color: #6b499f
+            }
 
-      textChanged: function() {
-        this.$.content.innerHTML = prettyPrintOne((this.text || '').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
-      }
+            pre .atv, pre .attribute-value, .prettyprint .atv, .prettyprint .attribute-value {
+                color: #7986cb
+            }
 
-    });
+            pre .com, pre .comment, .prettyprint .com, .prettyprint .comment {
+                color: #8a8a8a
+            }
 
-  </script>
+        </style>
+
+        <!-- Pre-canned styles that come with prettify (we opt for more pleasing light theme)  -->
+        <!-- <link href="../google-code-prettify/src/prettify.css" rel="stylesheet" /> -->
+        <!-- <link href="../google-code-prettify/styles/sons-of-obsidian.css" rel="stylesheet" /> -->
+        <!-- <link href="../google-code-prettify/styles/sunburst.css" rel="stylesheet" /> -->
+
+        <pre class="prettyprint" id="content"></pre>
+
+    </template>
+
+    <script>
+
+        Polymer('prettify-element', {
+
+            domReady: function () {
+                if (!this.text) {
+                    if (this.firstElementChild && this.firstElementChild.localName === 'template') {
+                        this.text = this.firstElementChild.innerHTML;
+                    } else {
+                        this.text = this.innerHTML;
+                    }
+                }
+            },
+
+            textChanged: function () {
+                this.$.content.innerHTML = prettyPrintOne((this.text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+            }
+
+        });
+
+    </script>
 
 </polymer-element>

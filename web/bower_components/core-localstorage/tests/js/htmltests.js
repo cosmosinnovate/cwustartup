@@ -1,3 +1,3 @@
-htmlSuite('core-localstorage', function() {
-  htmlTest('html/core-localstorage.html');
+htmlSuite('core-localstorage', function () {
+    htmlTest('html/core-localstorage.html');
 });

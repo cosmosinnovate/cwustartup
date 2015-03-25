@@ -14,15 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  left: 0px;
-  width: 100px;
-  height: 25px;
-  background-color: #FAA;
-  position: relative;
-}
+    .anim {
+        left: 0px;
+        width: 100px;
+        height: 25px;
+        background-color: #FAA;
+        position: relative;
+    }
 </style>
 
 <div id="a" class="anim"></div>
@@ -30,21 +31,21 @@ limitations under the License.
 
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-var effect = [{left: "100px"}, {left: "500px"}];
+    var effect = [{left: "100px"}, {left: "500px"}];
 
-var anim1 = new Animation(
-    document.getElementById("a"), effect,
-    {duration: 1.0 * 1000, iterations: 3.0, direction: "alternate", fill: 'forwards'});
+    var anim1 = new Animation(
+            document.getElementById("a"), effect,
+            {duration: 1.0 * 1000, iterations: 3.0, direction: "alternate", fill: 'forwards'});
 
-var anim2 = new Animation(
-    document.getElementById("b"), effect,
-    {duration: 1.0 * 1000, fill: 'forwards'});
-var animationGroup = new AnimationGroup(
-    [anim2],
-    {duration: 1.0 * 1000, iterations: 3.0, direction: "alternate", fill: 'forwards'});
+    var anim2 = new Animation(
+            document.getElementById("b"), effect,
+            {duration: 1.0 * 1000, fill: 'forwards'});
+    var animationGroup = new AnimationGroup(
+            [anim2],
+            {duration: 1.0 * 1000, iterations: 3.0, direction: "alternate", fill: 'forwards'});
 
-document.timeline.play(anim1);
-document.timeline.play(animationGroup);
+    document.timeline.play(anim1);
+    document.timeline.play(animationGroup);
 </script>

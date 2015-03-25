@@ -10,45 +10,45 @@
 -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title></title>
-  <script src="../webcomponentsjs/webcomponents.js"></script>
-  <link rel="import" href="paper-spinner.html">
-  <style shim-shadowdom>
-  paper-spinner.blue::shadow .circle {
-    border-color: #4285f4;
-  }
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="paper-spinner.html">
+    <style shim-shadowdom>
+        paper-spinner.blue::shadow .circle {
+            border-color: #4285f4;
+        }
 
-  paper-spinner.red::shadow .circle {
-    border-color: #db4437;
-  }
+        paper-spinner.red::shadow .circle {
+            border-color: #db4437;
+        }
 
-  paper-spinner.yellow::shadow .circle {
-    border-color: #f4b400;
-  }
+        paper-spinner.yellow::shadow .circle {
+            border-color: #f4b400;
+        }
 
-  paper-spinner.green::shadow .circle {
-    border-color: #0f9d58;
-  }
-  </style>
+        paper-spinner.green::shadow .circle {
+            border-color: #0f9d58;
+        }
+    </style>
 </head>
 <body>
-  <template is="auto-binding">
+<template is="auto-binding">
     <paper-spinner class="blue" active></paper-spinner>
     <paper-spinner class="red" active></paper-spinner>
     <paper-spinner class="yellow" active></paper-spinner>
     <paper-spinner class="green" active></paper-spinner>
     <paper-spinner active></paper-spinner>
     <button on-tap="{{toggle}}">Toggle</button>
-  </template>
-  <script>
+</template>
+<script>
     var t = document.querySelector('template');
-    t.toggle = function() {
-      var spinners = document.querySelectorAll('paper-spinner');
-      Array.prototype.forEach.call(spinners, function(spinner) {
-        spinner.active = !spinner.active;
-      });
+    t.toggle = function () {
+        var spinners = document.querySelectorAll('paper-spinner');
+        Array.prototype.forEach.call(spinners, function (spinner) {
+            spinner.active = !spinner.active;
+        });
     }
-  </script>
+</script>
 </body>
 </html>

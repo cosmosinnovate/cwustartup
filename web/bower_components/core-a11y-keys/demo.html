@@ -10,32 +10,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Core A11y Keys demo</title>
-  <script src="../webcomponentsjs/webcomponents.js"></script>
-  <link rel="import" href="core-a11y-keys.html">
-  <style>
-    div {
-      height: 100px;
-      width: 100px;
-      background: gray;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Core A11y Keys demo</title>
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="core-a11y-keys.html">
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background: gray;
+        }
+    </style>
 </head>
 <body>
-  <template is="auto-binding">
+<template is="auto-binding">
     <span>Press any of these keys: {{keys}}</span>
     <core-a11y-keys id="a11y" keys="{{keys}}" on-keys-pressed="{{print}}"></core-a11y-keys>
     <pre id="output"></pre>
-  </template>
-  <script>
-    addEventListener('template-bound', function(ev) {
-      ev.target.keys = "* pageup pagedown left right down up shift+a alt+a home end space enter"
-      ev.target.print = function(ev) {
-        console.log(ev.detail);
-        this.$.output.textContent += ev.detail.key + ' pressed!\n';
-      }
+</template>
+<script>
+    addEventListener('template-bound', function (ev) {
+        ev.target.keys = "* pageup pagedown left right down up shift+a alt+a home end space enter"
+        ev.target.print = function (ev) {
+            console.log(ev.detail);
+            this.$.output.textContent += ev.detail.key + ' pressed!\n';
+        }
     });
-  </script>
+</script>
 </body>
 </html>

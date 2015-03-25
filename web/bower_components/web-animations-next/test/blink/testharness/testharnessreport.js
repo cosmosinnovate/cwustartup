@@ -24,14 +24,13 @@
  */
 
 
-
 var metadata_generator = {
 
     currentMetadata: {},
     cachedMetadata: false,
     metadataProperties: ['help', 'assert', 'author'],
 
-    error: function(message) {
+    error: function (message) {
         var messageElement = document.createElement('p');
         messageElement.setAttribute('class', 'error');
         this.appendText(messageElement, message);
@@ -48,20 +47,20 @@ var metadata_generator = {
     /**
      * Ensure property value has contact information
      */
-    validateContact: function(test, propertyName) {
+    validateContact: function (test, propertyName) {
         var result = true;
         var value = test.properties[propertyName];
         var values = Array.isArray(value) ? value : [value];
         for (var index = 0; index < values.length; index++) {
             value = values[index];
             var re = /(\S+)(\s*)<(.*)>(.*)/;
-            if (! re.test(value)) {
+            if (!re.test(value)) {
                 re = /(\S+)(\s+)(http[s]?:\/\/)(.*)/;
-                if (! re.test(value)) {
+                if (!re.test(value)) {
                     this.error('Metadata property "' + propertyName +
-                        '" for test: "' + test.name +
-                        '" must have name and contact information ' +
-                        '("name <email>" or "name http(s)://")');
+                    '" for test: "' + test.name +
+                    '" must have name and contact information ' +
+                    '("name <email>" or "name http(s)://")');
                     result = false;
                 }
             }
@@ -72,7 +71,7 @@ var metadata_generator = {
     /**
      * Extract metadata from test object
      */
-    extractFromTest: function(test) {
+    extractFromTest: function (test) {
         var testMetadata = {};
         // filter out metadata from other properties in test
         for (var metaIndex = 0; metaIndex < this.metadataProperties.length;
@@ -91,9 +90,9 @@ var metadata_generator = {
     /**
      * Compare cached metadata to extracted metadata
      */
-    validateCache: function() {
+    validateCache: function () {
         for (var testName in this.currentMetadata) {
-            if (! this.cachedMetadata.hasOwnProperty(testName)) {
+            if (!this.cachedMetadata.hasOwnProperty(testName)) {
                 return false;
             }
             var testMetadata = this.currentMetadata[testName];
@@ -106,35 +105,35 @@ var metadata_generator = {
                 if (cachedTestMetadata.hasOwnProperty(meta) &&
                     testMetadata.hasOwnProperty(meta)) {
                     if (Array.isArray(cachedTestMetadata[meta])) {
-                      if (! Array.isArray(testMetadata[meta])) {
-                          return false;
-                      }
-                      if (cachedTestMetadata[meta].length ==
-                          testMetadata[meta].length) {
-                          for (var index = 0;
-                               index < cachedTestMetadata[meta].length;
-                               index++) {
-                              if (cachedTestMetadata[meta][index] !=
-                                  testMetadata[meta][index]) {
-                                  return false;
-                              }
-                          }
-                      }
-                      else {
-                          return false;
-                      }
+                        if (!Array.isArray(testMetadata[meta])) {
+                            return false;
+                        }
+                        if (cachedTestMetadata[meta].length ==
+                            testMetadata[meta].length) {
+                            for (var index = 0;
+                                 index < cachedTestMetadata[meta].length;
+                                 index++) {
+                                if (cachedTestMetadata[meta][index] !=
+                                    testMetadata[meta][index]) {
+                                    return false;
+                                }
+                            }
+                        }
+                        else {
+                            return false;
+                        }
                     }
                     else {
-                      if (Array.isArray(testMetadata[meta])) {
-                        return false;
-                      }
-                      if (cachedTestMetadata[meta] != testMetadata[meta]) {
-                        return false;
-                      }
+                        if (Array.isArray(testMetadata[meta])) {
+                            return false;
+                        }
+                        if (cachedTestMetadata[meta] != testMetadata[meta]) {
+                            return false;
+                        }
                     }
                 }
                 else if (cachedTestMetadata.hasOwnProperty(meta) ||
-                         testMetadata.hasOwnProperty(meta)) {
+                    testMetadata.hasOwnProperty(meta)) {
                     return false;
                 }
             }
@@ -145,11 +144,11 @@ var metadata_generator = {
         return true;
     },
 
-    appendText: function(elemement, text) {
+    appendText: function (elemement, text) {
         elemement.appendChild(document.createTextNode(text));
     },
 
-    jsonifyArray: function(arrayValue, indent) {
+    jsonifyArray: function (arrayValue, indent) {
         var output = '[';
 
         if (1 == arrayValue.length) {
@@ -167,7 +166,7 @@ var metadata_generator = {
         return output;
     },
 
-    jsonifyObject: function(objectValue, indent) {
+    jsonifyObject: function (objectValue, indent) {
         var output = '{';
         var value;
 
@@ -182,14 +181,14 @@ var metadata_generator = {
         if (1 == count) {
             for (var property in objectValue) {
                 output += ' "' + property + '": ' +
-                    JSON.stringify(objectValue[property]) +
-                    ' ';
+                JSON.stringify(objectValue[property]) +
+                ' ';
             }
         }
         else {
             var first = true;
             for (var property in objectValue) {
-                if (! first) {
+                if (!first) {
                     output += ',';
                 }
                 first = false;
@@ -197,7 +196,7 @@ var metadata_generator = {
                 value = objectValue[property];
                 if (Array.isArray(value)) {
                     output += this.jsonifyArray(value, indent +
-                        '                '.substr(0, 5 + property.length));
+                    '                '.substr(0, 5 + property.length));
                 }
                 else if ('object' == typeof(value)) {
                     output += this.jsonifyObject(value, indent + '  ');
@@ -218,7 +217,7 @@ var metadata_generator = {
      * Generate javascript source code for captured metadata
      * Metadata is in pretty-printed JSON format
      */
-    generateSource: function() {
+    generateSource: function () {
         var source =
             '<script id="metadata_cache">/*\n' +
             this.jsonifyObject(this.currentMetadata, '') + '\n' +
@@ -229,7 +228,7 @@ var metadata_generator = {
     /**
      * Add element containing metadata source code
      */
-    addSourceElement: function(event) {
+    addSourceElement: function (event) {
         var sourceWrapper = document.createElement('div');
         sourceWrapper.setAttribute('id', 'metadata_source');
 
@@ -253,17 +252,17 @@ var metadata_generator = {
 
         var messageElement = document.getElementById('metadata_issue');
         messageElement.parentNode.insertBefore(sourceWrapper,
-                                               messageElement.nextSibling);
+            messageElement.nextSibling);
         messageElement.parentNode.removeChild(messageElement);
 
         (event.preventDefault) ? event.preventDefault() :
-                                 event.returnValue = false;
+            event.returnValue = false;
     },
 
     /**
      * Extract the metadata cache from the cache element if present
      */
-    getCachedMetadata: function() {
+    getCachedMetadata: function () {
         var cacheElement = document.getElementById('metadata_cache');
 
         if (cacheElement) {
@@ -290,7 +289,7 @@ var metadata_generator = {
      * if present.
      * If cache not present or differs from extrated metadata, generate an error
      */
-    process: function(tests) {
+    process: function (tests) {
         for (var index = 0; index < tests.length; index++) {
             var test = tests[index];
             if (this.currentMetadata.hasOwnProperty(test.name)) {
@@ -321,7 +320,7 @@ var metadata_generator = {
                 for (var meta in testMetadata) {
                     if (testMetadata.hasOwnProperty(meta)) {
                         message = 'Single tests should not have metadata. ' +
-                                  'Move metadata to <head>. ';
+                        'Move metadata to <head>. ';
                         break;
                     }
                 }
@@ -334,7 +333,7 @@ var metadata_generator = {
                     message = this.cachedMetadata;
                     showSource = true;
                 }
-                else if (! this.validateCache()) {
+                else if (!this.validateCache()) {
                     message = 'Cached metadata out of sync. ';
                     showSource = true;
                 }
@@ -352,7 +351,7 @@ var metadata_generator = {
                 this.appendText(link, 'Click for source code.');
                 link.setAttribute('href', '#');
                 link.setAttribute('onclick',
-                                  'metadata_generator.addSourceElement(event)');
+                    'metadata_generator.addSourceElement(event)');
                 messageElement.appendChild(link);
             }
 
@@ -369,7 +368,7 @@ var metadata_generator = {
         }
     },
 
-    setup: function() {
+    setup: function () {
         add_completion_callback(
             function (tests, harness_status) {
                 metadata_generator.process(tests, harness_status);
@@ -386,9 +385,9 @@ if (path.slice(-13).indexOf('interpolation') != -1) {
 }
 
 if (window.parent && parent.window.initTestHarness) {
-  parent.window.initTestHarness(window);
+    parent.window.initTestHarness(window);
 } else {
-  metadata_generator.setup();
+    metadata_generator.setup();
 }
 
 /* If the parent window has a testharness_properties object,

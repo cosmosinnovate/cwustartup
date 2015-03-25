@@ -8,11 +8,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 :host {
-  display: block;
-  margin: 12px;
+    display: block;
+    margin: 12px;
 }
 
-polyfill-next-selector { content: ':host > core-item'; }
+polyfill-next-selector {
+    content: ':host > core-item';
+}
+
 ::content > core-item {
-  cursor: default;
+    cursor: default;
 }

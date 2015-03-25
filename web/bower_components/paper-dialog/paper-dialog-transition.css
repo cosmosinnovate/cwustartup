@@ -6,54 +6,54 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
 
 :host(.paper-dialog-transition) {
-  outline: none;
-  opacity: 0;
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    opacity: 0;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 :host(.paper-dialog-transition.core-opened) {
-  opacity: 1;
-  transform: none;
-  -webkit-transform: none;
+    opacity: 1;
+    transform: none;
+    -webkit-transform: none;
 }
 
 :host(.paper-dialog-transition-bottom) {
-  transform: scale(0.9) translateY(200%);
-  -webkit-transform: scale(0.9) translateY(200%);
+    transform: scale(0.9) translateY(200%);
+    -webkit-transform: scale(0.9) translateY(200%);
 }
 
 :host(.paper-dialog-transition-center.core-opened) {
-  animation: paper-dialog-transition-center-keyframes 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-animation: paper-dialog-transition-center-keyframes 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: paper-dialog-transition-center-keyframes 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-animation: paper-dialog-transition-center-keyframes 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes paper-dialog-transition-center-keyframes {
-  0% {
-    transform: scale(0.5) translateY(0);
-    -webkit-transform: scale(0.5) translateY(0);
-  }
-  90% {
-    transform: scale(1) translateY(-10px);
-    -webkit-transform: scale(1) translateY(-10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    -webkit-transform: scale(1) translateY(0);
-  }
+    0% {
+        transform: scale(0.5) translateY(0);
+        -webkit-transform: scale(0.5) translateY(0);
+    }
+    90% {
+        transform: scale(1) translateY(-10px);
+        -webkit-transform: scale(1) translateY(-10px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        -webkit-transform: scale(1) translateY(0);
+    }
 }
 
 @-webkit-keyframes paper-dialog-transition-center-keyframes {
-  0% {
-    transform: scale(0.5) translateY(0);
-    -webkit-transform: scale(0.5) translateY(0);
-  }
-  90% {
-    transform: scale(1) translateY(-10px);
-    -webkit-transform: scale(1) translateY(-10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    -webkit-transform: scale(1) translateY(0);
-  }
+    0% {
+        transform: scale(0.5) translateY(0);
+        -webkit-transform: scale(0.5) translateY(0);
+    }
+    90% {
+        transform: scale(1) translateY(-10px);
+        -webkit-transform: scale(1) translateY(-10px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        -webkit-transform: scale(1) translateY(0);
+    }
 }

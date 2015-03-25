@@ -14,70 +14,74 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.animation {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  top: 0px;
-  left: 0px;
-  background: lightsteelblue;
-}
-.expectation {
-  background: red;
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  top: 0px;
-  left: 0px;
-}
-#e {
-  -webkit-transform: translate(117.5px, 87.5px);
-  transform: translate(117.5px, 87.5px);
-}
-svg {
-position:absolute;
-top: 0px;
-left: 0px;
-width: 800px;
-height: 600px;
-}
+    .animation {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 0px;
+        left: 0px;
+        background: lightsteelblue;
+    }
+
+    .expectation {
+        background: red;
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 0px;
+        left: 0px;
+    }
+
+    #e {
+        -webkit-transform: translate(117.5px, 87.5px);
+        transform: translate(117.5px, 87.5px);
+    }
+
+    svg {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 800px;
+        height: 600px;
+    }
 </style>
 
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <path id="path" d="M 130,100 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 " />
-  <path d="M 130,100 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 "
-      stroke="black" stroke-width="1" fill="none" />
-  <path d="M 260,200 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 "
-      stroke="black" stroke-width="1" fill="none" />
-  <path d="M 390,300 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 "
-      stroke="black" stroke-width="1" fill="none" />
+    <path id="path" d="M 130,100 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 "/>
+    <path d="M 130,100 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 "
+          stroke="black" stroke-width="1" fill="none"/>
+    <path d="M 260,200 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 "
+          stroke="black" stroke-width="1" fill="none"/>
+    <path d="M 390,300 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0 "
+          stroke="black" stroke-width="1" fill="none"/>
 </svg>
 
 <div id="e" class="expectation"></div>
 <div id="anim" class="animation">&rarr;</div>
 
 <script>
-var expected_failures = [
-  {
-    browser_configurations: [
-      { firefox: true },
-      { msie: true },
-    ],
-    tests: ['Auto generated tests'],
-    message: 'Doesn\'t quite follow path correctly.',
-  }
-];
+    var expected_failures = [
+        {
+            browser_configurations: [
+                {firefox: true},
+                {msie: true},
+            ],
+            tests: ['Auto generated tests'],
+            message: 'Doesn\'t quite follow path correctly.',
+        }
+    ];
 </script>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-var options = {autoRotate: 'auto-rotate', iterationComposite: 'accumulate'};
-var animFunc = new MotionPathEffect(
-    document.querySelector('#path').pathSegList, options);
-document.timeline.play(new Animation(document.querySelector("#anim"),
-    animFunc, {duration: 7 * 1000, iterations: 3}));
+    var options = {autoRotate: 'auto-rotate', iterationComposite: 'accumulate'};
+    var animFunc = new MotionPathEffect(
+            document.querySelector('#path').pathSegList, options);
+    document.timeline.play(new Animation(document.querySelector("#anim"),
+            animFunc, {duration: 7 * 1000, iterations: 3}));
 
 </script>

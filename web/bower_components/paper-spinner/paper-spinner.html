@@ -37,80 +37,88 @@ that it uses one color only.
 
 <polymer-element name="paper-spinner" attributes="active">
 
-  <template>
-    <link rel="stylesheet" href="paper-spinner.css">
+    <template>
+        <link rel="stylesheet" href="paper-spinner.css">
 
-    <div id="spinnerContainer">
-      <div class="spinner-layer blue">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
+        <div id="spinnerContainer">
+            <div class="spinner-layer blue">
+                <div class="circle-clipper left">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle" fit></div>
+                </div>
+            </div>
+
+            <div class="spinner-layer red">
+                <div class="circle-clipper left">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle" fit></div>
+                </div>
+            </div>
+
+            <div class="spinner-layer yellow">
+                <div class="circle-clipper left">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle" fit></div>
+                </div>
+            </div>
+
+            <div class="spinner-layer green">
+                <div class="circle-clipper left">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle" fit></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle" fit></div>
+                </div>
+            </div>
         </div>
-      </div>
+    </template>
 
-      <div class="spinner-layer red">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
-        </div>
-      </div>
+    <script>
+        Polymer({
+            eventDelegates: {
+                'animationend': 'reset',
+                'webkitAnimationEnd': 'reset'
+            },
+            publish: {
+                /**
+                 * Displays the spinner.
+                 *
+                 * @attribute active
+                 * @type boolean
+                 * @default false
+                 */
+                active: {value: false, reflect: true}
+            },
 
-      <div class="spinner-layer yellow">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
-        </div>
-      </div>
+            activeChanged: function () {
+                if (this.active) {
+                    this.$.spinnerContainer.classList.add('active');
+                } else {
+                    this.$.spinnerContainer.classList.add('warmdown');
+                }
+            },
 
-      <div class="spinner-layer green">
-        <div class="circle-clipper left">
-          <div class="circle" fit></div>
-        </div><div class="gap-patch">
-          <div class="circle" fit></div>
-        </div><div class="circle-clipper right">
-          <div class="circle" fit></div>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <script>
-    Polymer({
-      eventDelegates: {
-        'animationend': 'reset',
-        'webkitAnimationEnd': 'reset'
-      },
-      publish: {
-        /**
-         * Displays the spinner.
-         *
-         * @attribute active
-         * @type boolean
-         * @default false
-         */
-        active: {value: false, reflect: true}
-      },
-
-      activeChanged: function() {
-        if (this.active) {
-          this.$.spinnerContainer.classList.add('active');
-        } else {
-          this.$.spinnerContainer.classList.add('warmdown');
-        }
-      },
-
-      reset: function() {
-        this.$.spinnerContainer.classList.remove('active', 'warmdown');
-      }
-    });
-  </script>
+            reset: function () {
+                this.$.spinnerContainer.classList.remove('active', 'warmdown');
+            }
+        });
+    </script>
 </polymer-element>

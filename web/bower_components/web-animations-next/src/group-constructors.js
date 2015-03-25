@@ -12,44 +12,44 @@
 //     See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function(shared, scope, testing) {
+(function (shared, scope, testing) {
 
-  function constructor(children, timingInput) {
-    this.children = children || [];
-    this._timing = shared.normalizeTimingInput(timingInput, true);
-    this.timing = shared.makeTiming(timingInput, true);
+    function constructor(children, timingInput) {
+        this.children = children || [];
+        this._timing = shared.normalizeTimingInput(timingInput, true);
+        this.timing = shared.makeTiming(timingInput, true);
 
-    if (this._timing.duration === 'auto')
-      this._timing.duration = this.activeDuration;
-    this._internalPlayer = null;
-  }
-
-  window.AnimationSequence = function() {
-    constructor.apply(this, arguments);
-  };
-
-  window.AnimationGroup = function() {
-    constructor.apply(this, arguments);
-  };
-
-  window.AnimationSequence.prototype = {
-    get activeDuration() {
-      var total = 0;
-      this.children.forEach(function(child) {
-        total += scope.groupChildDuration(child);
-      });
-      return Math.max(total, 0);
+        if (this._timing.duration === 'auto')
+            this._timing.duration = this.activeDuration;
+        this._internalPlayer = null;
     }
-  };
 
-  window.AnimationGroup.prototype = {
-    get activeDuration() {
-      var max = 0;
-      this.children.forEach(function(child) {
-        max = Math.max(max, scope.groupChildDuration(child));
-      });
-      return max;
-    }
-  };
+    window.AnimationSequence = function () {
+        constructor.apply(this, arguments);
+    };
+
+    window.AnimationGroup = function () {
+        constructor.apply(this, arguments);
+    };
+
+    window.AnimationSequence.prototype = {
+        get activeDuration() {
+            var total = 0;
+            this.children.forEach(function (child) {
+                total += scope.groupChildDuration(child);
+            });
+            return Math.max(total, 0);
+        }
+    };
+
+    window.AnimationGroup.prototype = {
+        get activeDuration() {
+            var max = 0;
+            this.children.forEach(function (child) {
+                max = Math.max(max, scope.groupChildDuration(child));
+            });
+            return max;
+        }
+    };
 
 })(webAnimationsShared, webAnimationsMaxifill, webAnimationsTesting);

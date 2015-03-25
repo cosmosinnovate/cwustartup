@@ -1,35 +1,35 @@
-Polymer.mixin2 = function(prototype, mixin) {
+Polymer.mixin2 = function (prototype, mixin) {
 
-  // adds a single mixin to prototype
+    // adds a single mixin to prototype
 
-  if (mixin.mixinPublish) {
-    prototype.publish = prototype.publish || {};
-    Polymer.mixin(prototype.publish, mixin.mixinPublish);
-  }
-
-  if (mixin.mixinDelegates) {
-    prototype.eventDelegates = prototype.eventDelegates || {};
-    for (var e in mixin.mixinDelegates) {
-      if (!prototype.eventDelegates[e]) {
-        prototype.eventDelegates[e] = mixin.mixinDelegates[e];
-      }
+    if (mixin.mixinPublish) {
+        prototype.publish = prototype.publish || {};
+        Polymer.mixin(prototype.publish, mixin.mixinPublish);
     }
-  }
 
-  if (mixin.mixinObserve) {
-    prototype.observe = prototype.observe || {};
-    for (var o in mixin.mixinObserve) {
-      if (!prototype.observe[o] && !prototype[o + 'Changed']) {
-        prototype.observe[o] = mixin.mixinObserve[o];
-      }
+    if (mixin.mixinDelegates) {
+        prototype.eventDelegates = prototype.eventDelegates || {};
+        for (var e in mixin.mixinDelegates) {
+            if (!prototype.eventDelegates[e]) {
+                prototype.eventDelegates[e] = mixin.mixinDelegates[e];
+            }
+        }
     }
-  }
 
-  Polymer.mixin(prototype, mixin);
+    if (mixin.mixinObserve) {
+        prototype.observe = prototype.observe || {};
+        for (var o in mixin.mixinObserve) {
+            if (!prototype.observe[o] && !prototype[o + 'Changed']) {
+                prototype.observe[o] = mixin.mixinObserve[o];
+            }
+        }
+    }
 
-  delete prototype.mixinPublish;
-  delete prototype.mixinDelegates;
-  delete prototype.mixinObserve;
+    Polymer.mixin(prototype, mixin);
 
-  return prototype;
+    delete prototype.mixinPublish;
+    delete prototype.mixinDelegates;
+    delete prototype.mixinObserve;
+
+    return prototype;
 };

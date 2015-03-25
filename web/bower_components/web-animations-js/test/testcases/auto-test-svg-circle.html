@@ -14,25 +14,29 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  fill: lightsteelblue;
-}
+    .anim {
+        fill: lightsteelblue;
+    }
 
-.expectation {
-  fill: red;
-}
+    .expectation {
+        fill: red;
+    }
 </style>
 <svg width="600px" height="200px">
-  <circle class="expectation" cx="400px" cy="85px" r="75px"/>
-  <circle class="anim" cx="60px" cy="60px" r="50px"/>
+    <circle class="expectation" cx="400px" cy="85px" r="75px"/>
+    <circle class="anim" cx="60px" cy="60px" r="50px"/>
 </svg>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
-var rect = document.querySelector(".anim")
+    "use strict";
+    var rect = document.querySelector(".anim")
 
-document.timeline.play(new Animation(rect, {cx: "400px", cy: "85px", r: "75px"}, {duration: 1 * 1000, fill: 'forwards'}));
+    document.timeline.play(new Animation(rect, {cx: "400px", cy: "85px", r: "75px"}, {
+        duration: 1 * 1000,
+        fill: 'forwards'
+    }));
 
 </script>

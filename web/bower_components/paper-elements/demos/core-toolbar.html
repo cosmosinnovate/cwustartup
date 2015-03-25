@@ -10,101 +10,101 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
 
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-  <title>core-toolbar</title>
+    <title>core-toolbar</title>
 
-  <script src="../../webcomponentsjs/webcomponents.js"></script>
+    <script src="../../webcomponentsjs/webcomponents.js"></script>
 
-  <link rel="import" href="../../font-roboto/roboto.html">
-  <link rel="import" href="../../core-icons/core-icons.html">
-  <link rel="import" href="../../core-toolbar/core-toolbar.html">
-  <link rel="import" href="../../core-media-query/core-media-query.html">
-  <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="../../font-roboto/roboto.html">
+    <link rel="import" href="../../core-icons/core-icons.html">
+    <link rel="import" href="../../core-toolbar/core-toolbar.html">
+    <link rel="import" href="../../core-media-query/core-media-query.html">
+    <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
 
-  <style>
+    <style>
 
-    body {
-      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
-      margin: 0;
-      padding: 24px;
-    }
+        body {
+            font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+            margin: 0;
+            padding: 24px;
+        }
 
-    core-toolbar {
-      color: #f1f1f1;
-      fill: #f1f1f1;
-    }
-    
-  </style>
+        core-toolbar {
+            color: #f1f1f1;
+            fill: #f1f1f1;
+        }
+
+    </style>
 
 </head>
 <body unresolved>
 
-  <core-toolbar style="background: #4285f4;">
+<core-toolbar style="background: #4285f4;">
     <paper-icon-button icon="menu"></paper-icon-button>
     <span flex>Title</span>
     <paper-icon-button icon="refresh"></paper-icon-button>
     <paper-icon-button icon="more-vert"></paper-icon-button>
-  </core-toolbar>
+</core-toolbar>
 
-  <br>
+<br>
 
-  <core-toolbar style="background: #3f51b5;">
+<core-toolbar style="background: #3f51b5;">
     <paper-icon-button icon="menu"></paper-icon-button>
     <span flex>Title</span>
     <paper-icon-button icon="refresh"></paper-icon-button>
     <paper-icon-button icon="more-vert"></paper-icon-button>
-  </core-toolbar>
+</core-toolbar>
 
-  <br>
+<br>
 
-  <core-toolbar class="tall" style="background: #0f9d58;">
+<core-toolbar class="tall" style="background: #0f9d58;">
     <paper-icon-button icon="menu"></paper-icon-button>
     <span flex>Title</span>
     <paper-icon-button icon="refresh"></paper-icon-button>
     <paper-icon-button icon="more-vert"></paper-icon-button>
-  </core-toolbar>
+</core-toolbar>
 
-  <br>
+<br>
 
-  <core-toolbar class="tall" style="background: #ffeb3b; color: #333; fill: #333;">
+<core-toolbar class="tall" style="background: #ffeb3b; color: #333; fill: #333;">
     <paper-icon-button icon="menu" class="bottom"></paper-icon-button>
     <span flex class="bottom">Title</span>
     <paper-icon-button icon="refresh" class="bottom"></paper-icon-button>
     <paper-icon-button icon="more-vert" class="bottom"></paper-icon-button>
-  </core-toolbar>
-  
-  <br>
-  
-  <core-toolbar class="medium-tall" style="background: #ff5722;">
+</core-toolbar>
+
+<br>
+
+<core-toolbar class="medium-tall" style="background: #ff5722;">
     <paper-icon-button icon="menu"></paper-icon-button>
     <span flex></span>
     <paper-icon-button icon="refresh"></paper-icon-button>
     <paper-icon-button icon="more-vert"></paper-icon-button>
     <span class="bottom indent">Title</span>
-  </core-toolbar>
+</core-toolbar>
 
-  <br>
-  
-  <core-toolbar class="tall" style="background: #9c27b0;">
+<br>
+
+<core-toolbar class="tall" style="background: #9c27b0;">
     <paper-icon-button icon="menu"></paper-icon-button>
     <div flex></div>
     <paper-icon-button icon="refresh"></paper-icon-button>
     <paper-icon-button icon="more-vert"></paper-icon-button>
     <div flex class="middle indent">Title</div>
     <div flex class="bottom indent" style="font-size: 18px;">Title2</div>
-  </core-toolbar>
-  
-  <core-media-query id="mediaQuery" query="max-width: 800px"></core-media-query>
-  
-  <script>
-  
+</core-toolbar>
+
+<core-media-query id="mediaQuery" query="max-width: 800px"></core-media-query>
+
+<script>
+
     document.querySelector('#mediaQuery').addEventListener('core-media-change',
-      function(e) {
-        document.body.classList.toggle('core-narrow', e.detail.matches);
-      });
-  
-  </script>
-  
+            function (e) {
+                document.body.classList.toggle('core-narrow', e.detail.matches);
+            });
+
+</script>
+
 </body>
 </html>

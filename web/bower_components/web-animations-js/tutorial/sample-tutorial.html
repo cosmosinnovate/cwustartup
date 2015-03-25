@@ -15,30 +15,30 @@
 -->
 
 <body onload="myDisplay.update()">
-  <div id="myDisplayDiv"></div>
-  <script type="text/javascript" src="try-it-yourself.js"></script>
-  <script type="text/javascript" src='tutorial-testing.js'></script>
-  <script type="text/javascript" src='../web-animations.js'></script>
-  <script type="text/javascript" src='../test/extra-asserts.js'></script>
-  <link type="text/css" href="../animation-test-style.css">
-  <link rel="stylesheet" type="text/css" href="tutorial-style.css">
-  <script>
-     "use strict";
-     
+<div id="myDisplayDiv"></div>
+<script type="text/javascript" src="try-it-yourself.js"></script>
+<script type="text/javascript" src='tutorial-testing.js'></script>
+<script type="text/javascript" src='../web-animations.js'></script>
+<script type="text/javascript" src='../test/extra-asserts.js'></script>
+<link type="text/css" href="../animation-test-style.css">
+<link rel="stylesheet" type="text/css" href="tutorial-style.css">
+<script>
+    "use strict";
+
     var myDisplay = new TryItDisplay(document.getElementById("myDisplayDiv"));
     myDisplay.setDefaultHtml("<div id='a' class='test'></div>");
     var css = ".test {" +
-        "\n" + "background-color: red;" +
-        "\n" + "border-radius: 10px;" +
-        "\n" + "width: 100px;" +
-        "\n" + "height: 50px;" +
-        "\n" + "top: 50px;" +
-        "\n" + "left: 0px;" +
-        "\n" + "position: absolute;" +
-        "\n" + "}";
+            "\n" + "background-color: red;" +
+            "\n" + "border-radius: 10px;" +
+            "\n" + "width: 100px;" +
+            "\n" + "height: 50px;" +
+            "\n" + "top: 50px;" +
+            "\n" + "left: 0px;" +
+            "\n" + "position: absolute;" +
+            "\n" + "}";
     myDisplay.setDefaultCss(css);
     myDisplay.setDefaultAnimationEndTime(2);
     myDisplay.addCheck("document.getElementById('a')", "{'left': '0px'}", 0);
     myDisplay.addCheck("document.getElementById('a')", "{'left': '300px'}", 2);
-  </script>
+</script>
 </body>

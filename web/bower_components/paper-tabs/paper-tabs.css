@@ -8,50 +8,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 :host {
-  display: block;
-  position: relative;
-  font-size: 14px;
-  font-weight: 500;
-  height: 48px;
-  overflow: hidden;
+    display: block;
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    overflow: hidden;
 }
 
 #tabsContainer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  white-space: nowrap;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
 }
 
 #selectionBar {
-  position: absolute;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  background-color: #ffff8d;
-  transition: width, left;
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background-color: #ffff8d;
+    transition: width, left;
 }
 
 #selectionBar[hidden] {
-  display: hidden;
+    display: hidden;
 }
 
 #selectionBar.expand {
-  transition-duration: 0.15s;
-  transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
+    transition-duration: 0.15s;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
 }
 
 #selectionBar.contract {
-  transition-duration: 0.18s;
-  transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+    transition-duration: 0.18s;
+    transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-polyfill-next-selector { content: '#tabsContainer > *:not(#selectionBar)'; }
+polyfill-next-selector {
+    content: '#tabsContainer > *:not(#selectionBar)';
+}
+
 ::content > * {
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
 }

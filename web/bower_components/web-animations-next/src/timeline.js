@@ -13,61 +13,65 @@
 // limitations under the License.
 
 
-(function(shared, scope, testing) {
-  scope.AnimationTimeline = function() {
-    this._players = [];
-    this.currentTime = undefined;
-  };
+(function (shared, scope, testing) {
+    scope.AnimationTimeline = function () {
+        this._players = [];
+        this.currentTime = undefined;
+    };
 
-  scope.AnimationTimeline.prototype = {
-    _addPlayer: function(player) {
-      this._players.push(player);
-      scope.restartMaxifillTick();
-    },
-    // FIXME: This needs to return the wrapped players in maxifill
-    // TODO: Does this need to be sorted?
-    // TODO: Do we need to consider needsRetick?
-    getAnimationPlayers: function() {
-      this.filterPlayers();
-      return this._players.slice();
-    },
-    filterPlayers: function() {
-      this._players = this._players.filter(function(player) {
-        return player.playState != 'finished' && player.playState != 'idle';
-      });
+    scope.AnimationTimeline.prototype = {
+        _addPlayer: function (player) {
+            this._players.push(player);
+            scope.restartMaxifillTick();
+        },
+        // FIXME: This needs to return the wrapped players in maxifill
+        // TODO: Does this need to be sorted?
+        // TODO: Do we need to consider needsRetick?
+        getAnimationPlayers: function () {
+            this.filterPlayers();
+            return this._players.slice();
+        },
+        filterPlayers: function () {
+            this._players = this._players.filter(function (player) {
+                return player.playState != 'finished' && player.playState != 'idle';
+            });
+        }
+    };
+
+    var ticking = false;
+
+    scope.restartMaxifillTick = function () {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(maxifillTick);
+        }
+    };
+
+    function maxifillTick(t) {
+        var timeline = window.document.timeline;
+        timeline.currentTime = t;
+        timeline.filterPlayers();
+        if (timeline._players.length == 0)
+            ticking = false;
+        else
+            requestAnimationFrame(maxifillTick);
     }
-  };
 
-  var ticking = false;
+    var timeline = new scope.AnimationTimeline();
+    scope.timeline = timeline;
 
-  scope.restartMaxifillTick = function() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(maxifillTick);
+    try {
+        Object.defineProperty(window.document, 'timeline', {
+            configurable: true,
+            get: function () {
+                return timeline;
+            }
+        });
+    } catch (e) {
     }
-  };
-
-  function maxifillTick(t) {
-    var timeline = window.document.timeline;
-    timeline.currentTime = t;
-    timeline.filterPlayers();
-    if (timeline._players.length == 0)
-      ticking = false;
-    else
-      requestAnimationFrame(maxifillTick);
-  }
-
-  var timeline = new scope.AnimationTimeline();
-  scope.timeline = timeline;
-
-  try {
-    Object.defineProperty(window.document, 'timeline', {
-      configurable: true,
-      get: function() { return timeline; }
-    });
-  } catch (e) { }
-  try {
-    window.document.timeline = timeline;
-  } catch (e) { }
+    try {
+        window.document.timeline = timeline;
+    } catch (e) {
+    }
 
 })(webAnimationsShared, webAnimationsMaxifill, webAnimationsTesting);

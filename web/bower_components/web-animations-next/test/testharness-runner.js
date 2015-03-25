@@ -12,61 +12,62 @@
 //     See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function() {
-  var assert = chai.assert;
-  mocha.setup({ ui: 'tdd' });
+(function () {
+    var assert = chai.assert;
+    mocha.setup({ui: 'tdd'});
 
-  var iframe;
-  function defineTestharnessTest(shouldPass, testFile) {
-    var name = shouldPass ? testFile : 'Expected Failure: ' + testFile;
-    test(name, function(done) {
-      window.initTestHarness = function(child) {
-        child.add_completion_callback(function(tests, harness_status) {
-          var failures = tests.filter(function(result) {
-            return result.status != 0;
-          }).map(function(failure) {
-            return failure.name + ':\n' + failure.message;
-          });
-          var error;
-          if (shouldPass && failures.length) {
-            error = new Error('\n' + failures.join('\n\n'));
-            error.stack = null;
-          } else if (!shouldPass && failures.length == 0) {
-            error = new Error('\nExpected to fail, but passed');
-            error.stack = null;
-          }
-          done(error);
+    var iframe;
+
+    function defineTestharnessTest(shouldPass, testFile) {
+        var name = shouldPass ? testFile : 'Expected Failure: ' + testFile;
+        test(name, function (done) {
+            window.initTestHarness = function (child) {
+                child.add_completion_callback(function (tests, harness_status) {
+                    var failures = tests.filter(function (result) {
+                        return result.status != 0;
+                    }).map(function (failure) {
+                        return failure.name + ':\n' + failure.message;
+                    });
+                    var error;
+                    if (shouldPass && failures.length) {
+                        error = new Error('\n' + failures.join('\n\n'));
+                        error.stack = null;
+                    } else if (!shouldPass && failures.length == 0) {
+                        error = new Error('\nExpected to fail, but passed');
+                        error.stack = null;
+                    }
+                    done(error);
+                });
+            };
+            iframe.src = testFile;
         });
-      };
-      iframe.src = testFile;
-    });
-  }
+    }
 
-  suite('testharness tests', function() {
-    setup(function() {
-      iframe = document.createElement('iframe');
-      document.body.appendChild(iframe);
+    suite('testharness tests', function () {
+        setup(function () {
+            iframe = document.createElement('iframe');
+            document.body.appendChild(iframe);
+        });
+        teardown(function () {
+            iframe.parentNode.removeChild(iframe);
+        });
+        testHarnessTests.forEach(defineTestharnessTest.bind(null, true));
+        testHarnessFailures.forEach(defineTestharnessTest.bind(null, false));
     });
-    teardown(function() {
-      iframe.parentNode.removeChild(iframe);
-    });
-    testHarnessTests.forEach(defineTestharnessTest.bind(null, true));
-    testHarnessFailures.forEach(defineTestharnessTest.bind(null, false));
-  });
 
-  suite('interpolation tests', function() {
-    setup(function() {
-      iframe = document.createElement('iframe');
-      document.body.appendChild(iframe);
+    suite('interpolation tests', function () {
+        setup(function () {
+            iframe = document.createElement('iframe');
+            document.body.appendChild(iframe);
+        });
+        teardown(function () {
+            iframe.parentNode.removeChild(iframe);
+        });
+        interpolationTests.forEach(defineTestharnessTest.bind(null, true));
+        interpolationFailures.forEach(defineTestharnessTest.bind(null, false));
     });
-    teardown(function() {
-      iframe.parentNode.removeChild(iframe);
-    });
-    interpolationTests.forEach(defineTestharnessTest.bind(null, true));
-    interpolationFailures.forEach(defineTestharnessTest.bind(null, false));
-  });
 
-  addEventListener('load', function() {
-    mocha.run();
-  });
+    addEventListener('load', function () {
+        mocha.run();
+    });
 })();

@@ -9,27 +9,27 @@
  */
 
 :host {
-  position: relative;
-  display: inline-block;
-  background-color: #fff;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
 }
 
 #control core-item {
-  margin-left: 12px;
-  max-width: inherit;
+    margin-left: 12px;
+    max-width: inherit;
 }
 
 #control core-item::shadow #label {
-  overflow: hidden;
-  /* FIXME not working for some reason */
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    /* FIXME not working for some reason */
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #arrow {
-  margin: 0 12px;
+    margin: 0 12px;
 }
 
 #dropdown {
-  margin: 12px;
+    margin: 12px;
 }

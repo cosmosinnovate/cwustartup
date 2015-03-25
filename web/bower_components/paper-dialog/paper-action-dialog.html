@@ -39,66 +39,66 @@ Example:
 
 <polymer-element name="paper-action-dialog" extends="paper-dialog-base" role="dialog">
 
-<template>
+    <template>
 
-  <style>
-    :host {
-      background: #fff;
-      color: rgba(0, 0, 0, 0.87);
-      margin: 32px;
-      overflow: visible !important;
-    }
+        <style>
+            :host {
+                background: #fff;
+                color: rgba(0, 0, 0, 0.87);
+                margin: 32px;
+                overflow: visible !important;
+            }
 
-    h1 {
-      font-size: 20px;
-    }
+            h1 {
+                font-size: 20px;
+            }
 
-    #scroller {
-      overflow: auto;
-      box-sizing: border-box;
-      padding: 24px 24px 0 24px;
-    }
+            #scroller {
+                overflow: auto;
+                box-sizing: border-box;
+                padding: 24px 24px 0 24px;
+            }
 
-    #actions {
-      padding: 16px;
-    }
-  </style>
+            #actions {
+                padding: 16px;
+            }
+        </style>
 
-  <paper-shadow z="3" fit></paper-shadow>
+        <paper-shadow z="3" fit></paper-shadow>
 
-  <!-- need this because the host needs to be overflow: visible -->
-  <div id="scroller" relative>
-    <template if="{{heading}}">
-      <h1>{{heading}}</h1>
+        <!-- need this because the host needs to be overflow: visible -->
+        <div id="scroller" relative>
+            <template if="{{heading}}">
+                <h1>{{heading}}</h1>
+            </template>
+
+            <content select=":not([affirmative]):not([dismissive])"></content>
+        </div>
+
+        <div id="actions" relative layout horizontal>
+            <content select="[dismissive]"></content>
+            <div flex></div>
+            <content select="[affirmative]"></content>
+        </div>
+
     </template>
 
-    <content select=":not([affirmative]):not([dismissive])"></content>
-  </div>
+    <script>
 
-  <div id="actions" relative layout horizontal>
-    <content select="[dismissive]"></content>
-    <div flex></div>
-    <content select="[affirmative]"></content>
-  </div>
+        Polymer({
 
-</template>
+            publish: {
 
-<script>
+                /**
+                 * @attribute closeSelector
+                 * @type string
+                 * @default '[affirmative],[dismissive]'
+                 */
+                closeSelector: '[affirmative],[dismissive]'
+            }
 
-  Polymer({
+        });
 
-    publish: {
-
-      /**
-       * @attribute closeSelector
-       * @type string
-       * @default '[affirmative],[dismissive]'
-       */
-      closeSelector: '[affirmative],[dismissive]'
-    }
-
-  });
-
-</script>
+    </script>
 
 </polymer-element>

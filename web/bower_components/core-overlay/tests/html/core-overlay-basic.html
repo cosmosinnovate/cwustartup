@@ -9,117 +9,117 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
 <head>
-  <title>core-overlay</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <script src="../../../webcomponentsjs/webcomponents.js"></script>
-  <script src="../../../polymer-test-tools/chai/chai.js"></script>
-  <script src="../../../polymer-test-tools/htmltest.js"></script>
-  <link rel="import" href="../../../core-transition/core-transition-css.html">
-  <link rel="import" href="../../core-overlay.html">
-  <style>
-    body {
-      margin: 0;
-      height: 100%;
-    }
-    
-    #basic {
-      height: 200px;
-      width: 300px;
-      border: 1px solid black;
-      padding: 10px;
-    }
-  </style>
+    <title>core-overlay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="../../../webcomponentsjs/webcomponents.js"></script>
+    <script src="../../../polymer-test-tools/chai/chai.js"></script>
+    <script src="../../../polymer-test-tools/htmltest.js"></script>
+    <link rel="import" href="../../../core-transition/core-transition-css.html">
+    <link rel="import" href="../../core-overlay.html">
+    <style>
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        #basic {
+            height: 200px;
+            width: 300px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body fit unresolved>
 
 <core-overlay id="basic">
-  Basic Overlay
+    Basic Overlay
 </core-overlay>
 
 <div id="target">Targeted Overlay</div>
 <core-overlay id="targeted"></core-overlay>
 
 <core-overlay layered id="layered">
-  <style no-shim>
-    #layered {
-      height: 200px;
-      width: 300px;
-      border: 1px solid black;
-      padding: 10px;
-    }
-  </style>
-  Layered Overlay
+    <style no-shim>
+        #layered {
+            height: 200px;
+            width: 300px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+    Layered Overlay
 </core-overlay>
 
 <core-overlay layered backdrop id="backdrop">
-  <style no-shim>
-    #backdrop {
-      height: 200px;
-      width: 300px;
-      border: 1px solid black;
-      padding: 10px;
-      background-color: white;
-    }
-  </style>
-  Layered backdrop Overlay
+    <style no-shim>
+        #backdrop {
+            height: 200px;
+            width: 300px;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: white;
+        }
+    </style>
+    Layered backdrop Overlay
 </core-overlay>
 
 <script>
-  document.addEventListener('polymer-ready', function() {
-    // setup
-    // basic
-    var basic = document.querySelector('#basic');
-    // targeted
-    var target = document.querySelector('#target');
-    var targeted = document.querySelector('#targeted');
-    targeted.target = target;
-    // 
-    var layered = document.querySelector('#layered');
-    var backdrop = document.querySelector('#backdrop');
+    document.addEventListener('polymer-ready', function () {
+        // setup
+        // basic
+        var basic = document.querySelector('#basic');
+        // targeted
+        var target = document.querySelector('#target');
+        var targeted = document.querySelector('#targeted');
+        targeted.target = target;
+        //
+        var layered = document.querySelector('#layered');
+        var backdrop = document.querySelector('#backdrop');
 
-    function testOpenEvents(element, next) {
-      var openingEvents = 0;
-      element.addEventListener('core-overlay-open', function() {
-        openingEvents++;
-      });
-      element.addEventListener('core-overlay-open-completed', function() {
-        openingEvents++;
-        element.async(function() {
-          this.opened = false;
-        }, 1);
-      });
-      element.addEventListener('core-overlay-close-completed', function() {
-        openingEvents++;
-        chai.assert.equal(openingEvents, 4, 'open and open-completed events fired');
-        next();
-      });
-      element.opened = true;
-    }
+        function testOpenEvents(element, next) {
+            var openingEvents = 0;
+            element.addEventListener('core-overlay-open', function () {
+                openingEvents++;
+            });
+            element.addEventListener('core-overlay-open-completed', function () {
+                openingEvents++;
+                element.async(function () {
+                    this.opened = false;
+                }, 1);
+            });
+            element.addEventListener('core-overlay-close-completed', function () {
+                openingEvents++;
+                chai.assert.equal(openingEvents, 4, 'open and open-completed events fired');
+                next();
+            });
+            element.opened = true;
+        }
 
-    asyncSeries([
-      // basic overlay events
-      function(next) {
-        chai.assert.equal(basic.opened, false, 'overlay starts closed');
-        chai.assert.equal(getComputedStyle(basic).display, 'none', 'overlay starts hidden');
-        testOpenEvents(basic, next);
-        
-      },
-      // targeted overlay events
-      function(next) {
-        chai.assert.equal(targeted.opened, false, 'targeted overlay starts closed');
-        chai.assert.equal(getComputedStyle(target).display, 'none', 'targeted overlay target starts hidden');
-        testOpenEvents(targeted, next);
-      },
-      // layered overlay events
-      function(next) {
-        testOpenEvents(layered, next);
-      },
-      // backdrop overlay events
-      function(next) {
-        testOpenEvents(backdrop, next);
-      }
-    ], done);
-  });
+        asyncSeries([
+            // basic overlay events
+            function (next) {
+                chai.assert.equal(basic.opened, false, 'overlay starts closed');
+                chai.assert.equal(getComputedStyle(basic).display, 'none', 'overlay starts hidden');
+                testOpenEvents(basic, next);
+
+            },
+            // targeted overlay events
+            function (next) {
+                chai.assert.equal(targeted.opened, false, 'targeted overlay starts closed');
+                chai.assert.equal(getComputedStyle(target).display, 'none', 'targeted overlay target starts hidden');
+                testOpenEvents(targeted, next);
+            },
+            // layered overlay events
+            function (next) {
+                testOpenEvents(layered, next);
+            },
+            // backdrop overlay events
+            function (next) {
+                testOpenEvents(backdrop, next);
+            }
+        ], done);
+    });
 
 </script>
 

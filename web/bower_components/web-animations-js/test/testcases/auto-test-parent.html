@@ -14,39 +14,45 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  left: 0px;
-  width: 100px;
-  height: 25px;
-  background-color: #FAA;
-  position: relative;
-}
-.expect {
-  border-right: 1px solid black;
-}
+    .anim {
+        left: 0px;
+        width: 100px;
+        height: 25px;
+        background-color: #FAA;
+        position: relative;
+    }
+
+    .expect {
+        border-right: 1px solid black;
+    }
 
 </style>
 
 <div>Right edge of each box should align with black line at end of test.</div>
-<div style="width: 300px;" class="expect"><div id="a" class="anim"></div></div>
-<div style="width: 300px;" class="expect"><div id="c" class="anim"></div></div>
+<div style="width: 300px;" class="expect">
+    <div id="a" class="anim"></div>
+</div>
+<div style="width: 300px;" class="expect">
+    <div id="c" class="anim"></div>
+</div>
 
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-var effect = [{left: "100px"}, {left: "200px"}];
-var timing = {duration: 1 * 1000, fill: 'forwards'};
+    var effect = [{left: "100px"}, {left: "200px"}];
+    var timing = {duration: 1 * 1000, fill: 'forwards'};
 
-// Top level animation.
-document.timeline.play(new Animation(document.getElementById("a"),
-    effect, timing));
+    // Top level animation.
+    document.timeline.play(new Animation(document.getElementById("a"),
+            effect, timing));
 
-// Animation in group.
-document.timeline.play(new AnimationGroup([
-  new Animation(document.getElementById("c"), effect, timing)
-], {iterations: 3}));
+    // Animation in group.
+    document.timeline.play(new AnimationGroup([
+        new Animation(document.getElementById("c"), effect, timing)
+    ], {iterations: 3}));
 
 </script>

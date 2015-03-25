@@ -14,26 +14,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  left: 0px;
-  width: 100px;
-  height: 100px;
-  background-color: #FAA;
-  position: absolute;
-}
+    .anim {
+        left: 0px;
+        width: 100px;
+        height: 100px;
+        background-color: #FAA;
+        position: absolute;
+    }
 
-.expected {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  border-right: 1px solid black;
-}
+    .expected {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        border-right: 1px solid black;
+    }
 
-#a {
-  top: 50px
-}
+    #a {
+        top: 50px
+    }
 </style>
 
 <div>Right edge of box should align with black line at end of test.</div>
@@ -42,24 +43,30 @@ limitations under the License.
 
 <script src="../bootstrap.js" nopolyfill></script>
 <script>
-"use strict";
+    "use strict";
 
-timing_test(function() {
-    at(0.00, function() { assert_styles(".anim", {"left": "0px"}) });
-    at(0.25, function() { assert_styles(".anim", {"left": "100px"}) });
-    at(0.50, function() { assert_styles(".anim", {"left": "200px"}) });
-  }, "Check left position");
+    timing_test(function () {
+        at(0.00, function () {
+            assert_styles(".anim", {"left": "0px"})
+        });
+        at(0.25, function () {
+            assert_styles(".anim", {"left": "100px"})
+        });
+        at(0.50, function () {
+            assert_styles(".anim", {"left": "200px"})
+        });
+    }, "Check left position");
 
-window.addEventListener('load', function() {
-  var s = document.createElement('script');
-  s.src = "../../web-animations.js";
-  s.addEventListener('load', function() {
-    document.timeline.play(new Animation(a,
-      [{left: "0px"}, {left: "200px"}],
-      {duration: 0.5, fill: 'forwards'}
-    ));
+    window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.src = "../../web-animations.js";
+        s.addEventListener('load', function () {
+            document.timeline.play(new Animation(a,
+                    [{left: "0px"}, {left: "200px"}],
+                    {duration: 0.5, fill: 'forwards'}
+            ));
 
-  })
-  document.head.appendChild(s);
-});
+        })
+        document.head.appendChild(s);
+    });
 </script>

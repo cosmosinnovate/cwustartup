@@ -14,96 +14,97 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background-color: lightsteelblue;
-  position: absolute;
-}
+    .anim {
+        left: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: lightsteelblue;
+        position: absolute;
+    }
 
-#a {
-  top: 0px
-}
+    #a {
+        top: 0px
+    }
 
-#b {
-  top: 100px;
-}
+    #b {
+        top: 100px;
+    }
 
-#c {
-  top: 200px
-}
+    #c {
+        top: 200px
+    }
 
-#d {
-  top: 300px;
-}
+    #d {
+        top: 300px;
+    }
 
-#e {
-  top: 400px;
-}
+    #e {
+        top: 400px;
+    }
 
-#f {
-  top: 500px;
-}
+    #f {
+        top: 500px;
+    }
 
-#g {
-  top: 600px;
-  left: 200px;
-}
+    #g {
+        top: 600px;
+        left: 200px;
+    }
 
-#expectation {
-  position: absolute;
-  top: 0px;
-  left: 200px;
-  width: 100px;
-  height: 700px;
-  background: red;
-}
+    #expectation {
+        position: absolute;
+        top: 0px;
+        left: 200px;
+        width: 100px;
+        height: 700px;
+        background: red;
+    }
 </style>
 
 <div id=expectation></div>
 
 <div>
-  <div id="a" class="anim"></div>
-  <div id="b" class="anim"></div>
-  <div id="c" class="anim"></div>
-  <div id="d" class="anim"></div>
-  <div id="e" class="anim"></div>
-  <div id="f" class="anim"></div>
-  <div id="g" class="anim"></div>
+    <div id="a" class="anim"></div>
+    <div id="b" class="anim"></div>
+    <div id="c" class="anim"></div>
+    <div id="d" class="anim"></div>
+    <div id="e" class="anim"></div>
+    <div id="f" class="anim"></div>
+    <div id="g" class="anim"></div>
 </div>
 
 <div style="height: 750px"></div>
 
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-var dt = document.timeline;
+    var dt = document.timeline;
 
-dt.play(new Animation(document.querySelector("#a"),
-    [{left: "100px"}, {left: "200px"}], {delay: 1 * 1000, duration: 1 * 1000, fill: 'forwards'}));
-dt.play(new Animation(document.querySelector("#b"), {left: "200px"},
-    {delay: 1 * 1000, duration: 1 * 1000, fill: 'forwards'}));
-dt.play(new Animation(document.querySelector("#c"),
-    [{left: "100px"}, {left: "200px"}], {duration: 2 * 1000, fill: 'forwards'}));
-dt.play(new Animation(document.querySelector("#d"), {left: "200px"},
-    {duration: 2 * 1000, fill: 'forwards'}));
-dt.play(new Animation(document.querySelector("#e"), [
-  {offset: 0, left: "100px"},
-  {offset: 1, left: "200px"},
-], {duration: 2 * 1000, fill: 'forwards'}));
-dt.play(new Animation(document.querySelector("#f"), [
-  {offset: 0, left: "200px"},
-  {offset: 0.25, left: "100px"},
-  {offset: 1, left: "200px"}
-], {duration: 2 * 1000, fill: 'forwards'}));
-dt.play(new Animation(document.querySelector("#g"), new KeyframeEffect([
-  {offset: 0.25, left: "200px"},
-  {offset: 0.5, left: "100px"},
-  {offset: 0.75, left: "200px"}
-], "add"), {duration: 2 * 1000, fill: 'forwards'}));
+    dt.play(new Animation(document.querySelector("#a"),
+            [{left: "100px"}, {left: "200px"}], {delay: 1 * 1000, duration: 1 * 1000, fill: 'forwards'}));
+    dt.play(new Animation(document.querySelector("#b"), {left: "200px"},
+            {delay: 1 * 1000, duration: 1 * 1000, fill: 'forwards'}));
+    dt.play(new Animation(document.querySelector("#c"),
+            [{left: "100px"}, {left: "200px"}], {duration: 2 * 1000, fill: 'forwards'}));
+    dt.play(new Animation(document.querySelector("#d"), {left: "200px"},
+            {duration: 2 * 1000, fill: 'forwards'}));
+    dt.play(new Animation(document.querySelector("#e"), [
+        {offset: 0, left: "100px"},
+        {offset: 1, left: "200px"},
+    ], {duration: 2 * 1000, fill: 'forwards'}));
+    dt.play(new Animation(document.querySelector("#f"), [
+        {offset: 0, left: "200px"},
+        {offset: 0.25, left: "100px"},
+        {offset: 1, left: "200px"}
+    ], {duration: 2 * 1000, fill: 'forwards'}));
+    dt.play(new Animation(document.querySelector("#g"), new KeyframeEffect([
+        {offset: 0.25, left: "200px"},
+        {offset: 0.5, left: "100px"},
+        {offset: 0.75, left: "200px"}
+    ], "add"), {duration: 2 * 1000, fill: 'forwards'}));
 
 </script>

@@ -12,32 +12,33 @@
 //     See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function(scope, testing) {
+(function (scope, testing) {
 
-  var aliased = {};
+    var aliased = {};
 
-  function alias(name, aliases) {
-    aliases.concat([name]).forEach(function(candidate) {
-      if (candidate in document.documentElement.style) {
-        aliased[name] = candidate;
-      }
-    });
-  }
-  alias('transform', ['webkitTransform', 'msTransform']);
-  alias('transformOrigin', ['webkitTransformOrigin']);
-  alias('perspective', ['webkitPerspective']);
-  alias('perspectiveOrigin', ['webkitPerspectiveOrigin']);
+    function alias(name, aliases) {
+        aliases.concat([name]).forEach(function (candidate) {
+            if (candidate in document.documentElement.style) {
+                aliased[name] = candidate;
+            }
+        });
+    }
 
-  function propertyName(property) {
-    return aliased[property] || property;
-  }
+    alias('transform', ['webkitTransform', 'msTransform']);
+    alias('transformOrigin', ['webkitTransformOrigin']);
+    alias('perspective', ['webkitPerspective']);
+    alias('perspectiveOrigin', ['webkitPerspectiveOrigin']);
 
-  scope.apply = function(element, property, value) {
-    element.style[propertyName(property)] = value;
-  };
+    function propertyName(property) {
+        return aliased[property] || property;
+    }
 
-  scope.clear = function(element, property) {
-    element.style[propertyName(property)] = '';
-  };
+    scope.apply = function (element, property, value) {
+        element.style[propertyName(property)] = value;
+    };
+
+    scope.clear = function (element, property) {
+        element.style[propertyName(property)] = '';
+    };
 
 })(webAnimationsMinifill, webAnimationsTesting);

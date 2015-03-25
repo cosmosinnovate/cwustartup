@@ -19,49 +19,49 @@
 
 <polymer-element name="core-doc-toc" attributes="data selected">
 
-  <template>
+    <template>
 
-    <link rel="stylesheet" href="core-doc-toc.css">
+        <link rel="stylesheet" href="core-doc-toc.css">
 
-    <core-header-panel mode="waterfall">
+        <core-header-panel mode="waterfall">
 
-<!--      <core-toolbar theme="core-light-theme">
-        <core-icon-button icon="menu"></core-icon-button>
-        <span core-flex>Topics</span>
-        <core-icon-button icon="search" on-tap="{{searchAction}}"></core-icon-button>
-      </core-toolbar>
+            <!--      <core-toolbar theme="core-light-theme">
+                    <core-icon-button icon="menu"></core-icon-button>
+                    <span core-flex>Topics</span>
+                    <core-icon-button icon="search" on-tap="{{searchAction}}"></core-icon-button>
+                  </core-toolbar>
 
-      <core-toolbar id="searchBar" style="background-color: #C2185B; position: absolute; top: 0; left: 0; right: 0; opacity: 0; display: none;" class="seamed" theme="core-dark-theme">
-        <core-icon-button icon="search"></core-icon-button>
-        <core-icon-button icon="close" on-tap="{{closeSearchAction}}"></core-icon-button>
-      </core-toolbar>-->
+                  <core-toolbar id="searchBar" style="background-color: #C2185B; position: absolute; top: 0; left: 0; right: 0; opacity: 0; display: none;" class="seamed" theme="core-dark-theme">
+                    <core-icon-button icon="search"></core-icon-button>
+                    <core-icon-button icon="close" on-tap="{{closeSearchAction}}"></core-icon-button>
+                  </core-toolbar>-->
 
-      <core-menu selected="{{selected}}">
-        <template repeat="{{data}}">
-          <core-item><a href="#{{name}}">{{name}}</a></core-item>
-        </template>
-      </core-menu>
+            <core-menu selected="{{selected}}">
+                <template repeat="{{data}}">
+                    <core-item><a href="#{{name}}">{{name}}</a></core-item>
+                </template>
+            </core-menu>
 
-    </core-header-panel>
+        </core-header-panel>
 
-  </template>
+    </template>
 
-  <script>
+    <script>
 
-    Polymer('core-doc-toc', {
+        Polymer('core-doc-toc', {
 
-      searchAction: function() {
-        this.$.searchBar.style.opacity = 1;
-        this.$.searchBar.style.display = '';
-      },
+            searchAction: function () {
+                this.$.searchBar.style.opacity = 1;
+                this.$.searchBar.style.display = '';
+            },
 
-      closeSearchAction: function() {
-        this.$.searchBar.style.opacity = 0;
-        this.$.searchBar.style.display = 'none';
-      }
+            closeSearchAction: function () {
+                this.$.searchBar.style.opacity = 0;
+                this.$.searchBar.style.display = 'none';
+            }
 
-    });
+        });
 
-  </script>
+    </script>
 
 </polymer-element>

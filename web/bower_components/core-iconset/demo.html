@@ -11,43 +11,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
 
-  <title>core-iconset</title>
+    <title>core-iconset</title>
 
-  <script src="../webcomponentsjs/webcomponents.js"></script>
-  <link rel="import" href="core-iconset.html">
-  <link rel="import" href="../core-icon/core-icon.html">
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="core-iconset.html">
+    <link rel="import" href="../core-icon/core-icon.html">
 
 </head>
 <body unresolved>
-  
-  <!-- Register an icon set; you can do this anywhere, including an HTMLImport! -->
-  <core-iconset id="my-icons" src="my-icons.png" width="96" iconSize="24"
-      icons="location place starta stopb bus car train walk">
-  </core-iconset>
 
-  <core-iconset id="my-icons-big" src="my-icons-big.png" width="192" iconSize="48"
-      icons="location place starta stopb bus car train walk">
-  </core-iconset>
+<!-- Register an icon set; you can do this anywhere, including an HTMLImport! -->
+<core-iconset id="my-icons" src="my-icons.png" width="96" iconSize="24"
+              icons="location place starta stopb bus car train walk">
+</core-iconset>
 
-  <!-- Now create a bunch of icons using our iconset -->
-  <core-icon icon="my-icons:location"></core-icon>
-  <core-icon icon="my-icons:place"></core-icon>
-  <core-icon icon="my-icons:starta"></core-icon>
-  <core-icon icon="my-icons:stopb"></core-icon>
-  <core-icon icon="my-icons:bus"></core-icon>
-  <core-icon icon="my-icons:car"></core-icon>
-  <core-icon icon="my-icons:train"></core-icon>
-  <core-icon icon="my-icons:walk"></core-icon>
-  <br>
-  <!-- icons may also be specified by index -->
-  <style>
+<core-iconset id="my-icons-big" src="my-icons-big.png" width="192" iconSize="48"
+              icons="location place starta stopb bus car train walk">
+</core-iconset>
+
+<!-- Now create a bunch of icons using our iconset -->
+<core-icon icon="my-icons:location"></core-icon>
+<core-icon icon="my-icons:place"></core-icon>
+<core-icon icon="my-icons:starta"></core-icon>
+<core-icon icon="my-icons:stopb"></core-icon>
+<core-icon icon="my-icons:bus"></core-icon>
+<core-icon icon="my-icons:car"></core-icon>
+<core-icon icon="my-icons:train"></core-icon>
+<core-icon icon="my-icons:walk"></core-icon>
+<br>
+<!-- icons may also be specified by index -->
+<style>
     .embiggen core-icon {
-      width: 48px;
-      height: 48px;
+        width: 48px;
+        height: 48px;
     }
-  </style>
+</style>
 
-  <div class="embiggen">
+<div class="embiggen">
     <core-icon icon="my-icons-big:0"></core-icon>
     <core-icon icon="my-icons-big:1"></core-icon>
     <core-icon icon="my-icons-big:2"></core-icon>
@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <core-icon icon="my-icons-big:5"></core-icon>
     <core-icon icon="my-icons-big:6"></core-icon>
     <core-icon icon="my-icons-big:7"></core-icon>
-  </div>
+</div>
 
- </body>
+</body>
 </html>

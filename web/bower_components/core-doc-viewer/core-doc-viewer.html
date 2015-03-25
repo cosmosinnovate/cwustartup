@@ -79,114 +79,114 @@ Arbitrary HTML is also supported
 
 <polymer-element name="core-doc-viewer" attributes="sources route url" horizontal layout>
 
-  <template>
+    <template>
 
-    <style>
+        <style>
 
-      core-doc-toc {
-        display: none;
-        width: 332px;
-        overflow-x: hidden;
-      }
+            core-doc-toc {
+                display: none;
+                width: 332px;
+                overflow-x: hidden;
+            }
 
-    </style>
+        </style>
 
-    <context-free-parser url="{{url}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
+        <context-free-parser url="{{url}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
 
-    <template repeat="{{sources}}">
-      <context-free-parser url="{{}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
+        <template repeat="{{sources}}">
+            <context-free-parser url="{{}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
+        </template>
+
+        <core-doc-toc id="toc" data="{{classes}}" selected="{{selected}}"></core-doc-toc>
+        <core-doc-page flex data="{{data}}"></core-doc-page>
+
     </template>
 
-    <core-doc-toc id="toc" data="{{classes}}" selected="{{selected}}"></core-doc-toc>
-    <core-doc-page flex data="{{data}}"></core-doc-page>
+    <script>
 
-  </template>
+        Polymer('core-doc-viewer', {
+            /**
+             * A single file to parse for docs
+             *
+             * @attribute url
+             * @type String
+             * @default ''
+             */
 
-  <script>
+            /**
+             * Class documentation extracted from the parser
+             *
+             * @property classes
+             * @type Array
+             * @default []
+             */
+            classes: [],
 
-    Polymer('core-doc-viewer', {
-      /**
-       * A single file to parse for docs
-       *
-       * @attribute url
-       * @type String
-       * @default ''
-       */
+            /**
+             * Files to parse for docs
+             *
+             * @attribute sources
+             * @type Array
+             * @default []
+             */
+            sources: [],
 
-      /**
-       * Class documentation extracted from the parser
-       *
-       * @property classes
-       * @type Array
-       * @default []
-       */
-      classes: [],
+            ready: function () {
+                window.addEventListener('hashchange', this.parseLocationHash.bind(this));
+                this.parseLocationHash();
+            },
 
-      /**
-       * Files to parse for docs
-       *
-       * @attribute sources
-       * @type Array
-       * @default []
-       */
-      sources: [],
+            parseLocationHash: function () {
+                this.route = window.location.hash.slice(1);
+            },
 
-      ready: function() {
-        window.addEventListener('hashchange', this.parseLocationHash.bind(this));
-        this.parseLocationHash();
-      },
+            routeChanged: function () {
+                this.validateRoute();
+            },
 
-      parseLocationHash: function() {
-        this.route = window.location.hash.slice(1);
-      },
+            validateRoute: function () {
+                if (this.route) {
+                    this.classes.some(function (c) {
+                        // The URL fragment might be just a class name,
+                        // or it might be a class name followed by a '.' and then
+                        // a section of the page.
+                        // We want to match on class names here, so split on '.'.
+                        // E.g.: 'core-ajax.properties.xhrArgs' -> 'core-ajax'
+                        //       'core-xhr' -> 'core-xhr'
+                        if (c.name === this.route.split('.')[0]) {
+                            this.data = c;
+                            this.route = '';
+                            return;
+                        }
+                    }, this);
+                }
+            },
 
-      routeChanged: function() {
-        this.validateRoute();
-      },
+            selectedChanged: function () {
+                this.data = this.classes[this.selected];
+            },
 
-      validateRoute: function() {
-        if (this.route) {
-          this.classes.some(function(c) {
-            // The URL fragment might be just a class name,
-            // or it might be a class name followed by a '.' and then
-            // a section of the page.
-            // We want to match on class names here, so split on '.'.
-            // E.g.: 'core-ajax.properties.xhrArgs' -> 'core-ajax'
-            //       'core-xhr' -> 'core-xhr'
-            if (c.name === this.route.split('.')[0]) {
-              this.data = c;
-              this.route = '';
-              return;
+            parserDataReady: function (event) {
+                this.assimilateData(event.target.data);
+            },
+
+            assimilateData: function (data) {
+                this.classes = this.classes.concat(data.classes);
+                this.classes.sort(function (a, b) {
+                    var na = a && a.name.toLowerCase(), nb = b && b.name.toLowerCase();
+                    return (na < nb) ? -1 : (na == nb) ? 0 : 1;
+                });
+                if (!this.data && !this.route && this.classes.length) {
+                    this.data = this.classes[0];
+                }
+                if (this.classes.length > 1) {
+                    this.$.toc.style.display = 'block';
+                }
+                this.validateRoute();
             }
-          }, this);
-        }
-      },
 
-      selectedChanged: function() { 
-        this.data = this.classes[this.selected];
-      },
-
-      parserDataReady: function(event) {
-        this.assimilateData(event.target.data);
-      },
-
-      assimilateData: function(data) {
-        this.classes = this.classes.concat(data.classes);
-        this.classes.sort(function(a, b) {
-          var na = a && a.name.toLowerCase(), nb = b && b.name.toLowerCase();
-          return (na < nb) ? -1 : (na == nb) ? 0 : 1;
         });
-        if (!this.data && !this.route && this.classes.length) {
-          this.data = this.classes[0];
-        }
-        if (this.classes.length > 1) {
-          this.$.toc.style.display = 'block';
-        }
-        this.validateRoute();
-      }
 
-    });
-
-  </script>
+    </script>
 
 </polymer-element>

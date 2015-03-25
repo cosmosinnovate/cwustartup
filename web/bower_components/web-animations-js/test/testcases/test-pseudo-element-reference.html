@@ -13,26 +13,30 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-#child:before {
-  display: block;
-  content: "When I grow up I'm going to be a real element.";
-  height: 20px;
-}
+    #child:before {
+        display: block;
+        content: "When I grow up I'm going to be a real element.";
+        height: 20px;
+    }
 </style>
-<body><div id="parent"><div id="child"></div></div>
+<body>
+<div id="parent">
+    <div id="child"></div>
+</div>
 <script src="../bootstrap.js"></script>
 <script>
-'use strict';
-var parent = document.querySelector('#parent');
-var child = document.querySelector('#parent');
-document.timeline.play(new Animation(
-    new PseudoElementReference(child, ':before'), [{width: '0px'}, {width: '100px'}], 1));
+    'use strict';
+    var parent = document.querySelector('#parent');
+    var child = document.querySelector('#parent');
+    document.timeline.play(new Animation(
+            new PseudoElementReference(child, ':before'), [{width: '0px'}, {width: '100px'}], 1));
 
-timing_test(function() {
-  at(0.5, function() {
-    assert_styles(parent, {height: '20px'});
-  });
-}, 'PseudoElementReference is implemented but not supported.');
+    timing_test(function () {
+        at(0.5, function () {
+            assert_styles(parent, {height: '20px'});
+        });
+    }, 'PseudoElementReference is implemented but not supported.');
 </script>

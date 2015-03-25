@@ -54,107 +54,109 @@ To change the radio unchecked color:
 <link rel="import" href="../core-a11y-keys/core-a11y-keys.html">
 
 <polymer-element name="paper-radio-button" role="radio" tabindex="0" aria-checked="false">
-<template>
+    <template>
 
-  <link rel="stylesheet" href="paper-radio-button.css">
+        <link rel="stylesheet" href="paper-radio-button.css">
 
-  <core-a11y-keys target="{{}}" keys="space" on-keys-pressed="{{tap}}"></core-a11y-keys>
-  
-  <div id="radioContainer" class="{{ {labeled: label} | tokenList }}">
-  
-    <div id="offRadio"></div>
-    <div id="onRadio"></div>
-    
-    <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
-    
-  </div>
-  
-  <div id="radioLabel" aria-hidden="true" hidden?="{{!label}}">{{label}}<content></content></div>
-  
-</template>
-<script>
+        <core-a11y-keys target="{{}}" keys="space" on-keys-pressed="{{tap}}"></core-a11y-keys>
 
-  Polymer('paper-radio-button', {
-    
-    /**
-     * Fired when the checked state changes due to user interaction.
-     *
-     * @event change
-     */
-     
-    /**
-     * Fired when the checked state changes.
-     *
-     * @event core-change
-     */
-    
-    publish: {
-      /**
-       * Gets or sets the state, `true` is checked and `false` is unchecked.
-       *
-       * @attribute checked
-       * @type boolean
-       * @default false
-       */
-      checked: {value: false, reflect: true},
-      
-      /**
-       * The label for the radio button.
-       *
-       * @attribute label
-       * @type string
-       * @default ''
-       */
-      label: '',
-      
-      /**
-       * Normally the user cannot uncheck the radio button by tapping once
-       * checked.  Setting this property to `true` makes the radio button
-       * toggleable from checked to unchecked.
-       *
-       * @attribute toggles
-       * @type boolean
-       * @default false
-       */
-      toggles: false,
-      
-      /**
-       * If true, the user cannot interact with this element.
-       *
-       * @attribute disabled
-       * @type boolean
-       * @default false
-       */
-      disabled: {value: false, reflect: true}
-    },
-    
-    eventDelegates: {
-      tap: 'tap'
-    },
-    
-    tap: function() {
-      var old = this.checked;
-      this.toggle();
-      if (this.checked !== old) {
-        this.fire('change');
-      }
-    },
-    
-    toggle: function() {
-      this.checked = !this.toggles || !this.checked;
-    },
-    
-    checkedChanged: function() {
-      this.$.onRadio.classList.toggle('fill', this.checked);
-      this.setAttribute('aria-checked', this.checked ? 'true': 'false');
-      this.fire('core-change');
-    },
-    
-    labelChanged: function() {
-      this.setAttribute('aria-label', this.label);
-    }
-    
-  });
-  
-</script>
+        <div id="radioContainer" class="{{ {labeled: label} | tokenList }}">
+
+            <div id="offRadio"></div>
+            <div id="onRadio"></div>
+
+            <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
+
+        </div>
+
+        <div id="radioLabel" aria-hidden="true" hidden?="{{!label}}">{{label}}
+            <content></content>
+        </div>
+
+    </template>
+    <script>
+
+        Polymer('paper-radio-button', {
+
+            /**
+             * Fired when the checked state changes due to user interaction.
+             *
+             * @event change
+             */
+
+            /**
+             * Fired when the checked state changes.
+             *
+             * @event core-change
+             */
+
+            publish: {
+                /**
+                 * Gets or sets the state, `true` is checked and `false` is unchecked.
+                 *
+                 * @attribute checked
+                 * @type boolean
+                 * @default false
+                 */
+                checked: {value: false, reflect: true},
+
+                /**
+                 * The label for the radio button.
+                 *
+                 * @attribute label
+                 * @type string
+                 * @default ''
+                 */
+                label: '',
+
+                /**
+                 * Normally the user cannot uncheck the radio button by tapping once
+                 * checked.  Setting this property to `true` makes the radio button
+                 * toggleable from checked to unchecked.
+                 *
+                 * @attribute toggles
+                 * @type boolean
+                 * @default false
+                 */
+                toggles: false,
+
+                /**
+                 * If true, the user cannot interact with this element.
+                 *
+                 * @attribute disabled
+                 * @type boolean
+                 * @default false
+                 */
+                disabled: {value: false, reflect: true}
+            },
+
+            eventDelegates: {
+                tap: 'tap'
+            },
+
+            tap: function () {
+                var old = this.checked;
+                this.toggle();
+                if (this.checked !== old) {
+                    this.fire('change');
+                }
+            },
+
+            toggle: function () {
+                this.checked = !this.toggles || !this.checked;
+            },
+
+            checkedChanged: function () {
+                this.$.onRadio.classList.toggle('fill', this.checked);
+                this.setAttribute('aria-checked', this.checked ? 'true' : 'false');
+                this.fire('core-change');
+            },
+
+            labelChanged: function () {
+                this.setAttribute('aria-label', this.label);
+            }
+
+        });
+
+    </script>
 </polymer-element>

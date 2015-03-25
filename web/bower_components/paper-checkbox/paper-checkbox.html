@@ -55,56 +55,59 @@ To change the checbox unchecked color:
 <link rel="import" href="../paper-radio-button/paper-radio-button.html">
 
 <polymer-element name="paper-checkbox" extends="paper-radio-button" role="checkbox">
-<template>
+    <template>
 
-  <link rel="stylesheet" href="paper-checkbox.css">
+        <link rel="stylesheet" href="paper-checkbox.css">
 
-  <div id="checkboxContainer" class="{{ {labeled: label} | tokenList }}" >
-  
-    <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
-     
-    <div id="checkbox" on-animationend="{{checkboxAnimationEnd}}" on-webkitAnimationEnd="{{checkboxAnimationEnd}}"></div>
-    
-  </div>
-  
-  <div id="checkboxLabel" hidden?="{{!label}}">{{label}}<content></content></div>
+        <div id="checkboxContainer" class="{{ {labeled: label} | tokenList }}">
 
-</template>
-<script>
+            <paper-ripple id="ink" class="circle recenteringTouch" checked?="{{!checked}}"></paper-ripple>
 
-  Polymer('paper-checkbox', {
-    
-    /**
-     * Fired when the checked state changes due to user interaction.
-     *
-     * @event change
-     */
-     
-    /**
-     * Fired when the checked state changes.
-     *
-     * @event core-change
-     */
-    
-    toggles: true,
+            <div id="checkbox" on-animationend="{{checkboxAnimationEnd}}"
+                 on-webkitAnimationEnd="{{checkboxAnimationEnd}}"></div>
 
-    checkedChanged: function() {
-      var cl = this.$.checkbox.classList;
-      cl.toggle('checked', this.checked);
-      cl.toggle('unchecked', !this.checked);
-      cl.toggle('checkmark', !this.checked);
-      cl.toggle('box', this.checked);
-      this.setAttribute('aria-checked', this.checked ? 'true': 'false');
-      this.fire('core-change');
-    },
+        </div>
 
-    checkboxAnimationEnd: function() {
-      var cl = this.$.checkbox.classList;
-      cl.toggle('checkmark', this.checked && !cl.contains('checkmark'));
-      cl.toggle('box', !this.checked && !cl.contains('box'));
-    }
+        <div id="checkboxLabel" hidden?="{{!label}}">{{label}}
+            <content></content>
+        </div>
 
-  });
-  
-</script>
+    </template>
+    <script>
+
+        Polymer('paper-checkbox', {
+
+            /**
+             * Fired when the checked state changes due to user interaction.
+             *
+             * @event change
+             */
+
+            /**
+             * Fired when the checked state changes.
+             *
+             * @event core-change
+             */
+
+            toggles: true,
+
+            checkedChanged: function () {
+                var cl = this.$.checkbox.classList;
+                cl.toggle('checked', this.checked);
+                cl.toggle('unchecked', !this.checked);
+                cl.toggle('checkmark', !this.checked);
+                cl.toggle('box', this.checked);
+                this.setAttribute('aria-checked', this.checked ? 'true' : 'false');
+                this.fire('core-change');
+            },
+
+            checkboxAnimationEnd: function () {
+                var cl = this.$.checkbox.classList;
+                cl.toggle('checkmark', this.checked && !cl.contains('checkmark'));
+                cl.toggle('box', !this.checked && !cl.contains('box'));
+            }
+
+        });
+
+    </script>
 </polymer-element>

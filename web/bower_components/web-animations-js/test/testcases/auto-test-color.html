@@ -14,104 +14,105 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!DOCTYPE html><meta charset="UTF-8">
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <style>
-.anim {
-  top: 50px;
-  width: 100px;
-  height: 100px;
-  background-color: lightsteelblue;
-  position: absolute;
-}
+    .anim {
+        top: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: lightsteelblue;
+        position: absolute;
+    }
 
-#a {
-  left: 50px
-}
+    #a {
+        left: 50px
+    }
 
-#b {
-  left: 150px;
-}
+    #b {
+        left: 150px;
+    }
 
-#c {
-  left: 250px;
-  background-color: green;
-}
+    #c {
+        left: 250px;
+        background-color: green;
+    }
 
-#d {
-  left: 350px;
-  background-color: rgba(0, 0, 0, 0);
-}
+    #d {
+        left: 350px;
+        background-color: rgba(0, 0, 0, 0);
+    }
 
-#e {
-  left: 450px;
-  background-color: rgba(255, 0, 255, 0);
-}
+    #e {
+        left: 450px;
+        background-color: rgba(255, 0, 255, 0);
+    }
 
-#f {
-  left: 550px
-}
+    #f {
+        left: 550px
+    }
 
-#g {
-  left: 650px
-}
+    #g {
+        left: 650px
+    }
 
-#container {
-  position: absolute;
-  left: 0px;
-  top: 50px;
-  width: 800px;
-  height: 200px;
-  background-color: green;
-}
+    #container {
+        position: absolute;
+        left: 0px;
+        top: 50px;
+        width: 800px;
+        height: 200px;
+        background-color: green;
+    }
 
 </style>
 
 All three boxes should end up the same color as the outline.
 
 <div id="container">
-  <div id="a" class="anim"></div>
-  <div id="b" class="anim"></div>
-  <div id="c" class="anim"></div>
-  <div id="d" class="anim"></div>
-  <div id="e" class="anim"></div>
-  <div id="f" class="anim"></div>
-  <div id="g" class="anim"></div>
+    <div id="a" class="anim"></div>
+    <div id="b" class="anim"></div>
+    <div id="c" class="anim"></div>
+    <div id="d" class="anim"></div>
+    <div id="e" class="anim"></div>
+    <div id="f" class="anim"></div>
+    <div id="g" class="anim"></div>
 </div>
 
 <script>
-var expected_failures = [
-  {
-    browser_configurations: [{ msie: true }],
-    tests: ['Auto.*'],
-    message: 'IE returns rgba always.',
-  }
-];
+    var expected_failures = [
+        {
+            browser_configurations: [{msie: true}],
+            tests: ['Auto.*'],
+            message: 'IE returns rgba always.',
+        }
+    ];
 </script>
 <script src="../bootstrap.js"></script>
 <script>
-"use strict";
+    "use strict";
 
-var dt = document.timeline;
-var timing = {duration: 2 * 1000, fill: 'forwards'};
+    var dt = document.timeline;
+    var timing = {duration: 2 * 1000, fill: 'forwards'};
 
-dt.play(new Animation(document.querySelector("#a"),
-    [{backgroundColor: "red"}, {backgroundColor: "green"}], timing));
-dt.play(new Animation(document.querySelector("#b"),
-    {backgroundColor: "rgb(0, 128, 0)"}, timing));
-dt.play(new Animation(document.querySelector("#c"),
-    new KeyframeEffect([
-      {offset: 0.25, backgroundColor: "rgb(255, 0, 0)"},
-      {offset: 0.75, backgroundColor: "rgb(0, 0, 255)"},
-    ], 'add'), timing));
-dt.play(new Animation(document.querySelector("#d"),
-    {offset: 0.5, backgroundColor: "white"}, timing));
-dt.play(new Animation(document.querySelector("#e"),
-    {offset: 0.5, backgroundColor: "white"}, timing));
+    dt.play(new Animation(document.querySelector("#a"),
+            [{backgroundColor: "red"}, {backgroundColor: "green"}], timing));
+    dt.play(new Animation(document.querySelector("#b"),
+            {backgroundColor: "rgb(0, 128, 0)"}, timing));
+    dt.play(new Animation(document.querySelector("#c"),
+            new KeyframeEffect([
+                {offset: 0.25, backgroundColor: "rgb(255, 0, 0)"},
+                {offset: 0.75, backgroundColor: "rgb(0, 0, 255)"},
+            ], 'add'), timing));
+    dt.play(new Animation(document.querySelector("#d"),
+            {offset: 0.5, backgroundColor: "white"}, timing));
+    dt.play(new Animation(document.querySelector("#e"),
+            {offset: 0.5, backgroundColor: "white"}, timing));
 
-dt.play(new Animation(document.querySelector("#f"),
-    [{backgroundColor: "#000000"}, {backgroundColor: "#ffffff"}], timing));
+    dt.play(new Animation(document.querySelector("#f"),
+            [{backgroundColor: "#000000"}, {backgroundColor: "#ffffff"}], timing));
 
-dt.play(new Animation(document.querySelector("#g"),
-    [{backgroundColor: "#000"}, {backgroundColor: "#fff"}], timing));
+    dt.play(new Animation(document.querySelector("#g"),
+            [{backgroundColor: "#000"}, {backgroundColor: "#fff"}], timing));
 
 </script>

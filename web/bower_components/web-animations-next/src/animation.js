@@ -12,54 +12,54 @@
 //     See the License for the specific language governing permissions and
 // limitations under the License.
 
-(function(shared, scope, testing) {
+(function (shared, scope, testing) {
 
-  scope.Animation = function(target, effectInput, timingInput) {
-    var animationNode = scope.AnimationNode(shared.normalizeTimingInput(timingInput));
-    var effect = scope.convertEffectInput(effectInput);
-    var timeFraction;
-    var animation = function() {
-      WEB_ANIMATIONS_TESTING && console.assert(typeof timeFraction !== 'undefined');
-      effect(target, timeFraction);
+    scope.Animation = function (target, effectInput, timingInput) {
+        var animationNode = scope.AnimationNode(shared.normalizeTimingInput(timingInput));
+        var effect = scope.convertEffectInput(effectInput);
+        var timeFraction;
+        var animation = function () {
+            WEB_ANIMATIONS_TESTING && console.assert(typeof timeFraction !== 'undefined');
+            effect(target, timeFraction);
+        };
+        // Returns whether the animation is in effect or not after the timing update.
+        animation._update = function (localTime) {
+            timeFraction = animationNode(localTime);
+            return timeFraction !== null;
+        };
+        animation._clear = function () {
+            effect(target, null);
+        };
+        animation._hasSameTarget = function (otherTarget) {
+            return target === otherTarget;
+        };
+        animation._isCurrent = animationNode._isCurrent;
+        animation._totalDuration = animationNode._totalDuration;
+        return animation;
     };
-    // Returns whether the animation is in effect or not after the timing update.
-    animation._update = function(localTime) {
-      timeFraction = animationNode(localTime);
-      return timeFraction !== null;
-    };
-    animation._clear = function() {
-      effect(target, null);
-    };
-    animation._hasSameTarget = function(otherTarget) {
-      return target === otherTarget;
-    };
-    animation._isCurrent = animationNode._isCurrent;
-    animation._totalDuration = animationNode._totalDuration;
-    return animation;
-  };
 
-  scope.NullAnimation = function(clear) {
-    var nullAnimation = function() {
-      if (clear) {
-        clear();
-        clear = null;
-      }
+    scope.NullAnimation = function (clear) {
+        var nullAnimation = function () {
+            if (clear) {
+                clear();
+                clear = null;
+            }
+        };
+        nullAnimation._update = function () {
+            return null;
+        };
+        nullAnimation._totalDuration = 0;
+        nullAnimation._isCurrent = function () {
+            return false;
+        };
+        nullAnimation._hasSameTarget = function () {
+            return false;
+        };
+        return nullAnimation;
     };
-    nullAnimation._update = function() {
-      return null;
-    };
-    nullAnimation._totalDuration = 0;
-    nullAnimation._isCurrent = function() {
-      return false;
-    };
-    nullAnimation._hasSameTarget = function() {
-      return false;
-    };
-    return nullAnimation;
-  };
 
-  if (WEB_ANIMATIONS_TESTING) {
-    testing.minifillAnimation = scope.Animation;
-  }
+    if (WEB_ANIMATIONS_TESTING) {
+        testing.minifillAnimation = scope.Animation;
+    }
 
 })(webAnimationsShared, webAnimationsMinifill, webAnimationsTesting);

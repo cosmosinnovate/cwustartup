@@ -6,11 +6,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
 
 html /deep/ core-icon {
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  fill: currentcolor;
-  position: relative;
-  height: 24px;
-  width: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    fill: currentcolor;
+    position: relative;
+    height: 24px;
+    width: 24px;
 }

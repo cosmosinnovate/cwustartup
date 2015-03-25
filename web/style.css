@@ -1,80 +1,81 @@
 body {
-background-color: #A3D165;
-font-family: 'Roboto', sans-serif;
-/*background-image: url("images/back_ground2.png");*/
-background-repeat: repeat-x;
-background-attachment: fixed;
-background-position: center;
-background-size: 100%;
+    background-color: #A3D165;
+    font-family: 'Roboto', sans-serif;
+    /*background-image: url("images/back_ground2.png");*/
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
 
 }
 
 button {
-	padding: 5px;
+    padding: 5px;
 }
 
-#saveForm { 
-	padding: 5px;
+#saveForm {
+    padding: 5px;
 }
 
 .form-input .title {
-	color:white;
-	margin-top: 10%;
-	font-size: 28px;
+    color: white;
+    margin-top: 10%;
+    font-size: 28px;
 }
 
 paper-input.label-text {
-  color: #2A0A12;
+    color: #2A0A12;
 }
+
 paper-input {
-width: auto;
+    width: auto;
 }
 
 paper-input.narrow {
-  width: 150px;
+    width: 150px;
 }
 
-.custom /deep/ ::-webkit-input-placeholder {      
-  color: #2A0A12;
+.custom /deep/ ::-webkit-input-placeholder {
+    color: #2A0A12;
 }
 
 .custom /deep/ ::-moz-placeholder {
-  color: #2A0A12;
+    color: #2A0A12;
 }
 
 .custom /deep/ :-ms-input-placeholder {
-  color: #FAFAFA;
+    color: #FAFAFA;
 }
 
 .custom /deep/ .label-text,
 .custom /deep/ .error {
-  color: #FAFAFA;
+    color: #FAFAFA;
 }
 
 .custom /deep/ .unfocused-underline {
-  background-color: #2E2E2E;
+    background-color: #2E2E2E;
 }
 
 .custom[focused] /deep/ .floated-label .label-text {
-  color: #0f9d58;
+    color: #0f9d58;
 }
 
 .custom /deep/ .focused-underline {
-  background-color: #0f9d58;
+    background-color: #0f9d58;
 }
 
 .custom /deep/ .cursor {
-  background-color: #1a237e;
+    background-color: #1a237e;
 }
 
 .custom.invalid /deep/ .floated-label .label-text,
 .custom /deep/ .error {
-  color: #f06292;
+    color: #f06292;
 }
 
 .custom.invalid /deep/ .focused-underline,
 .custom.invalid /deep/ .cursor {
-  background-color: #f06292;
+    background-color: #f06292;
 }
 
 /*.custom {
