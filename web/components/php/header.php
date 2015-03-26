@@ -31,8 +31,8 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design for Bootstrap -->
-    <link href="./bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
-    <link href="./bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
+    <link href="./css/roboto.min.css" rel="stylesheet">
+    <link href="./css/material-fullpalette.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/animate.css">
 <!--    <link rel="stylesheet" href="./css/bootstrap.css">-->
     <link rel="stylesheet" href="./css/main.css">
