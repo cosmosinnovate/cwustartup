@@ -3,16 +3,19 @@
  */
 
 var items = {
-    "about" : "",
-    "projects" : [],
+    "about": "CWUSTARTUP dedicated to bring like minded students to come together and create \n" +
+    "exciting technologies that solve problems around us.",
+    "projects": [],
     "events": [],
-    "teams" : [
+    "teams": [
         "images/taban.jpg",
         "images/p2.jpg",
         "images/patrick.jpg",
         "images/elliot.jpg",
         "images/anderson.jpg"
     ],
-    "carouselImages" : []
+    "carouselImages": []
 }
+
+
 
