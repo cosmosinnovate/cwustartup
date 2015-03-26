@@ -6,7 +6,6 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
     <!--  
         Stylesheets and Preprocessors
         ==============================
@@ -28,15 +27,21 @@
     -->
 
     <!--STYLES-->
+    <!-- Twitter Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design for Bootstrap -->
+    <link href="./bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
+    <link href="./bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/animate.css">
-    <link rel="stylesheet" href="./css/bootstrap.css">
+<!--    <link rel="stylesheet" href="./css/bootstrap.css">-->
     <link rel="stylesheet" href="./css/main.css">
     <!--STYLES END-->
 </head>
 
 <body>
 <div id="page">
-    <div class="site-navbar navbar navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
