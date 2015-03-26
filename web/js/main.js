@@ -40,3 +40,17 @@ function loadScript() {
 }
 
 window.onload = loadScript;
+
+
+//Test code
+var data = [];
+
+for (var k = 0; k < 3; k++) {
+    data[k] = (function (x) {
+        return function () {
+            alert(x);
+        };
+    })(k); // pass "k" value
+}
+
+data[0]();
