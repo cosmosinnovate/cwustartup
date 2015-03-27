@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <h3>About</h3>
             </div>
-            <div class="col-md-6 col-sm-6 wow bounceInLeft" >
+            <div class="col-md-6 col-sm-6 wow bounceInLeft">
                 <p ng-bind="name"></p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">

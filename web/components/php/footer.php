@@ -45,10 +45,11 @@
     </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/ripples.min.js"></script>
 <script src="js/material.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+
 <script src="js/jquery.singlePageNav.js"></script>
 <script src="js/main.js"></script>
 <script src="js/wow.min.js"></script>
