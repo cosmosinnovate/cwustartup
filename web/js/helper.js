@@ -14,10 +14,8 @@
     myApp.controller('Team', ['$scope', function($scope){
         var teamMembers = data;
         $scope.image = teamMembers.imageURL;
-        for (var team in teamMembers) {
-            $scope.name = team.memberName;
-            $scope.member = team.memberDescription;
-        }
+        $scope.name = teamMembers.memberName;
+        $scope.member = teamMembers.memberDescription;
 
     }]);
 
