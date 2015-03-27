@@ -1,4 +1,4 @@
-<section id="team">
+<section id="team" ng-controller="Team">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -11,7 +11,7 @@
 <!--                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>-->
 <!--                        <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>-->
 <!--                    </ul>-->
-                    <img src="images/p1.jpg" alt="p1">
+                    <img src="{{team}}" alt="p1">
                 </div>
                 <h4 id="name">Taban Cosmos</h4>
 

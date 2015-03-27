@@ -1,10 +1,10 @@
-<section id="about">
+<section id="about" ng-controller="About">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h3>About</h3>
             </div>
-            <div class="col-md-6 col-sm-6 wow bounceInLeft" ng-controller="About">
+            <div class="col-md-6 col-sm-6 wow bounceInLeft">
                 <p>{{about}}</p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">
