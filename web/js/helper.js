@@ -13,10 +13,11 @@
 
     myApp.controller('Team', ['$scope', function($scope){
         var teamMembers = data.teams;
-        for (var teams in teamMembers) {
-            $scope.image = teamMembers[teams.imageURL];
-            $scope.name = teamMembers[teams.memberName];
-            $scope.member = teamMembers[teamMembers.memberDescription];
+
+        for (var team in teamMembers) {
+            $scope.image = teamMembers[team.imageURL];
+            $scope.name = teamMembers[team.memberName];
+            $scope.member = teamMembers[team.memberDescription];
         }
 
     }]);
