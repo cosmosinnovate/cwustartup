@@ -41,7 +41,7 @@
 
 <body>
 <div id="page">
-    <div class="site-navbar navbar navbar-default" role="navigation">
+    <div class="site-navbar navbar" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
