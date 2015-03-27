@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html>
 <head>
     <title>CWUSTARTUP</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <!--  
         Stylesheets and Preprocessors
         ==============================
@@ -27,18 +28,12 @@
 
     <!--STYLES-->
     <!-- Twitter Bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
-    <link href="./css/roboto.min.css" rel="stylesheet">
-    <link href="./css/material.min.css" rel="stylesheet">
-    <link href="./css/ripples.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 
     <!-- Material Design for Bootstrap -->
     <link href="css/material.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/animate.css">
-    <link rel="stylesheet" href="./css/main.css">
-
-
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/main.css">
     <!--STYLES END-->
 </head>
 
