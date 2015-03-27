@@ -28,13 +28,12 @@
 
     <!--STYLES-->
     <!-- Twitter Bootstrap -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 
     <!-- Material Design for Bootstrap -->
     <link href="./css/roboto.min.css" rel="stylesheet">
-    <link href="./css/material-fullpalette.min.css" rel="stylesheet">
+    <link href="./css/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/animate.css">
-<!--    <link rel="stylesheet" href="./css/bootstrap.css">-->
     <link rel="stylesheet" href="./css/main.css">
     <!--STYLES END-->
 </head>
@@ -44,7 +43,7 @@
     <div class="site-navbar navbar" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
