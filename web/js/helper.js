@@ -13,6 +13,7 @@
 
     myApp.controller('Team', ['$scope', function($scope){
         var teamMembers = data.teams;
+        console.log(teamMembers);
 
         for (var team in teamMembers) {
             $scope.image = teamMembers[team.imageURL];
