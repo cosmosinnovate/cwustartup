@@ -15,23 +15,23 @@ var data = {
         },
         {
             "imageURL" : "images/p2.jpg",
-            "name" : "Tommy Mathan",
-            "description" : ""
+            "memberName" : "Tommy Mathan",
+            "memberDescription" : ""
         },
         {
             "imageURL" : "images/patrick.jpg",
-            "name" : "Patrick Murphy",
-            "description" : ""
+            "memberName" : "Patrick Murphy",
+            "memberDescription" : ""
         },
         {
             "imageURL" : "images/elliot.jpg",
-            "name" : "Elliot",
+            "memberName" : "Elliot",
             "description" : ""
         },
         {
             "imageURL" : "images/anderson.jpg",
-            "name" : "Anderson",
-            "description" : ""
+            "memberName" : "Anderson",
+            "memberDescription" : ""
         }
     ],
     "carouselImages": []
