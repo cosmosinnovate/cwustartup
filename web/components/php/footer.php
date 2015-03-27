@@ -46,14 +46,22 @@
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="./js/ripples.min.js"></script>
-<script src="./js/material.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="./js/jquery.singlePageNav.js"></script>
 <script src="./js/main.js"></script>
 <script src="./js/wow.min.js"></script>
 <script>new WOW().init();</script>
+<script src="./js/ripples.min.js"></script>
+<script src="./js/material.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // This command is used to initialize some elements and make them work properly
+        $.material.init();
+    });
+</script>
+
+
 </body>
 </html>

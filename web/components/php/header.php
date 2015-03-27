@@ -27,15 +27,17 @@
 
     <!--STYLES-->
     <!-- Twitter Bootstrap -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+    <link href="./css/roboto.min.css" rel="stylesheet">
+    <link href="./css/material.min.css" rel="stylesheet">
+    <link href="./css/ripples.min.css" rel="stylesheet">
 
     <!-- Material Design for Bootstrap -->
     <link href="css/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/animate.css">
     <link rel="stylesheet" href="./css/main.css">
-    <script type="javascript" src="./bower_components/angular/angular.min.js"/>
-    <script type="javascript" src="./js/helper.js"
-    <script type="javascript" src="./js/data.js"/>
+
 
     <!--STYLES END-->
 </head>
