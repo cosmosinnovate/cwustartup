@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="App">
 <head>
     <title>CWUSTARTUP</title>
 
