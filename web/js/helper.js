@@ -15,7 +15,7 @@
         var teamMembers = data;
         $scope.image = teamMembers.imageURL;
         $scope.name = teamMembers.memberName;
-        $scope.member = teamMembers.memberDescription;
+        $scope.description = teamMembers.memberDescription;
 
     }]);
 
