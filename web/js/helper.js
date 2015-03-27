@@ -12,15 +12,14 @@
     }]);
 
     myApp.controller('Team', ['$scope', function($scope){
-        var teamMembers = data.ID1;
-        $scope.image = teamMembers.imageURL;
-        $scope.name = teamMembers.memberName;
-        $scope.description = teamMembers.memberDescription;
+        var teamMembers = data.members;
 
-        var teamMember1 = data.ID2;
-        $scope.image = teamMember1.imageURL;
-        $scope.name = teamMember1.memberName;
-        $scope.description = teamMember1.memberDescription;
+        for (var member in teamMembers) {
+            $scope.image = teamMembers[member].imageURL;
+            $scope.name = teamMembers[member].memberName;
+            $scope.description = teamMembers[member].memberDescription;
+        }
+
     }]);
 
 })(window.angular);
