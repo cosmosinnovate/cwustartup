@@ -26,7 +26,6 @@
     -->
 
     <!--STYLES-->
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <!-- Twitter Bootstrap -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 
@@ -35,8 +34,9 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">
     <script type="javascript" src="./bower_components/angular/angular.min.js"/>
+    <script type="javascript" src="js/helper.js"
     <script type="javascript" src="js/data.js"/>
-    <script type="javascript" src="js/helper.js"/>
+
     <!--STYLES END-->
 </head>
 
