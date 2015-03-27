@@ -4,6 +4,6 @@
 
 var App = angular.module('App',[]);
 
-myApp.controller('Controller', ['$scope', function($scope) {
+myApp.controller('About', ['$scope', function($scope) {
     $scope.name = 'Hola!';
 }]);
