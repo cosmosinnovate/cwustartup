@@ -7,7 +7,7 @@
     var myApp = angular.module('CWUSTARTUP', []);
 
     myApp.controller('About', ['$scope', function($scope) {
-        $scope.name = "Cosmos Taban";
+        $scope.about = items.about;
 
     }]);
 })(window.angular);

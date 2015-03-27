@@ -5,7 +5,7 @@
                 <h3>About</h3>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInLeft" ng-controller="About">
-                <p>{{name}}</p>
+                <p>{{about}}</p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">
                 <p></p>
