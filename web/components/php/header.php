@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
     <title>CWUSTARTUP</title>
 
@@ -34,6 +34,9 @@
     <link href="css/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="./js/data.js"></script>
+    <script src="./js/helper.js"></script>
+
     <!--STYLES END-->
 </head>
 
