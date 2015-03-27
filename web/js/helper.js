@@ -2,8 +2,12 @@
  * Created by Taban on 3/25/15.
  */
 
-var App = angular.module('App',[]);
+(function(angular) {
+    'use strict';
+    var myApp = angular.module('CWUSTARTUP', []);
 
-myApp.controller('About', ['$scope', function($scope) {
-    $scope.name = 'Hola!';
-}]);
+    myApp.controller('About', ['$scope', function($scope) {
+        $scope.name = "Cosmos Taban";
+
+    }]);
+})(window.angular);

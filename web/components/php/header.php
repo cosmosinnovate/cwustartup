@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="App">
+<html ng-app="CWUSTARTUP">
 <head>
     <title>CWUSTARTUP</title>
 
@@ -26,9 +26,9 @@
     -->
     <!--STYLES-->
     <!-- Twitter Bootstrap -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- Material Design for Bootstrap -->
-    <script src="js/angular.min.js" type="javascript"></script>
     <link href="css/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">
