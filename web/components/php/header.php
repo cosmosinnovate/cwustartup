@@ -31,11 +31,11 @@
 
     <!-- Material Design for Bootstrap -->
     <link href="css/material.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/main.css">
     <script type="javascript" src="./bower_components/angular/angular.min.js"/>
-    <script type="javascript" src="js/helper.js"
-    <script type="javascript" src="js/data.js"/>
+    <script type="javascript" src="./js/helper.js"
+    <script type="javascript" src="./js/data.js"/>
 
     <!--STYLES END-->
 </head>
