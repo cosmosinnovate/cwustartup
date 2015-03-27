@@ -1,12 +1,11 @@
-<section id="about">
+<section id="about" ng-controller="Controller">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h3>About</h3>
             </div>
-            <div class="col-md-6 col-sm-6 wow bounceInLeft">
-                <p> CWUSTARTUP dedicated to bring like minded students to come together and create
-                exciting technologies that solve problems around us.</p>
+            <div class="col-md-6 col-sm-6 wow bounceInLeft" >
+                <p ng-bind="name"></p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">
                 <p></p>

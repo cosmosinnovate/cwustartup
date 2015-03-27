@@ -3,7 +3,22 @@
  */
 
 
-var formattedAbout = '<p id="about">%data%</p>';
-var formattedTeam = '<im src="%data% class="bioPic">';
-var formattedMap= '<div id="map">%data%</div>>';
-var formattedEvents= '<div id="events">%data%</div>>';
+var items = {
+    "about": "CWUSTARTUP dedicated to bring like minded students to come together and create \n" +
+    "exciting technologies that solve problems around us.",
+    "projects": [],
+    "events": [],
+    "teams": [
+        "images/taban.jpg",
+        "images/p2.jpg",
+        "images/patrick.jpg",
+        "images/elliot.jpg",
+        "images/anderson.jpg"
+    ],
+    "carouselImages": []
+}
+
+angular.module("app", [])
+.constructor("Controller", ["$scope", function($scope){
+        $scope.name = items.about;
+    }]);

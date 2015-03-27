@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
     <title>CWUSTARTUP</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <!--  
         Stylesheets and Preprocessors
         ==============================
@@ -34,6 +33,9 @@
     <link href="css/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">
+    <script type="javascript" src="./bower_components/angular/angular.min.js"/>
+    <script type="javascript" src="js/data.js"/>
+    <script type="javascript" src="js/helper.js"/>
     <!--STYLES END-->
 </head>
 
