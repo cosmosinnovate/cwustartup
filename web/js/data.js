@@ -10,7 +10,7 @@ var data = {
     "teams": [
         {
             "imageURL" : "images/p1.jpg",
-            "name" : "Taban Cosmos",
+            "memberName" : "Taban Cosmos",
             "description" : ""
         },
         {
