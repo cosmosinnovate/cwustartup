@@ -9,7 +9,6 @@
     <!--  
         Stylesheets and Preprocessors
         ==============================
-
         You can always bring in CSS files manually with `link` tags, or asynchronously
         on the client using a solution like AMD (RequireJS).  Or, if you like, you can
         take advantage of Sails' boilerplate asset management.
@@ -25,17 +24,15 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
-
     <!--STYLES-->
     <!-- Twitter Bootstrap -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-
     <!-- Material Design for Bootstrap -->
     <link href="css/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="./js/data.js"></script>
-    <script src="./js/helper.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="js/data.js"></script>
 
     <!--STYLES END-->
 </head>
@@ -51,7 +48,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
                 <!-- Logo  -->
                 <a class="navbar-brand" href="index.html"><h3><strong>CWU Startup</strong></h3></a>
             </div>
