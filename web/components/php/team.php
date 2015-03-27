@@ -11,7 +11,7 @@
 <!--                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>-->
 <!--                        <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>-->
 <!--                    </ul>-->
-                    <img src="{{team}}" alt="p1">
+                    <img ng-src="{{team}}" alt="p1">
                 </div>
                 <h4 id="name">Taban Cosmos</h4>
 

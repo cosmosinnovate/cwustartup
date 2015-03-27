@@ -14,7 +14,7 @@ var data = {
             "description" : ""
         },
         {
-            "imageURL" : "images/tommy.jpg",
+            "imageURL" : "images/p2.jpg",
             "name" : "Tommy Mathan",
             "description" : ""
         },
