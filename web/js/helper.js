@@ -12,15 +12,11 @@
     }]);
 
     myApp.controller('Team', ['$scope', function($scope){
-        var teamMembers = data.teams;
+        var teamMembers = data;
+        $scope.image = teamMembers.imageURL;
         for (var team in teamMembers) {
-            console.log(team.memberName);
-        }
-
-        for (var team in teamMembers) {
-            $scope.image = teamMembers[team.imageURL];
-            $scope.name = teamMembers[team.memberName];
-            $scope.member = teamMembers[team.memberDescription];
+            $scope.name = team.memberName;
+            $scope.member = team.memberDescription;
         }
 
     }]);

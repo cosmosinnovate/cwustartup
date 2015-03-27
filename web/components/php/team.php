@@ -8,7 +8,7 @@
                 <div class="imgteam">
                     <img ng-src="{{image}}" alt="p1"/>
                     <h4 id="name">{{name}}</h4>
-                    <p>{{memberDescription}}</p>
+                    <p>{{member}}</p>
                 </div>
 
             </div>

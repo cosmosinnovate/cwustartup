@@ -5,6 +5,7 @@
 var data = {
     "about": "CWUSTARTUP dedicated to bring like minded students to come together and create \n" +
     "exciting technologies that solve problems around us.",
+    "imageURL" : "images/p1.jpg",
     "projects": [],
     "events": [],
     "teams": [
