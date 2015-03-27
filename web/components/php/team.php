@@ -12,8 +12,14 @@
                 </div>
 
             </div>
-
-
+<!--            <div class="col-md-3 col-sm-3 wow bounceInRight">-->
+<!--                <div class="imgteam">-->
+<!--                    <img ng-src="{{image}}" alt="p1"/>-->
+<!--                    <h4 id="name">{{name}}</h4>-->
+<!--                    <p>{{description}}</p>-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
 
             <!--            <div class="col-md-3 col-sm-3 wow bounceInLeft">-->
             <!--                <div class="imgteam">-->
