@@ -31,10 +31,10 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 
     <!-- Material Design for Bootstrap -->
-    <link href="./css/roboto.min.css" rel="stylesheet">
-    <link href="./css/material.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/animate.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link href="css/roboto.min.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/main.css">
     <!--STYLES END-->
 </head>
 
