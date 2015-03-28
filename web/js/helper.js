@@ -14,10 +14,13 @@
     myApp.controller('Team', ['$scope', function($scope){
         var teamMembers = data.members;
 
+        var memberLists = document.getElementsByClassName('imgteam');
         for (var member in teamMembers) {
-            $scope.image = teamMembers[member].imageURL;
-            $scope.name = teamMembers[member].memberName;
-            $scope.description = teamMembers[member].memberDescription;
+
+            var image = '< img' + teamMembers[member].imageURL + '>';
+            var name = '<h4>' + teamMembers[member].memberName + '</h4>';
+            var description = '<p>' + teamMembers[member].memberDescription + '</p>';
+            $scope.memberList = memberLists.append(image, name, description);
         }
 
     }]);
