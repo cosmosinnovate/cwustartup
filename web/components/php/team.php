@@ -8,7 +8,13 @@
                 <div class="imgteam">
                     <img ng-src='{{array.image}}' alt="p1"/>
                     <h4 id="name">{{array.name}}</h4>
+
                     <p>{{array.description}}</p>
+                    <ul class="wow fadeInUp">-->
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                    </ul>
                 </div>
             </div>
             <!--            <div class="col-md-3 col-sm-3 wow bounceInRight">-->
