@@ -6,9 +6,11 @@
             </div>
             <div class="col-md-3 col-sm-3 wow bounceInLeft">
                 <div class="imgteam" ng-repeat="member in teamMembers">
-                    <img ng-src="{{member.imageURL}}" alt="p1"/>
-                    <h4 id="name">{{member.name}}</h4>
-                    <p>{{member.description}}</p>
+
+                    <img ng-src='{{member[0].imageURL}}' alt="p1"/>
+                    <h4 id="name">{{member[0].name}}</h4>
+                    <p>{{member[0].description}}</p>
+
                 </div>
 
             </div>
