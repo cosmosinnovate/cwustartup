@@ -40,6 +40,12 @@
             return deferred.promise;
         }
     })
+        .controller('About', function($scope, cwustartupService){
+            var promise = cwustartupService.getTeamData();
+            promise.then(function(data){
+                $scope.about = data;
+            });
+        })
         .controller("Team", function ($scope, cwustartupService)
         {
             var promise = cwustartupService.getTeamData();
