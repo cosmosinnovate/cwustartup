@@ -12,17 +12,7 @@
     }]);
 
     myApp.controller('Team', ['$scope', function($scope){
-        var teamMembers = data.members;
-
-        var memberLists = document.getElementsByClassName('imgteam');
-        for (var member in teamMembers) {
-
-            var image = '< img' + teamMembers[member].imageURL + '>';
-            var name = '<h4>' + teamMembers[member].memberName + '</h4>';
-            var description = '<p>' + teamMembers[member].memberDescription + '</p>';
-            $scope.memberList = image + name + description;
-        }
-
+        $scope.teamMembers = data.members;
     }]);
 
 })(window.angular);
