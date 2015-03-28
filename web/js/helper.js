@@ -15,4 +15,5 @@
         $scope.teamMembers = data.members;
     }]);
 
+
 })(window.angular);
