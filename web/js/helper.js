@@ -52,7 +52,7 @@
             promise.then(function (data)
             {
 
-                $scope.members = data.data;
+                $scope.members = data;
                 console.log($scope.members);
             });
         })
