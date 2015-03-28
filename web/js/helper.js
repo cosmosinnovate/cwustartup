@@ -20,7 +20,7 @@
             var image = '< img' + teamMembers[member].imageURL + '>';
             var name = '<h4>' + teamMembers[member].memberName + '</h4>';
             var description = '<p>' + teamMembers[member].memberDescription + '</p>';
-            $scope.memberList = memberLists.append(image, name, description);
+            $scope.memberList = image + name + description;
         }
 
     }]);
