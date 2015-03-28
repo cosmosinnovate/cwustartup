@@ -6,10 +6,9 @@
             </div>
             <div class="col-md-3 col-sm-3 wow bounceInLeft">
                 <div class="imgteam">
-                    <img ng-src='{{member.imageURL}}' alt="p1"/>
-                    <h4 id="name">{{member}}</h4>
-
-                    <p>{{memberDescription}}</p>
+                    <img ng-src='{{image}}' alt="p1"/>
+                    <h4 id="name">{{name}}</h4>
+                    <p>{{description}}</p>
                 </div>
             </div>
             <!--            <div class="col-md-3 col-sm-3 wow bounceInRight">-->
