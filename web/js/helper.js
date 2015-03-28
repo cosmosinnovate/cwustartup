@@ -11,8 +11,8 @@
     }]);
 
     myApp.controller('Team', ['$scope', function ($scope) {
-        var a = data.members.length;
-        for (var i = 0; i <= a; i++) {
+
+        for (var i = 0; i <= 2; i++) {
             $scope.image = data.members.imageURL;
             $scope.name = data.members.memberName;
             $scope.description = data.members.memberDescription;
