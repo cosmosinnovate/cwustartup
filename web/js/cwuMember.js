@@ -1,4 +1,4 @@
-[
+var data = [
   {
     "about": "CWUSTARTUP dedicated to bring like minded students to come together and create exciting technologies thatsolve problems around us."
   },
