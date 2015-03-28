@@ -33,7 +33,6 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/helper.js"></script>
-    <script src="js/data.js"></script>
 
     <!--STYLES END-->
 </head>
