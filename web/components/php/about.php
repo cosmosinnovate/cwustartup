@@ -4,14 +4,13 @@
             <div class="col-md-12">
                 <h3>About</h3>
             </div>
-            <div class="col-md-6 col-sm-6 wow bounceInLeft panel-body">
-                <p>{{about}}</p>
+            <div class="col-md-6 col-sm-6 wow bounceInLeft panel panel-default">
+                <p class="panel-body">{{about}}</p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">
                 <p></p>
-
                 <p class="icon-about">
-                    <a href="https://www.facebook.com/pages/Whatsonplatecom/290213461133438"><i
+                    <a href=""><i
                             class="fa fa-facebook-square"></i></a>
                     <a href="#"><i class="fa fa-twitter-square"></i></a>
                     <a href="#"><i class="fa fa-google-plus-square"></i></a>
