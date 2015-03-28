@@ -4,11 +4,11 @@
             <div class="col-md-12">
                 <h3>CWUSTARTUP OFFICIALS</h3>
             </div>
-            <div class="col-md-3 col-sm-3 wow bounceInLeft">
+            <div class="col-md-3 col-sm-3 wow bounceInLeft" ng-repeat="array in arrayData">
                 <div class="imgteam">
-                    <img ng-src='{{image}}' alt="p1"/>
-                    <h4 id="name">{{name}}</h4>
-                    <p>{{description}}</p>
+                    <img ng-src='{{array.image}}' alt="p1"/>
+                    <h4 id="name">{{array.name}}</h4>
+                    <p>{{array.description}}</p>
                 </div>
             </div>
             <!--            <div class="col-md-3 col-sm-3 wow bounceInRight">-->

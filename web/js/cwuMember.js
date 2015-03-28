@@ -1,15 +1,16 @@
-var data = [
-  {
-    "about": "CWUSTARTUP dedicated to bring like minded students to come together and create exciting technologies thatsolve problems around us."
-  },
-  {
-    "imageURL": "images/p1.jpg",
-    "memberName": "Taban Cosmos",
-    "memberDescription": "President of CWUSTARTUP Computer Science Junior, I am passionate about what we do and I would like to make a difference here on campus."
-  },
-  {
-    "imageURL": "images/p2.jpg",
-    "memberName": "Tommy Mathan",
-    "memberDescription": "Vice President of CWUSTARTUP Senior, I am passionate about what we do and I would like to make a difference here on campus "
-  }
-]
+var data =
+{
+    "about": "CWUSTARTUP dedicated to bring like minded students to come together and create exciting technologies thatsolve problems around us.",
+    "members": [
+        {
+            "imageURL": "images/p1.jpg",
+            "name": "Taban Cosmos",
+            "description": "President of CWUSTARTUP Computer Science Junior, I am passionate about what we do and I would like to make a difference here on campus."
+        },
+        {
+            "imageURL": "images/p2.jpg",
+            "name": "Tommy Mathan",
+            "description": "Vice President of CWUSTARTUP Senior, I am passionate about what we do and I would like to make a difference here on campus "
+        }
+    ]
+}

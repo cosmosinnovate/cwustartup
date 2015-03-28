@@ -11,9 +11,9 @@
     }]);
 
     myApp.controller('Team', ['$scope', function ($scope) {
-            $scope.image = data.members.imageURL;
-            $scope.name = data.members.memberName;
-            $scope.description = data.members.memberDescription;
+        var a = data.members;
+        console.log(a);
+        $scope.arrayData = data.members;
 
     }]);
 
