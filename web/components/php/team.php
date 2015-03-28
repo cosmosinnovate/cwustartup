@@ -8,8 +8,8 @@
                 <div class="imgteam" ng-repeat="member in teamMembers">
 
                     <img ng-src='{{member[0].imageURL}}' alt="p1"/>
-                    <h4 id="name">{{member[0].name}}</h4>
-                    <p>{{member[0].description}}</p>
+                    <h4 id="name">{{member.memberName}}</h4>
+                    <p>{{member.memberDescription}}</p>
 
                 </div>
 
