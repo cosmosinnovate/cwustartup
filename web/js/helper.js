@@ -31,7 +31,7 @@
     app.service("cwustartupService", function ($http, $q)
     {
         var deferred = $q.defer();
-        $http.get('data.json').then(function (data)
+        $http.get('cwuMember.json').then(function (data)
         {
             deferred.resolve(data);
         });
