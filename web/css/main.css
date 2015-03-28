@@ -308,9 +308,6 @@ body {
     position: relative;
 }
 
-#team .imgteam img {
-    width: 50%;
-}
 
 #team .imgteam:hover {
     cursor: pointer;
