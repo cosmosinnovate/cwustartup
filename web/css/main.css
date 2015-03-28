@@ -308,6 +308,8 @@ body {
     position: relative;
 }
 
+#team .imgteam
+
 #team .imgteam:hover {
     cursor: pointer;
     opacity: 0.9;
