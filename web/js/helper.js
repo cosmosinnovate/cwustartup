@@ -43,7 +43,7 @@
         .controller('About', function($scope, cwustartupService){
             var promise = cwustartupService.getTeamData();
             promise.then(function(data){
-                $scope.about = data;
+                $scope.about = data.about;
             });
         })
         .controller("Team", function ($scope, cwustartupService)
