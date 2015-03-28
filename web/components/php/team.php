@@ -5,23 +5,21 @@
                 <h3>CWUSTARTUP OFFICIALS</h3>
             </div>
             <div class="col-md-3 col-sm-3 wow bounceInLeft">
-                <div class="imgteam" ng-repeat="member in teamMembers">
+                <div class="imgteam">
+                    <img ng-src='{{member.imageURL}}' alt="p1"/>
+                    <h4 id="name">{{member}}</h4>
 
-                    <img ng-src='{{member[0].imageURL}}' alt="p1"/>
-                    <h4 id="name">{{member.memberName}}</h4>
-                    <p>{{member.memberDescription}}</p>
-
+                    <p>{{memberDescription}}</p>
                 </div>
-
             </div>
-<!--            <div class="col-md-3 col-sm-3 wow bounceInRight">-->
-<!--                <div class="imgteam">-->
-<!--                    <img ng-src="{{image}}" alt="p1"/>-->
-<!--                    <h4 id="name">{{name}}</h4>-->
-<!--                    <p>{{description}}</p>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
+            <!--            <div class="col-md-3 col-sm-3 wow bounceInRight">-->
+            <!--                <div class="imgteam">-->
+            <!--                    <img ng-src="{{image}}" alt="p1"/>-->
+            <!--                    <h4 id="name">{{name}}</h4>-->
+            <!--                    <p>{{description}}</p>-->
+            <!--                </div>-->
+            <!---->
+            <!--            </div>-->
 
             <!--            <div class="col-md-3 col-sm-3 wow bounceInLeft">-->
             <!--                <div class="imgteam">-->
