@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h3 class="section-heading">Our Amazing Team</h3>
+                <h3>Our Amazing Team</h3>
                 <h2 class="section-subheading text-muted">The people who make cwu startup be cwu startup.</h2>
             </div>
         </div>
