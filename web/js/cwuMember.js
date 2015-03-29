@@ -1,6 +1,12 @@
 var data =
 {
-    "about": "CWUSTARTUP dedicated to bring like minded students to come together and create exciting technologies thatsolve problems around us.",
+    "about": "The intersection between entrepeneurship" +
+    "and technology is CWU startup. Fundamentally we believe in the power of technology" +
+    "to democratize, and transform industry. Our goal is to foster the development of" +
+    "students, so they become the entrepeneurs that use technology to transform industry" +
+    "and the world. The world has been made a better place by the zuckerburgs, gates," +
+    "and the jobs of our time, and we hope to continue to make the world a better place" +
+    "with our future visionaries in cwu startup",
     "members": [
         {
             "image": "images/p1.jpg",
