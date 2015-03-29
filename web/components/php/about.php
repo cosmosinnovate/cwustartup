@@ -1,10 +1,10 @@
 <section id="about" ng-controller="About">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h3>About</h3>
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">About</h3>
             </div>
-            <div class="col-md-6 col-sm-6 wow bounceInCenter panel panel-default">
+            <div class="section-subheading text-muted">
                 <p class="panel-body">{{about}}</p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">
