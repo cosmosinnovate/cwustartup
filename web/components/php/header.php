@@ -44,7 +44,7 @@
     <!--STYLES END-->
 </head>
 
-<body>
+<body id="page-top" class="index">
 <div id="page">
     <div class="site-navbar navbar-fixed-top" role="navigation">
         <div class="container">
