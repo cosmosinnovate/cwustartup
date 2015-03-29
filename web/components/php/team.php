@@ -1,6 +1,6 @@
 <section id="team" ng-controller="Team">
     <div class="container">
-        <div class="row">
+        <div class="row headingTop">
             <div class="col-lg-12 text-center">
                 <h3>Our Amazing Team</h3>
                 <h4>The people who make cwu startup be cwu startup.</h4>
