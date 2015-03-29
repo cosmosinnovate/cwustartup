@@ -8,6 +8,7 @@
                 <div class="imgteam panel panel-default">
                     <img ng-src='{{array.image}}' alt="p1"/>
                     <h4 id="name">{{array.name}}</h4>
+                    <h5>{{array.title}}</h5>
                     <p>{{array.description}}</p>
                 </div>
             </div>
