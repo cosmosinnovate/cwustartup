@@ -1,52 +1,26 @@
-# CWUSTARTUP WEB APP
-## Running Locally
+# [Start Bootstrap](http://startbootstrap.com/) - [Agency](http://startbootstrap.com/template-overviews/agency/)
 
-#Structure of the app
-Folders:
-	Vendor
-	 	Web
-			bower_component
-			components
-				php
-				   header.php
-				   footer.php
-				   login.php
-				   signup.php
-				   admin.php
-			includes
-				controllers
-			js
-			css
-			images
-	.gitignore
-	composer.json
-	Procfile
-	README.md
+[Agency](http://startbootstrap.com/template-overviews/agency/) is a one page agency portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, a responsive timeline, and a working PHP contact form.
 
+## Getting Started
 
+To use this theme, choose one of the following options to get started:
+* Download the latest release on Start Bootstrap
+* Fork this repository on GitHub
 
+## Bugs and Issues
 
-Make sure you have PHP, Apache and Composer installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+Have a bug or an issue with this theme? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-agency/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/agency/).
 
-```sh
-$ git clone git@github.com:heroku/php-getting-started.git # or clone your own fork
-$ cd php-getting-started
-$ composer update
-$ foreman start web
-```
+## Creator
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Start Bootstrap was created by and is maintained by **David Miller**, Managing Partner at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
 
-## Deploying to Heroku
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
-## Documentation
+## Copyright and License
 
-For more information about using PHP on Heroku, see these Dev Center articles:
-
-- [PHP on Heroku](https://devcenter.heroku.com/categories/php)
+Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-agency/blob/gh-pages/LICENSE) license.
