@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <h3>About</h3>
             </div>
-            <div class="col-md-6 col-sm-6 wow bounceInLeft panel panel-default">
+            <div class="col-md-6 col-sm-6 wow center">
                 <p class="panel-body">{{about}}</p>
             </div>
             <div class="col-md-6 col-sm-6 wow bounceInRight">
