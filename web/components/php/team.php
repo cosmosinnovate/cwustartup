@@ -5,8 +5,6 @@
                 <h2 class="section-heading">Our Amazing Team</h2>
                 <h3 class="section-subheading text-muted">The people who make cwu startup be cwu startup.</h3>
             </div>
-        </div>
-        <div class="row">
             <div class="team-member ng-repeat="array in arrayData">
                 <div class="imgteam">
                     <img class="img-responsive img-circle" ng-src='{{array.image}}' alt="p1"/>
