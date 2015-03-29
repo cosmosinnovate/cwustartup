@@ -8,11 +8,10 @@
     <!--    --><?php //include_once 'components/php/services.php'; ?>
     <!-- portfolio -->
     <!--    --><?php //include_once 'components/php/portfolio.php'; ?>
-    <!-- team -->
-    <?php include_once 'components/php/team.php'; ?>
-
     <!-- Blog Posts -->
     <?php include_once 'components/php/services.php'; ?>
+    <!-- team -->
+    <?php include_once 'components/php/team.php'; ?>
     <!-- contact -->
     <?php include_once 'components/php/contact.php'; ?>
 </main>
