@@ -1,10 +1,13 @@
 <section id="team" ng-controller="Team">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h3>CWUSTARTUP OFFICIALS</h3>
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Our Amazing Team</h2>
+                <h3 class="section-subheading text-muted">The people who make cwu startup be cwu startup.</h3>
             </div>
-            <div class="col-md-3 col-sm-3 wow bounceInLeft" ng-repeat="array in arrayData">
+        </div>
+        <div class="row">
+            <div class="team-member ng-repeat="array in arrayData">
                 <div class="imgteam">
                     <img class="img-responsive img-circle" ng-src='{{array.image}}' alt="p1"/>
                     <h4 id="name">{{array.name}}</h4>
