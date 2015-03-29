@@ -267,6 +267,9 @@ body {
 }
 
 #team p {
+    padding: 2px;
+}
+#team h5 {
     text-align: center;
 }
 
