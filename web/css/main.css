@@ -8,10 +8,10 @@ body {
 }
 
 /* Navbar */
-nav {
+.site-navbar {
     background: #872110;
-    min-height: 30px;
-    padding: 20px 0;
+    /*min-height: 30px;*/
+    /*padding: 20px 0;*/
     border: 0;
 }
 
