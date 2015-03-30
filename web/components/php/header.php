@@ -95,7 +95,7 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#service">Events</a>
+                        <a class="page-scroll" href="#services">Events</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#team">Team</a>
