@@ -46,7 +46,7 @@
 
 <body>
 <div id="page">
-    <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="site-navbar navbar navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
