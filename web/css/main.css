@@ -93,6 +93,9 @@ body {
     right: auto;
     left: 30px;
 }
+#carousel-example-captions {
+margin-top: auto;
+}
 
 /* about */
 #about,
