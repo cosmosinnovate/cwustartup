@@ -8,10 +8,10 @@ body {
 }
 
 /* Navbar */
-.site-navbar {
+nav {
     background: #872110;
-    /*min-height: 30px;*/
-    /*padding: 20px 0;*/
+    min-height: 30px;
+    padding: 20px 0;
     border: 0;
 }
 
