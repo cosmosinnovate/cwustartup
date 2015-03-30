@@ -5,25 +5,6 @@
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!--  
-        Stylesheets and Preprocessors
-        ==============================
-        You can always bring in CSS files manually with `link` tags, or asynchronously
-        on the client using a solution like AMD (RequireJS).  Or, if you like, you can
-        take advantage of Sails' boilerplate asset management.
-
-        By default, stylesheets from your `assets/linker/styles` folder are included
-        here automatically.  Both CSS (.css) and LESS (.less) are supported.
-        In production, your styles will be minified and concatenated into a single file.
-        
-        To customize any part of the built-in behavior, just edit your Gruntfile.
-        For example, here are a few things you could do:
-            
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
     <!--STYLES-->
     <!-- Twitter Bootstrap -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
@@ -56,7 +37,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
                 <!-- Logo  -->
                 <a class="navbar-brand" href="index.html"><h3><strong>CWU Startup</strong></h3></a>
             </div>
