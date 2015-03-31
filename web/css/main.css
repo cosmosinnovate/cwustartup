@@ -8,52 +8,52 @@ body {
 }
 
 /* Navbar */
-.site-navbar {
-    background: #872110;
-    min-height: 30px;
+/*.site-navbar {*/
+    /*background: #872110;*/
+    /*min-height: 30px;*/
     /*padding: 20px 0;*/
-    border: 0;
-}
+    /*border: 0;*/
+/*}*/
 
-.site-navbar a {
-    color: #fff;
-    text-transform: uppercase;
-    font-family: 'Open Sans', sans-serif;
-}
+/*.site-navbar a {*/
+    /*color: #fff;*/
+    /*text-transform: uppercase;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+/*}*/
 
-.site-navbar .current {
-    background: #69ffe4;
-}
+/*.site-navbar .current {*/
+    /*background: #69ffe4;*/
+/*}*/
 
-.site-navbar li a.current:hover {
-    background: #1b93c7;
-}
+/*.site-navbar li a.current:hover {*/
+    /*background: #1b93c7;*/
+/*}*/
 
-.site-navbar li a:hover {
-    background: #1b93c7;
-}
+/*.site-navbar li a:hover {*/
+    /*background: #1b93c7;*/
+/*}*/
 
-.site-navbar li a:focus {
-    background: #1b93c7;
-}
+/*.site-navbar li a:focus {*/
+    /*background: #1b93c7;*/
+/*}*/
 
-.navbar-brand {
-    padding-top: 0;
+/*.navbar-brand {*/
+    /*padding-top: 0;*/
 
-}
+/*}*/
 
-.navbar-brand img {
-    width: 10%;
-}
+/*.navbar-brand img {*/
+    /*width: 10%;*/
+/*}*/
 
-.navbar-toggle .icon-bar {
-    background: #fff;
-}
+/*.navbar-toggle .icon-bar {*/
+    /*background: #fff;*/
+/*}*/
 
-.navbar-toggle {
-    border: 1px solid #fff;
-    border-radius: 0;
-}
+/*.navbar-toggle {*/
+    /*border: 1px solid #fff;*/
+    /*border-radius: 0;*/
+/*}*/
 
 /* Main */
 .site-main {
