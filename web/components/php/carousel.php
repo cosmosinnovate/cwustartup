@@ -1,40 +1,69 @@
-<div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators wow fadeInUp">
-        <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
-        <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
-        <li data-target="#carousel-example-captions" data-slide-to="2" class="active"></li>
+<!-- Carousel
+      ================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">
-        <div class="item">
-            <img class="wow pulse" data-wow-duration="3s" alt="1" src="images/bg-1.jpg" alt="bg-1">
-
-<!--            <div class="carousel-caption">-->
-<!--                <h3 class="wow bounceInLeft" data-wow-duration="2s">Personalize the menu!</h3>-->
-<!--                <span class="wow bounceInRight" data-wow-duration="2s">You will use your device to make orders</span>-->
-<!--            </div>-->
-        </div>
-        <div class="item">
-            <img class="wow pulse" data-wow-duration="3s" alt="2" src="images/bg-2.jpg" alt="bg-2">
-
-<!--            <div class="carousel-caption">-->
-<!--                <h3 class="wow bounceInLeft" data-wow-duration="2s">Learn more about the food and save time!</h3>-->
-<!--                <span class="wow bounceInRight" data-wow-duration="2s">This feature lets you make your own decision before going out to dine</span>-->
-<!--            </div>-->
-        </div>
+    <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="wow pulse" data-wow-duration="3s" alt="3" src="images/bg-3.jpg" alt="bg-3">
+            <img class="first-slide"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                 alt="First slide">
 
-<!--            <div class="carousel-caption">-->
-<!--                <h3 class="wow bounceInLeft" data-wow-duration="2s">Interact with Restaurant's menu on your device!</h3>-->
-<!--                <span class="wow bounceInRight"-->
-<!--                      data-wow-duration="2s">Restaurants provides you with exclusive deals</span>-->
-<!--            </div>-->
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous"
+                        Glyphicon buttons on the left and right might not load/display properly due to web browser
+                        security rules.</p>
+
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="second-slide"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                 alt="Second slide">
+
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="third-slide"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                 alt="Third slide">
+
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
         </div>
     </div>
-    <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev">
-        <span class="fa fa-chevron-left"></span>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#carousel-example-captions" data-slide="next">
-        <span class="fa fa-chevron-right"></span>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
     </a>
-</div>
+</div><!-- /.carousel -->
