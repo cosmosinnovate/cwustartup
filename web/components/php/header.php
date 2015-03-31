@@ -22,11 +22,11 @@
     <!--    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>-->
     <script src="js/helper.js"></script>
     <script src="js/cwuMember.js"></script>
-
     <!--STYLES END-->
 </head>
 
 <body>
+
 <div class="navbar-wrapper">
     <div class="container">
         <nav class="navbar navbar-inverse navbar-static-top">
