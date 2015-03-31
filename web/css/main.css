@@ -62,7 +62,7 @@ body {
 
 /* carousel */
 .carousel-caption {
-    bottom: 50px;
+    bottom: 0px;
 }
 
 .carousel-caption h3 {
