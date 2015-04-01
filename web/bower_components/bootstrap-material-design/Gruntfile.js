@@ -85,7 +85,7 @@ module.exports = function(grunt) {
       roboto: {
         files: {
           "dist/css/roboto.css": "dist/css/roboto.css",
-          "dist/css/roboto.min.css": "dist/css/roboto.min.css"
+          "dist/css/roboto.min.css": "dist/css/bootstrap-responsive.css"
         }
       },
       ripples: {
@@ -108,7 +108,7 @@ module.exports = function(grunt) {
       },
       roboto: {
         src: "dist/css/roboto.css",
-        dest: "dist/css/roboto.min.css"
+        dest: "dist/css/bootstrap-responsive.css"
       },
       ripples: {
         src: "dist/css/ripples.css",

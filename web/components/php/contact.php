@@ -1,4 +1,3 @@
-<secti
 <section id="contact">
     <div class="container">
         <div class="row">
@@ -49,17 +48,5 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 col-sm-4 wow bounceInLeft">
-            <br>
-
-            <p class="mail"><i class="fa fa-map-marker"></i> &nbsp; Central Washington University, Ellensburg, WA</p>
-            <!--                <p class="mail"><i class="fa fa-phone-square"></i>&nbsp; </p>-->
-        </div>
-    </div>
-    <!--    Map goes here width="425" height="350"-->
-    <div class="fluid-wrapper" id="map-canvas">
-
     </div>
 </section>
