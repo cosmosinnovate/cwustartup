@@ -17,7 +17,7 @@
 
                     <p>Lets think and develop new innovative solutions.</p>
 
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Join us today</a></p>
+                    <p><a class="btn btn-lg btn-primary page-scroll" href="#contact"role="button">Join us today</a></p>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
                     <p>Lets think and develop new innovative solutions.</p>
 
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Join us today</a></p>
+                    <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Join us today</a></p>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
 
                     <p>Lets think and develop new innovative solutions.</p>
 
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Join us today</a></p>
+                    <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Join us today</a></p>
                 </div>
             </div>
         </div>
