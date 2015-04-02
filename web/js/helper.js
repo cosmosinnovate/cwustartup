@@ -4,7 +4,7 @@
 
 (function (angular) {
     'use strict';
-    var myApp = angular.module('CWUSTARTUP', []);
+    var myApp = angular.module('myApp',[]);
 
     myApp.controller('About', ['$scope', function ($scope) {
         $scope.about = data.about;
@@ -16,8 +16,6 @@
         $scope.arrayData = data.members;
 
     }]);
-
-
 })(window.angular);
 
 //(function(angular) {

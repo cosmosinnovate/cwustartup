@@ -1,17 +1,18 @@
 <!-- About Section -->
-<section id="about">
+<section id="about" ng-controller="About">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">About</h2>
+                <h3>{{about}}</h3>
 
-                <h3 class="section-subheading text-muted">The intersection between entrepeneurship
-                    and technology is CWU startup. Fundamentally we believe in the power of technology
-                    to democratize, and transform industry. Our goal is to foster the development of
-                    students, so they become the entrepeneurs that use technology to transform industry
-                    and the world. The world has been made a better place by the zuckerburgs, gates,
-                    and the jobs of our time, and we hope to continue to make the world a better place
-                    with our future visionaries in cwu startup</h3>
+<!--                <h3 class="section-subheading text-muted">The intersection between entrepeneurship-->
+<!--                    and technology is CWU startup. Fundamentally we believe in the power of technology-->
+<!--                    to democratize, and transform industry. Our goal is to foster the development of-->
+<!--                    students, so they become the entrepeneurs that use technology to transform industry-->
+<!--                    and the world. The world has been made a better place by the zuckerburgs, gates,-->
+<!--                    and the jobs of our time, and we hope to continue to make the world a better place-->
+<!--                    with our future visionaries in cwu startup</h3>-->
             </div>
         </div>
         <div class="row">
@@ -19,7 +20,7 @@
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="img/p1.jpg" alt="">
+                            <img class="img-circle img-responsive" src="images/1.jpg" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -36,7 +37,7 @@
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="img/p2.jpg" alt="">
+                            <img class="img-circle img-responsive" src="images/2.jpg" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -50,7 +51,7 @@
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="img/p3.jpg" alt="">
+                            <img class="img-circle img-responsive" src="images/4.jpg" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
