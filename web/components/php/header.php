@@ -20,6 +20,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/agency.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
 </head>
 

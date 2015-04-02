@@ -60,23 +60,20 @@ body {
     height: 500px;
 }
 
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-    margin-bottom: 20px;
-    text-align: center;
+.carousel-control {
+    font-size: 70px;
+    margin-top:-100px;
 }
-.marketing h2 {
-    font-weight: normal;
+/*full width container*/
+@media (max-width: 767px) {
+    .block {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    #mycarousel{
+        min-height:80%;
+    }
 }
-.marketing .col-lg-4 p {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
 
 /* Featurettes
 ------------------------- */
