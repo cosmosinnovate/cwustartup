@@ -8,6 +8,7 @@
 
     myApp.controller('About', ['$scope', function ($scope) {
         $scope.about = data.about;
+        $scope.timelineItems = data.timelineItems;
     }]);
 
     myApp.controller('Team', ['$scope', function ($scope) {
@@ -16,6 +17,9 @@
         $scope.arrayData = data.members;
 
     }]);
+//myApp.controller('Events', ['$scope', function ($scope) {
+//        $scope.eventList = data.events;
+//    }]);
 })(window.angular);
 
 //(function(angular) {
