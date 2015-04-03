@@ -11,6 +11,12 @@ body {
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
+/* Add semi transparent background to menu to increase readability.*/
+.nav {
+    background-color: rgba(55, 55, 55, 0.4);
+    border-radius: 3px;
+}
+
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
     position: absolute;
