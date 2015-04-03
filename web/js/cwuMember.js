@@ -1,12 +1,8 @@
 var data =
 {
-    "about": "The intersection between entrepreneurship " +
-    "and technology is CWU startup. Fundamentally we believe in the power of technology " +
-    "to democratize, and transform industry. Our goal is to foster the development of " +
-    "students, so they become the entrepeneurs that use technology to transform industry " +
-    "and the world. The world has been made a better place by the zuckerburgs, gates, " +
-    "and the jobs of our time, and we hope to continue to make the world a better place " +
-    "with our future visionaries in cwu startup",
+    "about": "The CWU startup began with a goal to inspire creativity and innovation " +
+    "among young entrepreneurs of Central Washington University. We hold a fundamental" +
+    " belief in the power of technology to transform industry and help solve complex problems.",
     timelineItems: [
         {
           image: 'images/1.jpg',

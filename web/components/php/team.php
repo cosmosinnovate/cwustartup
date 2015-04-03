@@ -32,7 +32,7 @@
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Our Amazing Team</h2>
 
-                <h3 class="section-subheading text-muted">The people who make cwu startup be cwu startup.</h3>
+                <h3 class="section-subheading text-muted">The team that made CWUSTARTUP possible.</h3>
             </div>
         </div>
         <div class="row">
