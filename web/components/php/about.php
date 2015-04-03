@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">About</h2>
-                <h3>{{about}}</h3>
+                <h3 class="main-intro">{{about}}</h3>
             </div>
         </div>
         <div class="row">

@@ -17,6 +17,14 @@ body {
     border-radius: 3px;
 }
 
+.timeline {
+    margin-top: 50px;
+}
+
+.main-intro {
+    line-height: 1.3em;
+}
+
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
     position: absolute;

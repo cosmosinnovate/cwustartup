@@ -1,6 +1,6 @@
 var data =
 {
-    "about": "The intersection between entrepeneurship " +
+    "about": "The intersection between entrepreneurship " +
     "and technology is CWU startup. Fundamentally we believe in the power of technology " +
     "to democratize, and transform industry. Our goal is to foster the development of " +
     "students, so they become the entrepeneurs that use technology to transform industry " +
