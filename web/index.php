@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 include_once 'components/php/header.php';
 include_once 'components/php/carousel.php';
 include_once 'components/php/about.php';

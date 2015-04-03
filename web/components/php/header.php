@@ -11,7 +11,7 @@
     <meta name="description" content="CWUSTARTUP, lets think and develop innovative solution.">
     <meta name="keywords" content="CWUSTARTUP, Central Washington Uninversity,
     startup, Central, Ellensburg, CS Majors, Entrepreneurship, Entrepreneur,">
-    <meta name="author" content="Taban Cosmos, Tom Mathan">
+    <meta name="author" content="Taban Cosmos, Patrick Murphy, and Tom Mathan">
     <title>CWU startup club</title>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
     <script src="js/cwuMember.js" type="text/javascript"></script>
