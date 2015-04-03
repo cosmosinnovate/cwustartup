@@ -8,9 +8,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="CWUSTARTUP, lets think and develop innovative solution.">
-    <meta name="keywords" content="CWUSTARTUP IS A NEW CLUB CREATED TO INSPIRE CREATIVITY AND INNOVATION
+    <meta name="description" content="CWUSTARTUP IS A NEW CLUB CREATED TO INSPIRE CREATIVITY AND INNOVATION
     AMONG YOUNG ENTREPRENEURS OF CENTRAL WASHINGTON UNIVERSITY.">
+    <meta name="keywords" content="CWUSTARTUP, Central Washington Uninversity,
+    startup, Central, Ellensburg, CS Majors, Entrepreneurship, Entrepreneur,">
     <meta name="author" content="Taban Cosmos, Patrick Murphy, and Tom Mathan">
     <title>CWU startup club</title>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
