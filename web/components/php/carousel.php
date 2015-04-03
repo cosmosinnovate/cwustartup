@@ -13,9 +13,8 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Welcome to Central Washington University Startup club</h1>
-
-                    <p>Lets think and develop new innovative solutions.</p>
+                    <h1>CENTRAL WASHINGTON UNIVERSITY LEARN. DO. LIVE.</h1>
+                    <p>Think, collaborate and develop new innovative solutions</p>
 
                     <p><a class="btn btn-lg btn-primary page-scroll" href="#contact"role="button">Join us today</a></p>
                 </div>
@@ -26,9 +25,7 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Welcome to Central Washington University Startup club</h1>
-
-                    <p>LEARN. DO. LIVE</p>
+                    <h1>CENTRAL WASHINGTON UNIVERSITY LEARN. DO. LIVE.</h1>
 
                     <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Join us today</a></p>
                 </div>
