@@ -22,7 +22,18 @@ a {
 
 .navbar-brand {
     color: #ab0032 !important;
-    font-weight: bold;
+    font-weight: 800;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-toggle {
+    background: #ab0032 !important;
+    border-color: #ab0000 !important;
+}
+
+.navbar-toggle {
+    background: #ab0000 !important;
+    border-color: #ab0032 !important; 
 }
 
 li a:focus {
