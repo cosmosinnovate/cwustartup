@@ -7,6 +7,9 @@ body {
     color: #5a5a5a;
 }
 
+a {
+    color: #ab0032;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -15,6 +18,34 @@ body {
 .nav {
     background-color: rgba(55, 55, 55, 0.4);
     border-radius: 3px;
+}
+
+.navbar-brand {
+    color: #ab0032 !important;
+    font-weight: bold;
+}
+
+li a:focus {
+    color:#ab0032 !important;
+}
+
+.active, li.active a, li a:active {
+    color: #fff !important;
+    background-color: #ab0032 !important;
+    border-radius: 3px;
+}
+
+.active:hover, li.active:hover a {
+    background-color: #ab0000 !important;
+    color:#eee !important;
+}
+
+.navbar-default.navbar-shrink {
+    background-color: rgba(40, 42, 41, .95) !important;
+}
+
+li a:hover {
+    color: #ab0038 !important; 
 }
 
 .timeline {
@@ -103,6 +134,21 @@ body {
     letter-spacing: -1px;
 }
 
+
+/* Add Red colors*/
+.btn-primary, .btn {
+    background-color: #ab0032;
+    border: 1px solid #ab0000;
+}
+
+.btn-primary:hover, .btn:hover {
+    background-color: #ab0000;
+    border: 1px solid #ab0032;
+}
+
+.timeline-image {
+    background: #ab0032 !important;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

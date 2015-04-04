@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    <li><a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
                     </li>
                 </ul>
             </div>
