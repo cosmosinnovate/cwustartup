@@ -13,7 +13,7 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>CENTRAL WASHINGTON UNIVERSITY LEARN. DO. LIVE.</h1>
+                    <h1>CWUSTARTUP. LEARN. DO. LIVE.</h1>
                     <p>Think, collaborate and develop new innovative solutions</p>
 
                     <p><a class="btn btn-lg btn-primary page-scroll" href="#contact"role="button">Join us today</a></p>
