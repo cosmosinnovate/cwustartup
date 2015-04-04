@@ -25,7 +25,7 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>CENTRAL WASHINGTON UNIVERSITY LEARN. DO. LIVE.</h1>
+                    <h1>C W U. LEARN. DO. LIVE.</h1>
 
                     <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Join us today</a></p>
                 </div>
