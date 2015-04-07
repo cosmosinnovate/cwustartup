@@ -14,19 +14,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Your Name *" id="name" required
-                                       data-validation-required-message="Please enter your name.">
+                                       data-validation-required-message="Please enter your name." name="contact[name]">
 
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="Your Email *" id="email" required
-                                       data-validation-required-message="Please enter your email address.">
+                                       data-validation-required-message="Please enter your email address."  name="contact[email]">
 
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                 <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required
-                                       data-validation-required-message="Please enter your phone number.">
+                                       data-validation-required-message="Please enter your phone number."  name="contact[phone]">
 
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -34,7 +34,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <textarea class="form-control" placeholder="Your Message *" id="message" required
-                                          data-validation-required-message="Please enter a message."></textarea>
+                                          data-validation-required-message="Please enter a message."  name="contact[message]"></textarea>
 
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -42,7 +42,7 @@
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button type="submit" class="btn btn-xl">Send Message</button>
+                            <input type="submit" class="btn btn-xl" value="Send Message"></button>
                         </div>
                     </div>
                 </form>
