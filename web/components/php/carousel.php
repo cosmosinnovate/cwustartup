@@ -9,7 +9,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide" src="images/bg-1.jpg" alt="First slide">
+            <img class="first-slide" src="images/bg-4.jpg" alt="First slide">
 
             <div class="container">
                 <div class="carousel-caption">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="item">
-            <img class="third-slide" src="images/bg-3.jpg" alt="Third slide">
+            <img class="third-slide" src="images/bg-1.jpg" alt="Third slide">
 
             <div class="container">
                 <div class="carousel-caption">
