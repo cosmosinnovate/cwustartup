@@ -7,7 +7,6 @@
                 <h3 class="section-subheading text-muted">Nothing Scheduled yet. Please visit back soon.</h3>
             </div>
         </div>
-        <h1>hello world</h1>
 
 
     </div>
