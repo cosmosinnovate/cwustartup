@@ -9,12 +9,12 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide" src="images/bg-4.jpg" alt="First slide">
+            <img class="first-slide" src="images/bg-1.jpg" alt="First slide">
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>CWUSTARTUP. LEARN. DO. LIVE.</h1>
-                    <p>Think, collaborate and develop new innovative solutions</p>
+                    <h1>Think, collaborate and execute new innovative solutions!</h1>
+                    <p></p>
 
                     <p><a class="btn btn-lg btn-primary page-scroll" href="#contact"role="button">Join us today</a></p>
                 </div>
@@ -25,18 +25,19 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>C W U. LEARN. DO. LIVE.</h1>
+                    <h1>C W U. STARTUP. WHERE INNOVATION MEETS EXECUTION!</h1>
 
                     <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Join us today</a></p>
                 </div>
             </div>
         </div>
         <div class="item">
-            <img class="third-slide" src="images/bg-1.jpg" alt="Third slide">
+            <img class="third-slide" src="images/bg-4.jpg" alt="Third slide">
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1> Central Washington University Startup. LEARN. DO. LIVE.</h1>
+                    <h1>You are the next generation of global entrepreneurs! </h1>
+                    <p>LEARN. DO. LIVE.</p>
                     <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Join us today</a></p>
                 </div>
             </div>
