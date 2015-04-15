@@ -93,6 +93,15 @@ li a:hover {
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
+#slider {
+    max-height: 200px;
+    min-height: 200px;
+}
+#slider .carousel-inner {
+    max-height: 200px;
+    min-height: 200px;
+}
+
 /* Carousel base class */
 .carousel {
     height: 500px;
@@ -106,14 +115,14 @@ li a:hover {
 /* Declare heights because of positioning of img element */
 .carousel .item {
     height: 500px;
-    background-color: #777;
+    background-color: #ab0032;
 }
 .carousel-inner > .item > img {
     position: absolute;
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 500px;
+    height: 490px;
 }
 
 .carousel-control {
@@ -121,13 +130,13 @@ li a:hover {
     margin-top:-100px;
 }
 /*full width container*/
-@media (max-width: 767px) {
+@media (max-width: 600px) {
     .block {
         margin-left: -10px;
         margin-right: -10px;
     }
     #mycarousel{
-        min-height:80%;
+        min-height:50%;
     }
 }
 
@@ -153,7 +162,7 @@ li a:hover {
 }
 
 .btn-primary:hover, .btn:hover {
-    background-color: #ab0000;
+    background-color: #777;
     border: 1px solid #ab0032;
 }
 
