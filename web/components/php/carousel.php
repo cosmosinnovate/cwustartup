@@ -13,10 +13,9 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Think, collaborate and execute new innovative solutions!</h1>
-                    <p></p>
+                    <h1>AT&amp;T Mobile Apps 24 hour Hackathon</h1>
 
-                    <p><a class="btn btn-lg btn-primary page-scroll" href="#contact"role="button">Join us today</a></p>
+                    <p>Thirteen of us developed apps for the competition hosted at the Surf Incubator in Seattle.</p>
                 </div>
             </div>
         </div>
@@ -25,9 +24,9 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>C W U. STARTUP. WHERE INNOVATION MEETS EXECUTION!</h1>
+                    <h1>Think, collaborate and execute new innovative solutions!</h1>
 
-                    <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Join us today</a></p>
+                    <p>WHERE INNOVATION MEETS EXECUTION!</p>
                 </div>
             </div>
         </div>
