@@ -11,12 +11,12 @@
           <div class="item active">
             <img class="first-slide" src="images/bg-4.jpg" alt="Third slide">
 
-            <div class="container">
+            <div class="container hackcontainer">
                 <div class="carousel-caption">
-                    <h1>You're invited to Eastern Washington's largest Hackathon.</h1>
-                    <h3>WildHack // May 29<sup>th</sup>& 30<sup>th</sup> // Hal Homes Community Center // Free</h3>
-                    <p>Collaborate, network and compete with Software Developers, Graphic Designers and Entrepreneurs.</p>
-                    <p><a class="btn btn-lg btn-primary page-scroll" href="#contact" role="button">Details & Registration</a></p>
+                    <h1 class='hacktitle'>You're invited to Eastern Washington's largest Hackathon.</h1>
+                    <h3 class='hackdetails'>WildHack // May 29<sup>th</sup>& 30<sup>th</sup> // Hal Homes Community Center // Free</h3>
+                    <p class='hacksummary'>Collaborate, network and compete with Software Developers, Graphic Designers and Entrepreneurs.</p>
+                    <p><a class="btn btn-lg btn-primary page-scroll hackbutton" href="#contact" role="button">Details & Registration</a></p>
                 </div>
             </div>
         </div>
