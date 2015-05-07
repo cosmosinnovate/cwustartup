@@ -11,6 +11,10 @@ a {
     color: #ab0032;
 }
 
+sup {
+    text-transform: none;
+}
+
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
