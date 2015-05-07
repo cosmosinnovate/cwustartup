@@ -41,6 +41,12 @@ var data =
             "name": "Patrick Murphy",
             "title" : "SENATOR",
             "description": "A senior Computer Science student. I am eager to see CWU use combined talents to develop innovative ideas!"
+        },
+         {
+            "image": "images/p4.jpg",
+            "name": "Joshua Estilla",
+            "title" : "Treasurer",
+            "description": "A junior in Math and Computer Science. I find myself interested in a number of different fields and actively seek out the challenges that new experiences bring."
         }
     ]
 }
