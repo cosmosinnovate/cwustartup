@@ -17,34 +17,15 @@ body {
     padding:3vw;
     min-height: 17vh;
 }
-.details {
-    background: #F2784B;
-}
-.schedule {
-    background: #F2A663;
-}
-.sponsors {
-    background: #F2D57E;
-}
-.sponsors ul {
-    color:#261F24;
-    text-align: center;
-}
-.sponsors ul li {
-    font-weight: bold;
-}
-.sponsors ul li img {
-    height: 178px;
-    max-height: none;
-    width:auto;
-}
-
-.registration {
-    background: #80F2E7;
-}
 
 h1, h2 {
     color:#261f24;
+    border-bottom:1px solid rgba(77,55,99, .16);
+    margin-bottom: 24px;
+}
+.splash-div h1, .splash-div h2 {
+    border:none;
+    margin:auto;
 }
 .splash-div h1 {
     color:#F2A663;
@@ -55,8 +36,11 @@ h1, h2 {
     padding-top:6vh;
     text-shadow: 0px 10px 5px #111;
 }
+.splash-div li p span {
+    font-size: 11pt;
+}
 img + h3 {
-    margin-top: 6vh;
+    margin-top: 4vh;
 }
 h2 {
     color:#F2784B;
@@ -80,7 +64,7 @@ ul li {
     display: inline-block;
     width:30%;
     margin-left:2.5%;
-    vertical-align: top;
+    vertical-align:middle;
     margin-top:10vh;
 }
 ul li img {
@@ -106,4 +90,63 @@ ul li img {
             .call-to-action {
             	background:#80F2E7;
                 box-shadow: 0px 4px 4px #111;
+                margin-top:15px;
             }
+            .button:hover {
+                background:#fff;
+            }
+            .one-third {
+                width:33%;
+                display:inline-block;
+                vertical-align: top;
+            }
+            .two-third {
+                width:66%;
+                display:inline-block;
+            }
+            .scroll-down {
+                height: 5vh;
+                background:#F2784B;
+                color:#323232;
+                line-height: 5vh;
+                width:100%; 
+                text-align: center;
+            }
+            .scroll-down span {
+                display:inline-block;
+                vertical-align: center;
+            }
+            .scroll-down img {
+                height:4.5vh;
+                margin:.25vh;
+            }
+ .details {
+    background: #F2784B;
+    padding-top:calc(3vw - 5vh);
+}
+.details h4 {
+    margin-top:.4em;
+    color:#232323;
+}
+.schedule {
+    background: #F2A663;
+}
+.sponsors {
+    background: #F2D57E;
+}
+.sponsors ul {
+    color:#261F24;
+    text-align: center;
+}
+.sponsors ul li {
+    font-weight: bold;
+}
+.sponsors ul li img {
+    height: calc(20vh / 2 + 20vw / 2);
+    max-height: 170px;
+    width:auto;
+}
+
+.registration {
+    background: #Fff;
+}
