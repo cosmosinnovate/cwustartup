@@ -150,3 +150,27 @@ ul li img {
 .registration {
     background: #Fff;
 }
+
+@media (max-width:820px){
+    .map  {
+        margin-top:1em;
+    }
+    .splash-div h1 {
+    font-size: 15vw;
+}
+.splash-div h2 {
+    font-size: 5vw;
+}
+.splash-div h3 {
+    font-size:calc(3vw + 3px);
+}
+    .sponsors ul li {
+        display:block;
+    }
+    .two-third {
+        width:98%;
+    }
+    .one-third {
+        width:98%;
+    }   
+}
