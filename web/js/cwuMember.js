@@ -8,7 +8,8 @@ var data =
           image: 'images/1.jpg',
           heading: 'January 2015',
           subheading: 'Our Humble Beginnings',
-          body: 'Three students, Patrick Murphy, Taban Cosmos, and Thomas Mathan, had the Idea, that Central Washington University needed a place where entrepreneurs could meet.'
+          body: 'Three students, Patrick Murphy, Taban Cosmos, and Thomas Mathan,' +
+          ' had the Idea, that Central Washington University needed a place where entrepreneurs could meet.'
         },
         {
           image: 'images/2.jpg',
@@ -28,19 +29,36 @@ var data =
             "image": "images/p1.jpg",
             "name": "Taban Cosmos",
             "title" : "PRESIDENT",
-            "description": "I\'m a Junior Computer Science major, I would like to see CWU students embark on solving real world problems. "
+            "description": "I\'m a Junior Computer Science major, I would like to " +
+            "see CWU students embark on solving real world problems. "
         },
         {
             "image": "images/p2.jpg",
             "name": "Tommy Mathan",
             "title" : "V. PRESIDENT",
-            "description": "A senior Computer Science major, I am code enthusiast who loves to ship world class software that empowers it users"
+            "description": "A senior Computer Science major, I am code enthusiast " +
+            "who loves to ship world class software that empowers it users"
         },
         {
             "image": "images/p3.jpg",
             "name": "Patrick Murphy",
             "title" : "SENATOR",
-            "description": "A senior Computer Science student. I am eager to see CWU use combined talents to develop innovative ideas!"
+            "description": "A senior Computer Science student. I am eager to see " +
+            "CWU use combined talents to develop innovative ideas!"
+        },
+        {
+            "image" : "images/p4.jpg",
+            "name" : "Josh Estilla",
+            "title" : "MARKETER AND EVENT HELPER",
+            "description" : ""
+        }
+        ,
+        {
+            "image" : "images/p5.jpg",
+            "name" : "Joshua Estalila",
+            "title" : "MARKETER AND EVENT HELPER",
+            "description" : "A junior in Math and Computer Science. I find myself interested " +
+            "in a number of different fields and actively seek out the challenges that new experiences bring."
         }
     ]
 }
