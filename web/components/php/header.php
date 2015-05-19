@@ -51,7 +51,7 @@
                     <a class="page-scroll" href="#about">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#FutureEvents">Future Events</a>
+                    <a class="page-scroll" href="#FutureEvents">Events</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#team">Team</a>
