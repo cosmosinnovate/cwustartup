@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Future Events</h2>
-                <div class=""
+                <div href="http://patrickmurphywebdesign.com/Projects/cwustartup/"class="btn">Register here! </div>
             </div>
         </div>
     </div>
