@@ -54,5 +54,17 @@ var data =
             "in a number of different fields and actively seek out the challenges that new experiences bring."
 
         }
-    ]
+        ,
+        {
+            "image": "images/p5.jpg",
+            "name": "Olabode Makinde",
+            "title": "SOCIAL MEDIA ",
+            "description": "I am a junior Actuarial Science major with a minor in computer science, " +
+            "I am a technology enthusiast who loves to solve real world problems in the most efficient " +
+            "and innovative way possible. I hope to one day become the CEO of my own company."
+
+}
+
+
+]
 }
