@@ -13,7 +13,7 @@
 
             <div class="container hackcontainer">
                 <div class="carousel-caption">
-                    <h1 class='hacktitle'>You're invited to Eastern Washington's largest Hackathon.</h1>
+                    <h1 class='hacktitle'>You're invited to Central Washington's largest Hackathon.</h1>
                     <h3 class='hackdetails'>&lt;wildhacks&gt;// May 29<sup>th</sup>& 30<sup>th</sup> // Hal Homes Community Center // Free &lt;/wildhacks&gt;</code></h3>
                     <p class='hacksummary'>Collaborate, network and compete with Software Developers, Graphic Designers and Entrepreneurs.</p>
                     <p><a class="btn btn-lg btn-primary page-scroll hackbutton" href="http://patrickmurphywebdesign.com/Projects/cwustartup/" role="button">Details & Registration</a></p>
