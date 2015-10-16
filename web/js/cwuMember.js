@@ -28,28 +28,28 @@ var data =
         {
             "image": "images/p1.jpg",
             "name": "Taban Cosmos",
-            "title": "PRESIDENT",
-            "description": "I\'m a Junior Computer Science major, I would like to " +
+            "title": "President",
+            "description": "I\'m a junior computer science major, I would like to " +
             "see CWU students embark on solving real world problems. "
         },
         {
             "image": "images/p2.jpg",
-            "name": "Tommy Mathan",
-            "title": "V. PRESIDENT",
-            "description": "A senior Computer Science major, I am code enthusiast " +
-            "who loves to ship world class software that empowers it users"
+            "name": "Kyle James",
+            "title": "Vice President",
+            "description": "A senior political science and IT major, I am passionate about creating " +
+            "design oriented solutions and technology empowerment."
         },
         {
             "image": "images/p3.jpg",
             "name": "Patrick Murphy",
-            "title": "SENATOR",
+            "title": "Club Senator",
             "description": "A senior Computer Science student. I am eager to see " +
             "CWU use combined talents to develop innovative ideas!"
         },
         {
             "image": "images/p4.jpg",
             "name": "Joshua Estalila",
-            "title": "MARKETER AND EVENT HELPER",
+            "title": "Treasure | Event helper",
             "description": "A junior in Math and Computer Science. I find myself interested " +
             "in a number of different fields and actively seek out the challenges that new experiences bring."
 
@@ -58,7 +58,7 @@ var data =
         {
             "image": "images/p5.jpg",
             "name": "Olabode Makinde",
-            "title": "SOCIAL MEDIA ",
+            "title": "Advertising ",
             "description": "I am a junior Actuarial Science major with a minor in computer science, " +
             "I am a technology enthusiast who loves to solve real world problems in the most efficient " +
             "and innovative way possible. I hope to one day become the CEO of my own company."
